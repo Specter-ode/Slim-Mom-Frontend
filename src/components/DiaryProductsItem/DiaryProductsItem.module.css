@@ -1,0 +1,14 @@
+.item {
+}
+
+.item:not(:last-child) {
+}
+
+.info {
+}
+
+.btn {
+}
+
+.btn:hover {
+}

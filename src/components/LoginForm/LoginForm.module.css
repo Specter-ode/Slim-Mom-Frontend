@@ -1,0 +1,14 @@
+.form {
+  display: flex;
+  flex-direction: column;
+}
+.label {
+}
+.input {
+}
+.btn {
+}
+.btn:hover {
+}
+.btn:disabled {
+}

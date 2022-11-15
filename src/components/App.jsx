@@ -1,16 +1,24 @@
-export const App = () => {
+import React from 'react';
+import Container from './Container/Container';
+import Header from './Header/Header';
+import PagesRoutes from 'PagesRoutes/PagesRoutes';
+import { ToastContainer, Zoom } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <Container>
+      <Header />
+      <PagesRoutes />
+
+      <ToastContainer
+        autoClose={2000}
+        hideProgressBar
+        position="top-center"
+        theme="colored"
+        transition={Zoom}
+      />
+    </Container>
   );
 };
+export default App;

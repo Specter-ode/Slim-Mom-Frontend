@@ -1,0 +1,12 @@
+.header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 4px solid;
+  border-image: linear-gradient(90deg, #833ab4, #f50057, #b345fc, #fcb045) 50% 0;
+  padding-bottom: 10px;
+}
+.nav {
+  display: flex;
+  justify-content: space-around;
+}

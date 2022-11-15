@@ -1,0 +1,6 @@
+.container {
+  display: flex;
+  justify-content: space-evenly;
+  color: rgb(17, 1, 70);
+  margin: 20px 0;
+}
