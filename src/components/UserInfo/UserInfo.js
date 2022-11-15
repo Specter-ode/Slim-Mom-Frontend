@@ -13,7 +13,7 @@ const UserInfo = () => {
   return (
     <div className={s.block}>
       <p className={s.usermenu}>
-        <span className={s.text}>NickName</span>
+        <span className={s.text}>NickName Test</span>
       </p>
       <button className={s.btn} onClick={() => {}}>
         Exit
