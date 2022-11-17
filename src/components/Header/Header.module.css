@@ -1,12 +1,32 @@
 .header {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  border-bottom: 4px solid;
-  border-image: linear-gradient(90deg, #833ab4, #f50057, #b345fc, #fcb045) 50% 0;
-  padding-bottom: 10px;
+  border-bottom: 2px solid #e0e0e0;
 }
+
 .nav {
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+}
+.block {
+  display: flex;
+  min-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px;
+}
+@media screen and (max-width: 767px) {
+  .block {
+    max-width: 480px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .block {
+    width: 768px;
+    padding: 0 32px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .block {
+    width: 1280px;
+    padding: 0 16px;
+  }
 }

@@ -1,0 +1,213 @@
+.div {
+  border: 1px solid red;
+}
+
+@media screen and (min-width: 768px) {
+  .div {
+    width: 512px;
+  }
+}
+
+.title {
+  margin-bottom: 32px;
+
+  font-family: 'Verdana';
+
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.4;
+
+  color: var(--main-color);
+}
+
+@media screen and (min-width: 768px) {
+  .title {
+    margin-bottom: 68px;
+
+    font-size: 34px;
+    line-height: 1.2;
+    max-width: 550px;
+  }
+}
+
+.labelContainer {
+  margin-bottom: 40px;
+}
+
+@media screen and (min-width: 768px) {
+  .labelContainer {
+    width: 512px;
+    max-height: 308px;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    margin-bottom: 60px;
+  }
+}
+
+.label:nth-child(-n + 4) {
+  display: block;
+  margin-bottom: 32px;
+}
+
+@media screen and (min-width: 768px) {
+  .label:nth-child(-n + 4) {
+    margin-bottom: 40px;
+  }
+}
+
+.input {
+  outline: none;
+  width: 240px;
+  height: 24px;
+
+  padding-bottom: 8px;
+
+  border: none;
+  border-bottom: 1px solid var(--border-color);
+
+  /* По умолчанию FontSize 14px в браузере стоит но не работает почему то */
+  font-family: 'Verdana';
+
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+
+  color: var(--second-color);
+}
+
+.input::placeholder {
+  color: var(--second-color);
+}
+
+@media screen and (min-width: 768px) {
+  .input {
+    padding-bottom: 20px;
+    height: 36px;
+  }
+}
+
+.text {
+  margin-bottom: 8px;
+
+  /* По умолчанию FontSize 14px в браузере стоит но не работает почему то */
+  font-family: 'Verdana';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+
+  color: var(--second-color);
+}
+
+@media screen and (min-width: 768px) {
+  .text {
+    width: 240px;
+    height: 36px;
+
+    padding-bottom: 20px;
+
+    border-bottom: 1px solid var(--border-color);
+  }
+}
+
+/* Radio buttons */
+
+.labelRadio:not(:last-child) {
+  display: inline-block;
+  margin-right: 24px;
+}
+
+@media screen and (min-width: 768px) {
+  .labelRadio:not(:last-child) {
+    margin-right: 28px;
+  }
+}
+
+.inputRadio {
+  display: none;
+}
+
+.numbers {
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  padding-left: 28px;
+  /* По умолчанию FontSize 14px в браузере стоит но не работает почему то */
+  font-family: 'Verdana';
+
+  font-size: 14px;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+
+  color: var(--second-color);
+}
+
+.numbers::before {
+  content: '';
+  position: absolute;
+  display: block;
+
+  left: 0;
+  top: -2px;
+
+  width: 20px;
+  height: 20px;
+
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+
+  background: var(--bg-color);
+}
+
+.numbers::after {
+  content: '';
+
+  position: absolute;
+  display: block;
+
+  width: 10px;
+  height: 10px;
+
+  top: 3px;
+  left: 5px;
+
+  border-radius: 50%;
+
+  background-color: var(--accent-color);
+
+  opacity: 0;
+
+  transition: all 250ms linear;
+}
+
+.inputRadio:checked + .numbers::after {
+  opacity: 1;
+}
+
+.inputRadio:checked + .numbers {
+  color: var(--accent-color);
+  font-weight: 700;
+}
+
+.buttonPosition {
+  display: flex;
+  justify-content: center;
+  max-height: 44px;
+}
+
+@media screen and (min-width: 768px) {
+  .buttonPosition {
+    justify-content: start;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .buttonPosition {
+    justify-content: end;
+  }
+}

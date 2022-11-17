@@ -7,7 +7,15 @@
 
   --scroll-color: #f0f1f3;
 
-  --bg-color: #ffffff;
+  --bg-color: #fff;
+
+  --btn-box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+
+  --border-color: #e0e0e0;
+
+  --block-modal-color: #eff1f3;
+
+  --modal-overlay-color: rgba(33, 33, 33, 0.12);
 }
 body {
   margin: 0;
@@ -15,6 +23,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--bg-color);
+  font-size: 14px;
+  letter-spacing: 0.04em;
 }
 
 code {
@@ -48,4 +58,6 @@ p {
 }
 button {
   background-color: transparent;
+  cursor: pointer;
+  padding: 0;
 }
