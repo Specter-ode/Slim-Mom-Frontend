@@ -29,14 +29,14 @@
   }
 }
 
-.buttonMobile {
+/* .buttonMobile {
   display: flex;
   justify-content: center;
   align-items: center;
 
   background: none;
   border: none;
-}
+} */
 
 .button {
   display: none;
@@ -55,7 +55,7 @@
 }
 
 @media screen and (max-width: 767px) {
-  .mobileCloseBlock {
+  /* .mobileCloseBlock {
     position: absolute;
     top: 0;
     left: 0;
@@ -69,13 +69,13 @@
     padding: 0px 20px;
 
     background: var(--block-modal-color);
-  }
+  } */
 }
 
 @media screen and (min-width: 768px) {
-  .buttonMobile {
+  /* .buttonMobile {
     display: none;
-  }
+  } */
 
   .button {
     position: absolute;

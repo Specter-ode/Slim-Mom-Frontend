@@ -31,15 +31,15 @@ export default function Modal({ onClose }) {
     }
   };
 
-  const modalCloseButtonMobile = (
-    <div className={s.mobileCloseBlock}>
-      <button type="button" onClick={onClose} className={s.buttonMobile}>
-        <svg className={s.icon} width={15} height={8}>
-          <use href={sprite + '#arrow-to-back-mobile'}></use>
-        </svg>
-      </button>
-    </div>
-  );
+  // const modalCloseButtonMobile = (
+  //   <div className={s.mobileCloseBlock}>
+  //     <button type="button" onClick={onClose} className={s.buttonMobile}>
+  //       <svg className={s.icon} width={15} height={8}>
+  //         <use href={sprite + '#arrow-to-back-mobile'}></use>
+  //       </svg>
+  //     </button>
+  //   </div>
+  // );
 
   const modalCloseButton = (
     <button type="button" onClick={onClose} className={s.button}>
@@ -52,7 +52,7 @@ export default function Modal({ onClose }) {
   return createPortal(
     <div onClick={onBackdropClose} className={s.overlay}>
       <div className={s.modal}>
-        {modalCloseButtonMobile}
+        {/* {modalCloseButtonMobile} */}
         {modalCloseButton}
         <DailyCalorieIntake />
 
