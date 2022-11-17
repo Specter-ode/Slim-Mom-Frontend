@@ -1,1 +1,88 @@
+.title {
+  margin-bottom: 40px;
 
+  font-family: 'Verdana';
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.4;
+
+  color: var(--main-color);
+}
+
+@media screen and (min-width: 768px) {
+  .title {
+    max-width: 471px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+
+    font-size: 26px;
+    line-height: 1.2;
+    text-align: center;
+  }
+}
+
+.numberList {
+  list-style: decimal;
+  padding-left: 25.11px;
+}
+
+.list {
+  padding-left: 20.61px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+
+  /* По умолчанию FontSize 14px в браузере стоит но не работает почему то */
+  font-family: 'Verdana';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+
+  color: var(--second-color);
+
+  list-style: decimal;
+}
+
+.item:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+.textPrimary {
+  margin-bottom: 32px;
+
+  font-family: 'Verdana';
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 1.2;
+  text-align: center;
+  letter-spacing: 0.04em;
+
+  color: var(--third-color);
+}
+
+.textSecondary {
+  padding-top: 20px;
+
+  border-top: 1px solid var(--border-color);
+
+  /* По умолчанию FontSize 14px в браузере стоит но не работает почему то */
+  font-family: 'Verdana';
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+
+  color: var(--main-color);
+}
+
+.textPrimarySpan {
+  font-family: 'Verdana';
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 2.9;
+  text-align: center;
+  letter-spacing: 0.04em;
+
+  color: var(--third-color);
+}

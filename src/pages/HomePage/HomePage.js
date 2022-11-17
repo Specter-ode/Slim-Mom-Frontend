@@ -1,5 +1,5 @@
 import s from './HomePage.module.css';
-import CalculatorСalorieForm from 'components/CalculatorСalorieForm/CalculatorСalorieForm';
+import CalculatorСalorieForm from 'components/DailyCaloriesForm/DailyCaloriesForm';
 const HomePage = () => {
   return (
     <main>

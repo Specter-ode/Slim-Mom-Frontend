@@ -3,6 +3,7 @@ import Container from './Container/Container';
 import Header from './Header/Header';
 import PagesRoutes from 'PagesRoutes/PagesRoutes';
 import { ToastContainer, Zoom } from 'react-toastify';
+
 import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
