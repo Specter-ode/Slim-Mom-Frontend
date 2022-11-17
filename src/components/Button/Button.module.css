@@ -1,0 +1,66 @@
+/* Primary button */
+
+.primaryButton {
+  display: block;
+
+  height: 44px;
+  padding: 13px 0px;
+
+  background: var(--accent-color);
+  box-shadow: var(--btn-box-shadow);
+
+  border: none;
+  border-radius: 30px;
+
+  /* По умолчанию FontSize 14px в браузере стоит но не работает почему то */
+  font-family: 'Verdana';
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  letter-spacing: 0.04em;
+
+  color: var(--bg-color);
+
+  transition: all 250ms linear;
+}
+
+.primaryButton:hover,
+.primaryButton:focus {
+  background: var(--bg-color);
+  border: 2px solid #fc842d;
+  color: var(--accent-color);
+}
+
+/* Secondary button */
+
+.secondaryButton {
+  display: block;
+  margin: 0 auto;
+  height: 44px;
+  padding: 13px 0px;
+
+  background: var(--bg-color);
+
+  border-radius: 30px;
+  border: 2px solid var(--accent-color);
+
+  /* По умолчанию FontSize 14px в браузере стоит но не работает почему то */
+  font-family: 'Verdana';
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  letter-spacing: 0.04em;
+
+  color: var(--accent-color);
+
+  transition: all 250ms linear;
+}
+
+.secondaryButton:hover,
+.secondaryButton:focus {
+  background: var(--accent-color);
+  border: none;
+  color: var(--bg-color);
+}
