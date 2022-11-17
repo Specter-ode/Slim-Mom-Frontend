@@ -1,4 +1,5 @@
 import s from './UserInfo.module.css';
+import { ReactComponent as BackArrow } from 'assets/icons/back-arrow.svg';
 // import { useSelector, useDispatch } from 'react-redux';
 // import { getUser, getToken } from 'redux/auth/auth-selector';
 // import { logout } from 'redux/auth/auth-operations';
@@ -12,12 +13,13 @@ const UserInfo = () => {
   // };
   return (
     <div className={s.block}>
-      <p className={s.usermenu}>
-        <span className={s.text}>NickName</span>
-      </p>
-      <button className={s.btn} onClick={() => {}}>
-        Exit
-      </button>
+      <BackArrow className={s.icon} />
+      <div className={s.userinfo}>
+        <p className={s.text}>Nick</p>
+        <button className={s.btn} onClick={() => {}}>
+          Exit
+        </button>
+      </div>
     </div>
   );
 };

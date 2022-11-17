@@ -1,6 +1,6 @@
 import s from './UserNav.module.css';
 import { NavLink } from 'react-router-dom';
-import UserInfo from 'components/UserInfo/UserInfo';
+
 import { links } from './links';
 
 const getLinkClassName = ({ isActive }) => {
@@ -17,12 +17,7 @@ function UserNav({ isAuth }) {
     </li>
   ));
 
-  return (
-    <>
-      <ul className={s.nav}>{elements}</ul>
-      <UserInfo />
-    </>
-  );
+  return <ul className={s.nav}>{elements}</ul>;
 }
 
 export default UserNav;

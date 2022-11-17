@@ -7,10 +7,11 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   return (
-    <Container>
+    <>
       <Header />
-      <PagesRoutes />
-
+      <Container>
+        <PagesRoutes />
+      </Container>
       <ToastContainer
         autoClose={2000}
         hideProgressBar
@@ -18,7 +19,7 @@ const App = () => {
         theme="colored"
         transition={Zoom}
       />
-    </Container>
+    </>
   );
 };
 export default App;
