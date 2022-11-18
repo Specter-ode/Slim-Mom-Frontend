@@ -1,14 +1,18 @@
 /* .header {
 
+
 } */
 
 .nav {
   display: flex;
   flex-direction: column;
+  
+  /* position: fixed; */
 }
 .block {
   display: flex;
   align-items: center;
+  height: 80px;
   min-width: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -45,6 +49,11 @@
 .ExitBtn:not(:last-child) {
   margin-right: 20px;
 }
+
+.burgerBtn {
+  border: none;
+}
+
 @media screen and (max-width: 767px) {
   .block {
     max-width: 480px;
