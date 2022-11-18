@@ -27,83 +27,83 @@ export default function DailyCaloriesForm() {
   // const arrayRadio = [false, true, false, true];
   // console.log('array', arrayRadio);
 
-  const data = [
-    {
-      _id: {
-        $oid: '5d51694802b2373622ff553b',
-      },
-      categories: ['яйца'],
-      weight: 100,
-      title: {
-        ru: 'Яйцо куриное (желток сухой)',
-        ua: 'Яйце куряче (жовток сухий)',
-      },
-      calories: 623,
-      groupBloodNotAllowed: [null, true, false, false, false],
-      __v: 0,
-    },
-    {
-      _id: {
-        $oid: '5d51694802b2373622ff554d',
-      },
-      categories: ['зерновые'],
-      weight: 100,
-      title: {
-        ru: 'Горох маш Ярмарка Платинум',
-        ua: 'Горох маш Ярмарка Платинум',
-      },
-      calories: 312,
-      groupBloodNotAllowed: [null, true, false, false, false],
-      __v: 0,
-    },
-    {
-      _id: {
-        $oid: '5d51694802b2373622ff555c',
-      },
-      categories: ['зерновые'],
-      weight: 100,
-      title: {
-        ru: 'Гречневая крупа (ядрица) зелёная',
-        ua: 'Гречана крупа (ядриця) зелена',
-      },
-      calories: 296,
-      groupBloodNotAllowed: [null, true, false, true, true],
-      __v: 0,
-    },
-  ];
-  const test = () => {
-    // if (arrayBloodType[1] === arrayRadio[0] && arrayBloodType[1] === true) {
-    //   console.log('Первый эелемент прошел условия!');
-    // } else if (arrayBloodType[2] === arrayRadio[1] && arrayBloodType[2] === true) {
-    //   console.log('Второй элемент прошел условия!');
-    // } else if (arrayBloodType[3] === arrayRadio[2] && arrayBloodType[3] === true) {
-    //   console.log('Третий элемент прошел условия!');
-    // } else if (arrayBloodType[4] === arrayRadio[3] && arrayBloodType[4] === true) {
-    //   console.log('Четвертый элемент прошел условия!');
-    // }
-    // for (let index = 0; index < arrayBloodType.length; index++) {
-    //   const element = arrayBloodType[index];
-    //   // console.log('element', element);
-    //   if (element === firstType && element === true) {
-    //     console.log('Первый эелемент прошел условия!', element);
-    //     console.log('secondType не прошел условие', secondType);
-    //     console.log('thirdType не прошел условие', secondType);
-    //     console.log('fourthType не прошел условие', secondType);
-    //   } else if (element === secondType && element === true) {
-    //     console.log('Второй эелемент прошел условия!', element);
-    //   } else if (element === thirdType && element === true) {
-    //     console.log('Третий эелемент прошел условия!', element);
-    //   } else if (element === fourthType && element === true) {
-    //     console.log('Четвертый эелемент прошел условия!', element);
-    //   }
-    // }
-    // arrayBloodType.map(el => {
-    //   if (el !== null) {
-    //     console.log('el', el);
-    //     console.log('el === firstTupe', el === firstType);
-    //   }
-    // });
-  };
+  // const data = [
+  //   {
+  //     _id: {
+  //       $oid: '5d51694802b2373622ff553b',
+  //     },
+  //     categories: ['яйца'],
+  //     weight: 100,
+  //     title: {
+  //       ru: 'Яйцо куриное (желток сухой)',
+  //       ua: 'Яйце куряче (жовток сухий)',
+  //     },
+  //     calories: 623,
+  //     groupBloodNotAllowed: [null, true, false, false, false],
+  //     __v: 0,
+  //   },
+  //   {
+  //     _id: {
+  //       $oid: '5d51694802b2373622ff554d',
+  //     },
+  //     categories: ['зерновые'],
+  //     weight: 100,
+  //     title: {
+  //       ru: 'Горох маш Ярмарка Платинум',
+  //       ua: 'Горох маш Ярмарка Платинум',
+  //     },
+  //     calories: 312,
+  //     groupBloodNotAllowed: [null, true, false, false, false],
+  //     __v: 0,
+  //   },
+  //   {
+  //     _id: {
+  //       $oid: '5d51694802b2373622ff555c',
+  //     },
+  //     categories: ['зерновые'],
+  //     weight: 100,
+  //     title: {
+  //       ru: 'Гречневая крупа (ядрица) зелёная',
+  //       ua: 'Гречана крупа (ядриця) зелена',
+  //     },
+  //     calories: 296,
+  //     groupBloodNotAllowed: [null, true, false, true, true],
+  //     __v: 0,
+  //   },
+  // ];
+  // const test = () => {
+  //   // if (arrayBloodType[1] === arrayRadio[0] && arrayBloodType[1] === true) {
+  //   //   console.log('Первый эелемент прошел условия!');
+  //   // } else if (arrayBloodType[2] === arrayRadio[1] && arrayBloodType[2] === true) {
+  //   //   console.log('Второй элемент прошел условия!');
+  //   // } else if (arrayBloodType[3] === arrayRadio[2] && arrayBloodType[3] === true) {
+  //   //   console.log('Третий элемент прошел условия!');
+  //   // } else if (arrayBloodType[4] === arrayRadio[3] && arrayBloodType[4] === true) {
+  //   //   console.log('Четвертый элемент прошел условия!');
+  //   // }
+  //   // for (let index = 0; index < arrayBloodType.length; index++) {
+  //   //   const element = arrayBloodType[index];
+  //   //   // console.log('element', element);
+  //   //   if (element === firstType && element === true) {
+  //   //     console.log('Первый эелемент прошел условия!', element);
+  //   //     console.log('secondType не прошел условие', secondType);
+  //   //     console.log('thirdType не прошел условие', secondType);
+  //   //     console.log('fourthType не прошел условие', secondType);
+  //   //   } else if (element === secondType && element === true) {
+  //   //     console.log('Второй эелемент прошел условия!', element);
+  //   //   } else if (element === thirdType && element === true) {
+  //   //     console.log('Третий эелемент прошел условия!', element);
+  //   //   } else if (element === fourthType && element === true) {
+  //   //     console.log('Четвертый эелемент прошел условия!', element);
+  //   //   }
+  //   // }
+  //   // arrayBloodType.map(el => {
+  //   //   if (el !== null) {
+  //   //     console.log('el', el);
+  //   //     console.log('el === firstTupe', el === firstType);
+  //   //   }
+  //   // });
+  // };
 
   // test();
 
