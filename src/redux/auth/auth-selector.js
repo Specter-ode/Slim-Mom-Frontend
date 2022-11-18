@@ -1,1 +1,5 @@
-// export const isLogin = store => store.auth.isLogin;
+export const isLogin = store => {
+  console.log('store: ', store);
+
+  return store.auth.isLogin;
+};

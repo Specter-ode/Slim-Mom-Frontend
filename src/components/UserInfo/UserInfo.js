@@ -6,6 +6,7 @@ import { ReactComponent as BackArrow } from 'assets/icons/back-arrow.svg';
 const UserInfo = () => {
   // const { name } = useSelector(getUser);
   // const token = useSelector(getToken);
+  const token = true;
   // const dispatch = useDispatch();
 
   // const onLogout = token => {
@@ -15,10 +16,11 @@ const UserInfo = () => {
     <div className={s.block}>
       <BackArrow className={s.icon} />
       <div className={s.userinfo}>
-        <p className={s.text}>Nick</p>
-        <button className={s.btn} onClick={() => {}}>
-          Exit
-        </button>
+        {token && <p className={s.text}>Nick</p> && (
+          <button className={s.btn} onClick={() => {}}>
+            Exit
+          </button>
+        )}
       </div>
     </div>
   );

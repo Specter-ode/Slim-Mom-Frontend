@@ -26,3 +26,8 @@
 .item:not(:last-child) {
   margin-right: 20px;
 }
+@media screen and (max-width: 1280px) {
+  .nav {
+    display: none;
+  }
+}

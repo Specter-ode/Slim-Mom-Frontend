@@ -3,15 +3,20 @@ import AuthNav from 'components/AuthNav/AuthNav';
 import UserNav from 'components/UserNav/UserNav';
 import UserInfo from 'components/UserInfo/UserInfo';
 import Logo from 'components/Logo/Logo';
+import { useSelector } from 'react-redux';
+import { isLogin } from 'redux/auth/auth-selector';
 
 const Header = () => {
+  // const isLoginIn = useSelector(isLogin);
+  // console.log('isLogin: ', isLogin);
+  const isLoginIn = false;
   return (
     <header className={s.header}>
       <nav className={s.nav}>
         <div className={s.block}>
           <Logo />
-          <AuthNav />
-          <UserNav />
+
+          {isLoginIn ? <UserNav /> : <AuthNav />}
         </div>
         <UserInfo />
       </nav>

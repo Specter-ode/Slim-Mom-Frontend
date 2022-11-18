@@ -1,6 +1,6 @@
-.header {
-  border-bottom: 2px solid #e0e0e0;
-}
+/* .header {
+
+} */
 
 .nav {
   display: flex;
@@ -8,10 +8,12 @@
 }
 .block {
   display: flex;
-  min-width: 320px;
+  min-width: 100%;
   margin-left: auto;
   margin-right: auto;
   padding: 0 20px;
+
+  border-bottom: 2px solid #e0e0e0;
 }
 @media screen and (max-width: 767px) {
   .block {
@@ -24,6 +26,7 @@
     padding: 0 32px;
   }
 }
+
 @media screen and (min-width: 1280px) {
   .block {
     width: 1280px;
