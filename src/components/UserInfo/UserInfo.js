@@ -16,10 +16,13 @@ const UserInfo = () => {
     <div className={s.block}>
       <BackArrow className={s.icon} />
       <div className={s.userinfo}>
-        {token && <p className={s.text}>Nick</p> && (
-          <button className={s.btn} onClick={() => {}}>
-            Exit
-          </button>
+        {token && (
+          <>
+            <p className={s.text}>Nick</p>
+            <button className={s.btn} onClick={() => {}}>
+              Exit
+            </button>
+          </>
         )}
       </div>
     </div>

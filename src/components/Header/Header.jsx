@@ -9,14 +9,24 @@ import { isLogin } from 'redux/auth/auth-selector';
 const Header = () => {
   // const isLoginIn = useSelector(isLogin);
   // console.log('isLogin: ', isLogin);
-  const isLoginIn = false;
+  const isLoginIn = true;
   return (
     <header className={s.header}>
       <nav className={s.nav}>
         <div className={s.block}>
           <Logo />
 
-          {isLoginIn ? <UserNav /> : <AuthNav />}
+          {isLoginIn ? (
+            <>
+              <UserNav />
+              <p className={s.nickName}>Nick</p>
+              <button className={s.ExitBtn} onClick={() => {}}>
+                Exit
+              </button>
+            </>
+          ) : (
+            <AuthNav />
+          )}
         </div>
         <UserInfo />
       </nav>

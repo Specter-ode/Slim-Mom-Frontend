@@ -1,8 +1,13 @@
 .link {
   display: inline-block;
   text-decoration: none;
+
   font-weight: 700;
+  font-size: 14px;
   line-height: 0.95;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+
   padding: 15px 18px 15px 0;
   color: var(--main-color);
 }
