@@ -1,0 +1,44 @@
+.logo {
+  margin-right: auto;
+}
+.logoMob_NotLogin {
+  width: 47px;
+  height: 44px;
+}
+.logoMob {
+  width: 160px;
+  height: 44px;
+}
+.logoTab {
+  width: 162px;
+  height: 44px;
+}
+.logoDeskTop {
+  width: 167px;
+  height: 66px;
+}
+
+@media screen and (max-width: 767px) {
+  .logoTab {
+    display: none;
+  }
+}
+@media screen and (min-width: 768px) {
+  .logoMob_NotLogin,
+  .logoMob {
+    display: none;
+  }
+}
+@media screen and (max-width: 1279px) {
+  .logoDeskTop {
+    display: none;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .logoTab {
+    display: none;
+  }
+  .logo {
+    margin-right: 20px;
+  }
+}
