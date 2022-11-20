@@ -1,13 +1,12 @@
-/* .header {
-
-
-} */
+.header {
+  min-width: 320px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
 
 .nav {
   display: flex;
   flex-direction: column;
-
-  /* position: fixed; */
 }
 .block {
   display: flex;
@@ -17,10 +16,9 @@
   margin-left: auto;
   margin-right: auto;
   padding: 0 20px;
-
-  border-bottom: 2px solid #e0e0e0;
 }
 .nickName {
+  font-family: 'Gotham Pro';
   position: relative;
   font-weight: 700;
   line-height: 0.95;
@@ -36,6 +34,7 @@
   background-color: #e0e0e0;
 }
 .exitBtn {
+  font-family: 'Gotham Pro';
   display: inline-block;
   text-decoration: none;
   padding: 15px 0 13px 16px;
@@ -53,13 +52,20 @@
 .burgerBtn {
   border: transparent;
 }
-
 @media screen and (max-width: 767px) {
+  .header {
+    margin-bottom: 32px;
+  }
+}
+@media screen and (min-width: 480px) {
   .block {
-    max-width: 480px;
+    width: 480px;
   }
 }
 @media screen and (min-width: 768px) {
+  .header {
+    margin-bottom: 100px;
+  }
   .block {
     width: 768px;
     padding: 0 32px;
@@ -67,6 +73,9 @@
 }
 
 @media screen and (min-width: 1280px) {
+  .header {
+    margin-bottom: 150px;
+  }
   .block {
     width: 1280px;
     padding: 0 16px;
@@ -78,5 +87,10 @@
   }
   .nickName {
     margin-left: auto;
+  }
+}
+@media screen and (max-width: 1279px) {
+  .block {
+    border-bottom: 2px solid #e0e0e0;
   }
 }

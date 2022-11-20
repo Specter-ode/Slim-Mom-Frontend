@@ -4,14 +4,13 @@ import UserNav from 'components/UserNav/UserNav';
 import UserInfo from 'components/UserInfo/UserInfo';
 import Logo from 'components/Logo/Logo';
 import { ReactComponent as Burger } from 'assets/icons/burger.svg';
-import { useSelector } from 'react-redux';
-import { isLogin } from 'redux/auth/auth-selector';
+// import { useSelector } from 'react-redux';
+// import { isLogin } from 'redux/auth/auth-selector';
 
 const Header = ({ menuActive, setMenuActive }) => {
-  console.log('menuActive: ', menuActive);
-
   // const isLoginIn = useSelector(isLogin);
-  const isLoginIn = false;
+
+  const isLogin = false;
 
   return (
     <header className={s.header}>
@@ -19,7 +18,7 @@ const Header = ({ menuActive, setMenuActive }) => {
         <div className={s.block}>
           <Logo />
 
-          {isLoginIn ? (
+          {isLogin ? (
             <>
               <UserNav />
               <p className={s.nickName}>Nick</p>
