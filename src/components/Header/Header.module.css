@@ -51,7 +51,7 @@
 }
 
 .burgerBtn {
-  border: none;
+  border: transparent;
 }
 
 @media screen and (max-width: 767px) {
@@ -71,5 +71,8 @@
     width: 1280px;
     padding: 0 16px;
     align-items: baseline;
+  }
+  .burgerBtn {
+    display: none;
   }
 }

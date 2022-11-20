@@ -6,12 +6,13 @@ import Logo from 'components/Logo/Logo';
 import { ReactComponent as Burger } from 'assets/icons/burger.svg';
 import { useSelector } from 'react-redux';
 import { isLogin } from 'redux/auth/auth-selector';
-import { useState } from 'react';
 
-const Header = () => {
+const Header = ({ menuActive, setMenuActive }) => {
+  console.log('menuActive: ', menuActive);
+
   // const isLoginIn = useSelector(isLogin);
-  const isLoginIn = false;
-  const { menuActive, setMenuActive } = useState(false);
+  const isLoginIn = true;
+
   return (
     <header className={s.header}>
       <nav className={s.nav}>
@@ -28,9 +29,7 @@ const Header = () => {
               <button
                 type="button"
                 className={s.burgerBtn}
-                onClick={() => {
-                  setMenuActive(!menuActive);
-                }}
+                onClick={() => setMenuActive(!menuActive)}
               >
                 <Burger />
               </button>

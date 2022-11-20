@@ -20,7 +20,6 @@ const Background = ({ children }) => {
     }
   })();
 
-  console.log('style: ', style);
   return (
     <>
       <div className={style}>{children}</div>
