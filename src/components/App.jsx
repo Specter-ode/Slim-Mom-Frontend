@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Container from './Container/Container';
 import Header from './Header/Header';
 import PagesRoutes from 'PagesRoutes/PagesRoutes';
@@ -9,19 +9,16 @@ import BurgerMenu from 'components/BurgerMenu/BurgerMenu';
 import Background from './Background/Background';
 
 const App = () => {
-  const BurgerMenuVision = false;
+  const [menuActive, setMenuActive] = useState(false);
 
   return (
     <>
       <Background>
-        <Header />
-        {BurgerMenuVision ? (
-          <BurgerMenu />
-        ) : (
-          <Container>
-            <PagesRoutes />
-          </Container>
-        )}
+        <Header menuActive={menuActive} setMenuActive={setMenuActive} />
+        {/* <BurgerMenu menuActive={menuActive} /> */}
+        <Container>
+          <PagesRoutes />
+        </Container>
       </Background>
       <ToastContainer
         autoClose={2000}

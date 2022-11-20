@@ -8,7 +8,8 @@ const LoginPage = () => {
   return (
     <main>
       <div className={s.container}>
-        <h3>LoginPage</h3>
+        <h3>LoginPage </h3>
+
         <LoginForm />
       </div>
     </main>

@@ -1,5 +1,6 @@
 import s from './RegistrationPage.module.css';
 import RegistrationForm from 'components/RegistrationForm/RegistrationForm';
+import { useLocation } from 'react-router-dom';
 // import { useDispatch } from 'react-redux';
 
 const RegistrationPage = () => {
