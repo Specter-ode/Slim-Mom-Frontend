@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Container from './Container/Container';
 import Header from './Header/Header';
 import PagesRoutes from 'PagesRoutes/PagesRoutes';
@@ -10,13 +10,14 @@ import Background from './Background/Background';
 
 const App = () => {
   const BurgerMenuVision = false;
+  // const { menuActive, setMenuActive } = useState(false);
 
   return (
     <>
       <Background>
-        <Header />
+        <Header /*menuActive={menuActive} setMenuActive={setMenuActive}*/ />
         {BurgerMenuVision ? (
-          <BurgerMenu />
+          <BurgerMenu /* menuActive={menuActive}*/ />
         ) : (
           <Container>
             <PagesRoutes />

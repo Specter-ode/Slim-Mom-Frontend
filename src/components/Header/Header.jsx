@@ -6,11 +6,12 @@ import Logo from 'components/Logo/Logo';
 import { ReactComponent as Burger } from 'assets/icons/burger.svg';
 import { useSelector } from 'react-redux';
 import { isLogin } from 'redux/auth/auth-selector';
+import { useState } from 'react';
 
 const Header = () => {
   // const isLoginIn = useSelector(isLogin);
-  // console.log('isLogin: ', isLogin);
-  const isLoginIn = true;
+  const isLoginIn = false;
+  const { menuActive, setMenuActive } = useState(false);
   return (
     <header className={s.header}>
       <nav className={s.nav}>
@@ -21,10 +22,16 @@ const Header = () => {
             <>
               <UserNav />
               <p className={s.nickName}>Nick</p>
-              <button type="button" className={s.ExitBtn} onClick={() => {}}>
+              <button type="button" className={s.exitBtn} onClick={() => {}}>
                 Exit
               </button>
-              <button type="button" className={s.burgerBtn}>
+              <button
+                type="button"
+                className={s.burgerBtn}
+                onClick={() => {
+                  setMenuActive(!menuActive);
+                }}
+              >
                 <Burger />
               </button>
             </>

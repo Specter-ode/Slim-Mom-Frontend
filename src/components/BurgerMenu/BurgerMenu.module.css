@@ -1,16 +1,24 @@
 .menu {
-  position: fixed;
+  /* position: fixed;
   width: 100vw;
-  height: 100vh;
+  height: 100vh; */
   top: 80px;
+  translate: translateX(200%);
+  transition: all 0.2s ease-in-out;
+}
+.menuActive {
+  transform: translateX(100%);
 }
 .menuContent {
-  width: 100%;
-  height: 100%;
+  /* width: 100%;
+  height: 100%; */
+  width: 100vw;
+  height: 100vh;
   background-color: var(--third-color);
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* transition: all 0.2s ease-in-out; */
 }
 
 .link {

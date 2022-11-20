@@ -6,7 +6,7 @@
 .nav {
   display: flex;
   flex-direction: column;
-  
+
   /* position: fixed; */
 }
 .block {
@@ -35,7 +35,7 @@
   width: 2px;
   background-color: #e0e0e0;
 }
-.ExitBtn {
+.exitBtn {
   display: inline-block;
   text-decoration: none;
   padding: 15px 0 13px 16px;
@@ -43,10 +43,10 @@
   font-weight: 700;
   line-height: 0.95;
 }
-.ExitBtn:hover {
+.exitBtn:hover {
   color: var(--second-color);
 }
-.ExitBtn:not(:last-child) {
+.exitBtn:not(:last-child) {
   margin-right: 20px;
 }
 
