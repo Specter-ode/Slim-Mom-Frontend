@@ -1,6 +1,6 @@
 import React, { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Spinner from 'components/Spinner/Spinner';
+import CircleLoader from 'react-spinners/CircleLoader';
 import PublicRoute from 'components/PublicRoute/PublicRoute';
 import PrivateRoute from 'components/PrivateRoute/PrivateRoute';
 
@@ -12,8 +12,23 @@ const DiaryPage = lazy(() => import('../pages/DiaryPage/DiaryPage'));
 const NotFoundPage = lazy(() => import('../pages/NotFoundPage/NotFoundPage'));
 
 const PagesRoutes = () => {
+  const spinnerStyles = {
+    display: 'block',
+    margin: '100px auto',
+  };
   return (
-    <Suspense fallback={<Spinner />}>
+    <Suspense
+      fallback={
+        <CircleLoader
+          cssOverride={spinnerStyles}
+          color="#ff9406"
+          loading
+          size={300}
+          aria-label="Loading Spinner"
+          speedMultiplier={0.7}
+        />
+      }
+    >
       <Routes>
         <Route path="/" element={<HomePage />} />
 

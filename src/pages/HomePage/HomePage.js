@@ -3,9 +3,8 @@ import CalculatorСalorieForm from 'components/DailyCaloriesForm/DailyCaloriesFo
 
 const HomePage = () => {
   return (
-    <main>
+    <main className={s.container}>
       <h3 className={s.title}>HomePage </h3>
-
       <CalculatorСalorieForm />
     </main>
   );
