@@ -7,6 +7,7 @@ const HomePage = () => {
       <h3 className={s.title}>HomePage </h3>
 
       <CalculatorСalorieForm />
+      <CalculatorСalorieFormSecondVariant />
     </main>
   );
 };
