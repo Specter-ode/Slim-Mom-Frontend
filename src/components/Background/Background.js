@@ -8,7 +8,7 @@ const Background = ({ children }) => {
   const { pathname } = useLocation();
   const isLogin = false;
   const style = (function () {
-    if (pathname === '/register' || pathname === '/login') {
+    if (pathname === '/registration' || pathname === '/login') {
       if (window.innerWidth >= 1280) {
         return s.backgroundHome;
       }
