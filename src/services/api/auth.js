@@ -11,8 +11,8 @@ const setToken = (token = '') => {
   instance.defaults.headers.authorization = '';
 };
 
-export const register = async data => {
-  const result = await instance.post('/users/register', data);
+export const registration = async data => {
+  const result = await instance.post('/users/registration', data);
   return result.data;
 };
 

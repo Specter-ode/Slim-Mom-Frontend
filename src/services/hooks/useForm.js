@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
-const useForm = ({ onSubmitClick, initialState, clearFields = true }) => {
+const useForm = ({ handleSubmit, initialState, clearFields = true }) => {
   const [state, setState] = useState({ ...initialState });
 
-  const handleChange = ({ target }) => {
-    const { name, value, type, checked } = target;
+  const onChange = e => {
+    const { name, value, type, checked } = e.target;
     const newValue = type === 'checkbox' ? checked : value;
     setState(prevState => ({
       ...prevState,
@@ -12,16 +12,15 @@ const useForm = ({ onSubmitClick, initialState, clearFields = true }) => {
     }));
   };
 
-  const handleSubmit = e => {
+  const onSubmit = e => {
     e.preventDefault();
-    onSubmitClick({ ...state });
-
+    handleSubmit({ ...state });
     if (clearFields) {
       setState({ ...initialState });
     }
   };
 
-  return { state, setState, handleChange, handleSubmit };
+  return { state, setState, onChange, onSubmit };
 };
 
 export default useForm;
