@@ -11,7 +11,7 @@ const Header = ({ menuActive, setMenuActive }) => {
   console.log('menuActive: ', menuActive);
 
   // const isLoginIn = useSelector(isLogin);
-  const isLoginIn = true;
+  const isLoginIn = false;
 
   return (
     <header className={s.header}>

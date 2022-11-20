@@ -71,8 +71,12 @@
     width: 1280px;
     padding: 0 16px;
     align-items: baseline;
+    border-bottom: none;
   }
   .burgerBtn {
     display: none;
+  }
+  .nickName {
+    margin-left: auto;
   }
 }
