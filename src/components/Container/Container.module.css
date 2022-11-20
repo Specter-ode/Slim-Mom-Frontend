@@ -4,14 +4,15 @@
   margin-right: auto;
   padding: 0 20px;
 }
-@media screen and (max-width: 767px) {
+@media screen and (min-width: 480px) {
   .container {
-    max-width: 480px;
+    width: 480px;
   }
 }
 @media screen and (min-width: 768px) {
   .container {
     width: 768px;
+    height: 944px;
     padding: 0 32px;
   }
 }

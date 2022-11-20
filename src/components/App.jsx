@@ -10,12 +10,14 @@ import Background from './Background/Background';
 
 const App = () => {
   const [menuActive, setMenuActive] = useState(false);
-
+  const toggleNavMenu = () => {
+    setMenuActive(!menuActive);
+  };
   return (
     <>
       <Background>
         <Header menuActive={menuActive} setMenuActive={setMenuActive} />
-        {/* <BurgerMenu menuActive={menuActive} /> */}
+        {menuActive && <BurgerMenu toggleNavMenu={toggleNavMenu} />}
         <Container>
           <PagesRoutes />
         </Container>
