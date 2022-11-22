@@ -34,7 +34,7 @@ const PagesRoutes = () => {
 
         <Route element={<PublicRoute />}>
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegistrationPage />} />
+          <Route path="/registration" element={<RegistrationPage />} />
         </Route>
 
         <Route element={<PrivateRoute />}>

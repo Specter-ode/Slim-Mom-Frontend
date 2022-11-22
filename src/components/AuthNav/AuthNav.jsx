@@ -10,7 +10,7 @@ const AuthNav = () => {
       <NavLink to="/login" className={getLinkClassName}>
         Sign in
       </NavLink>
-      <NavLink to="/register" className={getLinkClassName}>
+      <NavLink to="/registration" className={getLinkClassName}>
         Registration
       </NavLink>
     </div>
