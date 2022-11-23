@@ -8,6 +8,7 @@ const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
 const LoginPage = lazy(() => import('../pages/LoginPage/LoginPage'));
 const RegistrationPage = lazy(() => import('../pages/RegistrationPage/RegistrationPage'));
 const CalculatorPage = lazy(() => import('../pages/CalculatorPage/CalculatorPage'));
+const DiaryMobileForm = lazy(() => import('../pages/DiaryMobileForm/DiaryMobileForm'));
 const DiaryPage = lazy(() => import('../pages/DiaryPage/DiaryPage'));
 const NotFoundPage = lazy(() => import('../pages/NotFoundPage/NotFoundPage'));
 
@@ -40,6 +41,7 @@ const PagesRoutes = () => {
         <Route element={<PrivateRoute />}>
           <Route path="/calculator" element={<CalculatorPage />} />
           <Route path="/diary" element={<DiaryPage />} />
+          <Route path="/diary-mobile-form/:date" element={<DiaryMobileForm />} />
         </Route>
 
         <Route path="*" element={<NotFoundPage />} />

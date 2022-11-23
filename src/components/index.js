@@ -3,3 +3,8 @@ export { default as DailyCalorieIntake } from './DailyCalorieIntake/DailyCalorie
 export { default as Button } from './Button/Button';
 export { default as DailyCaloriesForm } from './DailyCaloriesForm/DailyCaloriesForm';
 export { default as SideBar } from './SideBar/SideBar';
+export { default as DiaryAddProductForm } from './DiaryAddProductForm/DiaryAddProductForm';
+export { default as DiaryDateСalendar } from './DiaryDateСalendar/DiaryDateСalendar';
+export { default as DiaryProductsItem } from './DiaryProductsItem/DiaryProductsItem';
+export { default as DiaryProductsList } from './DiaryProductsList/DiaryProductsList';
+export { default as ButtonPlus } from './ButtonPlus/ButtonPlus';
