@@ -18,9 +18,7 @@ const App = () => {
       <Background>
         <Header menuActive={menuActive} setMenuActive={setMenuActive} />
         {menuActive && <BurgerMenu toggleNavMenu={toggleNavMenu} />}
-        <Container>
-          <PagesRoutes />
-        </Container>
+        <PagesRoutes />
       </Background>
       <ToastContainer
         autoClose={2000}
