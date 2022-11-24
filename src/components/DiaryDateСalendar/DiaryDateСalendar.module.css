@@ -3,22 +3,44 @@
   justify-content: center;
   align-items: center;
   position: relative;
+
+  margin-bottom: 24px;
 }
+
 .calendar {
   width: 300px;
-  font-size: 34px;
-  font-weight: 700;
-  line-height: 1.21;
-  color: var(--main-color);
+  /* color */
   border: none;
   outline: none;
+  color: var(--main-color);
   background-color: transparent;
-  margin-right: 21px;
+  /* font */
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.22;
+
+  cursor: pointer;
 }
+
 .icon {
   position: absolute;
-  left: 261px;
+  left: 136px;
 
   width: 20px;
   height: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .block {
+    margin-bottom: 40px;
+  }
+
+  .calendar {
+    font-size: 34px;
+    line-height: 1.21;
+  }
+
+  .icon {
+    left: 240px;
+  }
 }

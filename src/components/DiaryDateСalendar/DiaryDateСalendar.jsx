@@ -8,7 +8,7 @@ const DiaryDateСalendar = ({ date, setDate }) => {
     <div className={s.block}>
       <DatePicker
         className={s.calendar}
-        dateFormat="dd/MM/yyyy"
+        dateFormat="dd.MM.yyyy"
         maxDate={new Date()}
         selected={date}
         onChange={date => setDate(date)}

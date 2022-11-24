@@ -1,6 +1,41 @@
-.container {
+.main {
   display: flex;
-  justify-content: space-evenly;
-  color: rgb(17, 1, 70);
-  margin: 20px 0;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.diary {
+  width: 440px;
+  margin-bottom: 60px;
+}
+
+@media screen and (max-width: 479px) {
+  .diary {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .main {
+    padding: 8px 0 0 0;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .diary {
+    width: 610px;
+    margin-bottom: 55px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .main {
+    flex-direction: row;
+  }
+
+  .diary {
+    width: 623px;
+    margin-right: 230px;
+    margin-bottom: 0;
+  }
 }

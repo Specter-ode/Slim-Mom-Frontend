@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { DiaryProductsItem } from '../';
 import s from './DiaryProductsList.module.css';
 
 const DiaryProductsList = ({ date }) => {
@@ -7,7 +8,14 @@ const DiaryProductsList = ({ date }) => {
   }, [date]);
   // const elements = products.map(el => {});
 
-  return <ul className={s.list}></ul>;
+  return (
+    <ul className={s.list}>
+      <DiaryProductsItem />
+      <DiaryProductsItem />
+      <DiaryProductsItem />
+      <DiaryProductsItem />
+    </ul>
+  );
 };
 
 export default DiaryProductsList;
