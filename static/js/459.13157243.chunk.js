@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkslim_mom_frontend=self.webpackChunkslim_mom_frontend||[]).push([[459],{1541:function(e,n,s){s.r(n),s.d(n,{default:function(){return c}});var t={container:"HomePage_container__uNu-e"},a=s(2283),r=s(184),c=function(){return(0,r.jsxs)("main",{className:t.container,children:[(0,r.jsx)("h3",{className:t.title,children:"HomePage "}),(0,r.jsx)(a.Z,{})]})}}}]);
+//# sourceMappingURL=459.13157243.chunk.js.map
