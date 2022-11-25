@@ -9,6 +9,7 @@ import { store, persistor } from './redux/store';
 
 import '/node_modules/modern-normalize/modern-normalize.css';
 import './index.css';
+import './components/DiaryAddProductForm/react-select.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
