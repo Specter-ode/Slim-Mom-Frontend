@@ -1,7 +1,7 @@
 import s from './AdditionalHeaderField.module.css';
 import { ReactComponent as BackArrow } from 'assets/icons/back-arrow.svg';
 import { UserInfo } from 'components';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { getModalStatus } from 'redux/auth/auth-selector';
 import { useLocation } from 'react-router-dom';
 // import { getUser, getToken } from 'redux/auth/auth-selector';
