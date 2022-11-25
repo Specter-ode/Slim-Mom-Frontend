@@ -34,6 +34,7 @@
   font-family: 'Gotham Pro';
   display: flex;
   align-items: center;
+  justify-content: flex-end;
 }
 .text {
   position: relative;

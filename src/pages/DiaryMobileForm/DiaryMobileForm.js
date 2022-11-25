@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 
-import { DiaryAddProductForm } from '../../components';
+import { DiaryAddProductForm } from 'components';
 import s from './DiaryMobileForm.module.css';
 
 const DiaryMobileForm = () => {

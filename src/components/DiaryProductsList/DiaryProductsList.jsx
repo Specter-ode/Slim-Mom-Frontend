@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { DiaryProductsItem } from '../';
+import { DiaryProductsItem } from 'components';
 import s from './DiaryProductsList.module.css';
 
 const DiaryProductsList = ({ date }) => {

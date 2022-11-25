@@ -1,29 +1,35 @@
 import s from './Header.module.css';
-import AuthNav from 'components/AuthNav/AuthNav';
-import UserNav from 'components/UserNav/UserNav';
-import UserInfo from 'components/UserInfo/UserInfo';
-import Logo from 'components/Logo/Logo';
+import { AdditionalHeaderField, AuthNav, UserNav, UserInfo, Logo } from 'components';
 import { ReactComponent as Burger } from 'assets/icons/burger.svg';
+import useWindowDimensions from 'services/hooks/useWindowDimensions';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+import { useEffect } from 'react';
 // import { useSelector } from 'react-redux';
 // import { isLogin } from 'redux/auth/auth-selector';
 
 const Header = ({ menuActive, setMenuActive }) => {
+  const { width } = useWindowDimensions();
   // const isLoginIn = useSelector(isLogin);
-  const isLogin = false;
+
+  useEffect(() => {
+    const body = document.querySelector('#root');
+    if (menuActive) {
+      disableBodyScroll(body);
+    } else {
+      enableBodyScroll(body);
+    }
+  }, [menuActive]);
+  const isLogin = true;
 
   return (
     <header className={s.header}>
       <nav className={s.nav}>
         <div className={s.block}>
           <Logo />
-
           {isLogin ? (
             <>
               <UserNav />
-              <p className={s.nickName}>Nick</p>
-              <button type="button" className={s.exitBtn} onClick={() => {}}>
-                Exit
-              </button>
+              {width > 767 && <UserInfo />}
               <button
                 type="button"
                 className={s.burgerBtn}
@@ -36,7 +42,7 @@ const Header = ({ menuActive, setMenuActive }) => {
             <AuthNav />
           )}
         </div>
-        {/* <UserInfo /> */}
+        <AdditionalHeaderField />
       </nav>
     </header>
   );

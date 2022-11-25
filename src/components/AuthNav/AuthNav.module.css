@@ -11,6 +11,9 @@
   padding: 15px 18px 15px 0;
   color: var(--main-color);
 }
+.link:last-child {
+  padding-right: 0;
+}
 .link:hover {
   color: var(--second-color);
 }
