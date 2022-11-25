@@ -16,8 +16,24 @@ const AdditionalHeaderField = () => {
 
   return (
     <div className={s.block}>
-      {(showModal || pathname === '/diary' || pathname === '/diary-mobile-form') && (
-        <BackArrow className={s.icon} />
+      {showModal && (
+        <button
+          onClick={() => {
+            dispatch(updateModalStatus(false));
+          }}
+        >
+          <BackArrow className={s.icon} />
+        </button>
+      )}
+      {pathname === '/diary' && (
+        <Navigate to="/calculator">
+          <BackArrow className={s.icon} />
+        </Navigate>
+      )}
+      {pathname === '/diary-mobile-form' && (
+        <Navigate to="/diary">
+          <BackArrow className={s.icon} />
+        </Navigate>
       )}
       {token && <UserInfo />}
     </div>
