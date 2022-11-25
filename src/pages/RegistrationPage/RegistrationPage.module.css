@@ -1,4 +1,15 @@
 .container {
   min-height: 100vh;
-  padding-bottom: 495px;
+  padding-top: 40px;
+  /* padding-bottom: 495px; */
+}
+
+.title {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.215;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--accent-color);
+  margin-bottom: 60px;
 }

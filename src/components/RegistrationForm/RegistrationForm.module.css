@@ -1,14 +1,138 @@
-.form {
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  transition: background-color 600000s 0s, color 600000s 0s;
+}
+input[data-autocompleted] {
+  background-color: transparent !important;
+}
+
+.loginForm {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.googleLogo {
+  display: block;
+}
+
+.googleBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 32px;
+  width: 122px;
+  height: 40px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  filter: drop-shadow(1px 2px 3px rgba(170, 178, 197, 0.2));
+}
+
+.googleBtn:hover,
+.googleBtn:focus {
+  background-color: var(--accent-color);
+  box-shadow: 1px 3px 5px rgba(255, 107, 8, 0.35);
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+.googleText {
+  margin: 0 10px 16px;
+  text-align: center;
+}
+
+.formInput {
+  position: relative;
+  width: 100%;
+  height: 36px;
+  font-weight: 700;
+  line-height: 1.215;
+  letter-spacing: 0.04em;
+  color: var(--main-color);
+  border: none;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 40px;
+}
+
+.formInput:focus {
+  outline: none;
+}
+
+.formInput::placeholder {
+  position: absolute;
+  color: var(--second-color);
+}
+
+.btnCont {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 108px;
 }
-.label {
+
+.formBtn {
+  height: 44px;
+  width: 116px;
+  border-radius: 16px;
+  background-color: var(--user-pictogram-bg-color);
+  border: none;
+  filter: drop-shadow(1px 3px 5px rgba(82, 85, 95, 0.15));
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: auto;
+  color: var(--text-color-four);
+  cursor: pointer;
 }
-.input {
+
+.formBtn:hover,
+.formBtn:focus {
+  background-color: var(--accent-color);
+  box-shadow: 1px 3px 5px rgba(255, 107, 8, 0.35);
+  color: #ffffff;
+  transform: scale(1.1);
 }
-.btn {
+
+.pswdVisBtn {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  transform: translate(-50px, 27px);
+  border: none;
+  background-color: transparent;
+  outline: red;
 }
-.btn:hover {
+
+.pswdBtnImg {
+  border: none;
 }
-.btn:disabled {
+
+.errorMessage {
+  position: absolute;
+  transform: translate(5px, -35px);
+  color: red;
+  /* margin-bottom: 15px; */
+  /* margin-top: 4px; */
+  /* padding: 5px; */
+  font-size: 10px;
+  max-width: 260px;
+}
+
+@media screen and (min-width: 768px) {
+  .loginForm {
+    max-width: 426px;
+  }
+
+  .googleText {
+    margin-bottom: 20px;
+  }
+
+  .formLabel {
+    font-size: 12px;
+  }
 }

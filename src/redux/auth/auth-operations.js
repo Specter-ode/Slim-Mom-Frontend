@@ -3,10 +3,11 @@ import * as api from '../../services/api/auth';
 import { toast } from 'react-toastify';
 
 export const handleRegistration = createAsyncThunk(
-  'auth/registration',
+  'auth/signup',
   async (data, { rejectWithValue }) => {
     try {
-      const result = await api.registration(data);
+      console.log(data);
+      const result = await api.signup(data);
       return result;
     } catch (error) {
       toast.error(`Sorry, registration failed. Try again.`);

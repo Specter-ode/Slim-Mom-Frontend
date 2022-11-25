@@ -36,7 +36,7 @@ const Header = ({ menuActive, setMenuActive }) => {
             <AuthNav />
           )}
         </div>
-        <UserInfo />
+        {/* <UserInfo /> */}
       </nav>
     </header>
   );
