@@ -25,17 +25,17 @@ const authSlice = createSlice({
   extraReducers: {
     // -------------------registration------------------------------
     [handleRegistration.pending]: store => {
-      store.loading = true;
-      store.error = null;
+      store.isLoading = true;
+      store.isError = null;
     },
     [handleRegistration.fulfilled]: (store, { payload }) => {
-      store.userData = { ...payload.userData };
+      store.user = { ...payload.user };
       store.token = payload.token;
-      store.loading = false;
+      store.isLoading = false;
     },
     [handleRegistration.rejected]: (store, { payload }) => {
-      store.loading = false;
-      store.error = payload.message;
+      store.isLoading = false;
+      store.isError = payload.message;
     },
     // -----------------auth/google----------------------------
     // [handleAuthGoogle.pending]: store => {
@@ -53,31 +53,31 @@ const authSlice = createSlice({
     // -------------------login------------------------------
 
     [handleLogin.pending]: store => {
-      store.loading = true;
-      store.error = null;
+      store.isLoading = true;
+      store.isError = null;
     },
     [handleLogin.fulfilled]: (store, { payload }) => {
-      store.userData = { ...payload.userData };
+      store.user = { ...payload.user };
       store.accessToken = payload.accessToken;
-      store.loading = false;
-      store.sid = payload.sid;
+      store.isLoading = false;
+      store.isLogin = true;
       store.refreshToken = payload.refreshToken;
-      store.currentUser = true;
+      store.userDailyDiet = payload.dailyDiet;
     },
     [handleLogin.rejected]: (store, { payload }) => {
-      store.loading = false;
-      store.error = payload.message;
+      store.isLoading = false;
+      store.isError = payload.message;
     },
 
     // -------------------logout------------------------------
     [handleLogout.pending]: store => {
-      store.loading = true;
-      store.error = null;
+      store.isLoading = true;
+      store.isError = null;
     },
     [handleLogout.fulfilled]: () => ({ ...initialState }),
     [handleLogout.rejected]: (store, { payload }) => {
-      store.loading = false;
-      store.error = payload.message;
+      store.isLoading = false;
+      store.isError = payload.message;
     },
 
     // -------------------currentUser----------------------------------

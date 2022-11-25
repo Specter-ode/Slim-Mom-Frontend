@@ -1,7 +1,7 @@
 import axios from 'axios';
 const { BACKEND_URL } = process.env;
 const instance = axios.create({
-  baseURL: BACKEND_URL || 'http://localhost:4000/api/',
+  baseURL: BACKEND_URL || 'http://localhost:4000/api',
 });
 
 const setToken = (token = '') => {
@@ -11,9 +11,13 @@ const setToken = (token = '') => {
   instance.defaults.headers.authorization = '';
 };
 
-export const registration = async data => {
-  const result = await instance.post('/users/registration', data);
+export const signup = async data => {
+  const result = await instance.post('/users/signup', data);
   return result.data;
+};
+
+export const googleSignup = async () => {
+  await instance.get('/users/google');
 };
 
 export const login = async data => {
