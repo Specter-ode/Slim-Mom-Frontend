@@ -1,7 +1,10 @@
 import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import s from './SideBar.module.css';
 
-const SideBar = ({ date }) => {
+const SideBar = () => {
+  const { date } = useSelector(state => state.products);
+
   useEffect(() => {
     // если в календаре поменяется дата,то сработает useEffect и нужно делать запрос на бэк
   }, [date]);

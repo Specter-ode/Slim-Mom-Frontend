@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import useWindowDimensions from '../../services/hooks/useWindowDimensions';
 import {
@@ -11,22 +11,27 @@ import {
 import s from './DiaryPage.module.css';
 
 const DiaryPage = () => {
+  const navigate = useNavigate();
+
   const { width } = useWindowDimensions();
-  const [date, setDate] = useState(() => new Date());
-  // console.log('date: ', date);
+
+  const handleMobileFormOpen = () => {
+    navigate(`/diary-mobile-form`);
+  };
+
   return (
     <main className={s.main}>
       <div className={s.diary}>
-        <DiaryDateСalendar date={date} setDate={setDate} />
+        <DiaryDateСalendar />
 
-        {width > 767 && <DiaryAddProductForm date={date} />}
+        {width > 767 && <DiaryAddProductForm />}
 
-        <DiaryProductsList date={date} />
+        <DiaryProductsList />
 
-        {width < 768 && <ButtonPlus />}
+        {width < 768 && <ButtonPlus type="button" onClick={handleMobileFormOpen} />}
       </div>
 
-      <SideBar date={date} />
+      <SideBar />
     </main>
   );
 };
