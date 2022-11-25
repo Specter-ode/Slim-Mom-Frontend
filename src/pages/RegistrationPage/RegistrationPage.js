@@ -1,10 +1,7 @@
 import s from './RegistrationPage.module.css';
 import RegistrationForm from 'components/RegistrationForm/RegistrationForm';
-// import { useDispatch } from 'react-redux';
 
 const RegistrationPage = () => {
-  // const dispatch = useDispatch();
-
   return (
     <main>
       <div className={s.container}>

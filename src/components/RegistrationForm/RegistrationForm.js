@@ -10,7 +10,7 @@ import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { useState } from 'react';
 
-import { handleRegistration } from '../../redux/auth/auth-operations';
+import { handleRegistration, handleGoogleRegistration } from '../../redux/auth/auth-operations';
 
 const SignupSchema = Yup.object().shape({
   name: Yup.string().required('Name is required'),
@@ -43,8 +43,6 @@ const RegistrationForm = () => {
   //   },
   // });
 
-  let submitAction;
-
   const [errorMessage, setErrorMessage] = useState('');
 
   return (
@@ -57,9 +55,9 @@ const RegistrationForm = () => {
         }}
         validationSchema={SignupSchema}
         onSubmit={(values, actions) => {
-          if (submitAction === 'registration') {
-            dispatch(handleRegistration(values));
-          }
+          dispatch(handleRegistration(values)).then(a =>
+            setErrorMessage(a?.payload?.response?.data?.message)
+          );
           actions.resetForm();
         }}
       >
@@ -78,9 +76,6 @@ const RegistrationForm = () => {
             {errors.name && touched.name ? (
               <div className={s.errorMessage}>* {errors.name}</div>
             ) : null}
-            {errorMessage && errorMessage !== 'Password is wrong' && !touched.name ? (
-              <div className={s.errorMessage}>{errorMessage}</div>
-            ) : null}
 
             <Field
               className={s.formInput}
@@ -95,12 +90,12 @@ const RegistrationForm = () => {
             {errors.email && touched.email ? (
               <div className={s.errorMessage}>* {errors.email}</div>
             ) : null}
-            {errorMessage && errorMessage !== 'Password is wrong' && !touched.email ? (
+            {errorMessage && !touched.email ? (
               <div className={s.errorMessage}>{errorMessage}</div>
             ) : null}
 
             <Field
-              className={s.formInput}
+              className={s.formInput + ' ' + s.passInput}
               type={isPswdShown ? 'text' : 'password'}
               name="password"
               title="Please enter your password. Minimum length 8 symbols"
@@ -128,15 +123,13 @@ const RegistrationForm = () => {
                 text={'Register'}
                 width={182}
                 onClick={() => {
-                  submitAction = 'registration';
                   handleSubmit();
                 }}
               />
 
-              {/* <p className={s.googleText}>You can log in with your Google Account:</p> */}
               <button
                 onClick={() => {
-                  // login();
+                  dispatch(handleGoogleRegistration());
                 }}
                 className={s.googleBtn}
                 type="button"

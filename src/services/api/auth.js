@@ -16,6 +16,10 @@ export const signup = async data => {
   return result.data;
 };
 
+export const googleSignup = async () => {
+  await instance.get('/users/google');
+};
+
 export const login = async data => {
   const result = await instance.post('/users/login', data);
   setToken(result.data.accessToken);

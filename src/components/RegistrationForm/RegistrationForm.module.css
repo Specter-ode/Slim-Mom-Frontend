@@ -17,29 +17,22 @@ input[data-autocompleted] {
 }
 
 .googleBtn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto 32px;
-  width: 122px;
-  height: 40px;
-  border-radius: 20px;
-  border: none;
-  cursor: pointer;
-  filter: drop-shadow(1px 2px 3px rgba(170, 178, 197, 0.2));
+  display: block;
+  margin: 0;
+  width: 182px;
+  height: 44px;
+  background: var(--bg-color);
+  border-radius: 30px;
+  border: 2px solid var(--accent-color);
+  color: var(--accent-color);
+  transition: all 250ms linear;
 }
 
 .googleBtn:hover,
 .googleBtn:focus {
-  background-color: var(--accent-color);
-  box-shadow: 1px 3px 5px rgba(255, 107, 8, 0.35);
-  color: #ffffff;
-  transform: scale(1.1);
-}
-
-.googleText {
-  margin: 0 10px 16px;
-  text-align: center;
+  background: var(--accent-color);
+  border: none;
+  color: var(--bg-color);
 }
 
 .formInput {
@@ -64,45 +57,24 @@ input[data-autocompleted] {
   color: var(--second-color);
 }
 
+.passInput {
+  padding-right: 60px;
+}
+
 .btnCont {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   height: 108px;
-}
-
-.formBtn {
-  height: 44px;
-  width: 116px;
-  border-radius: 16px;
-  background-color: var(--user-pictogram-bg-color);
-  border: none;
-  filter: drop-shadow(1px 3px 5px rgba(82, 85, 95, 0.15));
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 14px;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  text-align: center;
-  padding: auto;
-  color: var(--text-color-four);
-  cursor: pointer;
-}
-
-.formBtn:hover,
-.formBtn:focus {
-  background-color: var(--accent-color);
-  box-shadow: 1px 3px 5px rgba(255, 107, 8, 0.35);
-  color: #ffffff;
-  transform: scale(1.1);
+  margin-top: 20px;
 }
 
 .pswdVisBtn {
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   position: absolute;
-  transform: translate(-50px, 27px);
+  transform: translateX(-50px);
   border: none;
   background-color: transparent;
   outline: red;
@@ -116,23 +88,19 @@ input[data-autocompleted] {
   position: absolute;
   transform: translate(5px, -35px);
   color: red;
-  /* margin-bottom: 15px; */
-  /* margin-top: 4px; */
-  /* padding: 5px; */
   font-size: 10px;
   max-width: 260px;
 }
 
 @media screen and (min-width: 768px) {
   .loginForm {
-    max-width: 426px;
+    width: 240px;
+    margin: 0;
   }
 
-  .googleText {
-    margin-bottom: 20px;
-  }
-
-  .formLabel {
-    font-size: 12px;
+  .btnCont {
+    flex-direction: row;
+    width: 394px;
+    height: 44px;
   }
 }

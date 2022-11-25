@@ -6,9 +6,20 @@ export const handleRegistration = createAsyncThunk(
   'auth/signup',
   async (data, { rejectWithValue }) => {
     try {
-      console.log(data);
       const result = await api.signup(data);
       return result;
+    } catch (error) {
+      toast.error(`Sorry, registration failed. Try again.`);
+      return rejectWithValue(error);
+    }
+  }
+);
+
+export const handleGoogleRegistration = createAsyncThunk(
+  'auth/google',
+  async (_, { rejectWithValue }) => {
+    try {
+      await api.googleSignup();
     } catch (error) {
       toast.error(`Sorry, registration failed. Try again.`);
       return rejectWithValue(error);
