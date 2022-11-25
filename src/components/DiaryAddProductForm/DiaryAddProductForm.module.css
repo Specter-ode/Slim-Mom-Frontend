@@ -21,7 +21,8 @@
   line-height: 1.21;
 }
 
-.input:focus {
+.input:focus,
+.input:hover {
   outline: none;
   border-bottom: 1px solid var(--accent-color);
 }
@@ -88,5 +89,3 @@
     margin-right: 60px;
   }
 }
-
-/* 320 , 480 , 768 , 1280 */

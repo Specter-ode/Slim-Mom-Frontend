@@ -41,7 +41,7 @@ const PagesRoutes = () => {
         <Route element={<PrivateRoute />}>
           <Route path="/calculator" element={<CalculatorPage />} />
           <Route path="/diary" element={<DiaryPage />} />
-          <Route path="/diary-mobile-form/:date" element={<DiaryMobileForm />} />
+          <Route path="/diary-mobile-form" element={<DiaryMobileForm />} />
         </Route>
 
         <Route path="*" element={<NotFoundPage />} />
