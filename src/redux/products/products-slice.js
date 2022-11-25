@@ -1,7 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 // import {} from './products-operations';
 
-const initialState = {};
+const initialState = {
+  productsOptions: [],
+  dailyMeals: [],
+  date: null,
+  isLoading: false,
+  error: '',
+};
 
 const productsSlice = createSlice({
   name: 'products',

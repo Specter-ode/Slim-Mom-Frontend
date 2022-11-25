@@ -9,6 +9,8 @@ const initialState = {
   isLoading: false,
   isError: null,
   showModal: false,
+  userDailyDiet: { calories: null, notRecomendedProducts: null },
+  dailyDiet: { calories: null, notRecomendedProducts: null },
 };
 
 const authSlice = createSlice({
