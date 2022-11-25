@@ -1,14 +1,106 @@
-.form {
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  transition: background-color 600000s 0s, color 600000s 0s;
+}
+input[data-autocompleted] {
+  background-color: transparent !important;
+}
+
+.loginForm {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.googleLogo {
+  display: block;
+}
+
+.googleBtn {
+  display: block;
+  margin: 0;
+  width: 182px;
+  height: 44px;
+  background: var(--bg-color);
+  border-radius: 30px;
+  border: 2px solid var(--accent-color);
+  color: var(--accent-color);
+  transition: all 250ms linear;
+}
+
+.googleBtn:hover,
+.googleBtn:focus {
+  background: var(--accent-color);
+  border: none;
+  color: var(--bg-color);
+}
+
+.formInput {
+  position: relative;
+  width: 100%;
+  height: 36px;
+  font-weight: 700;
+  line-height: 1.215;
+  letter-spacing: 0.04em;
+  color: var(--main-color);
+  border: none;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 40px;
+}
+
+.formInput:focus {
+  outline: none;
+}
+
+.formInput::placeholder {
+  position: absolute;
+  color: var(--second-color);
+}
+
+.passInput {
+  padding-right: 60px;
+}
+
+.btnCont {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 108px;
+  margin-top: 20px;
 }
-.label {
+
+.pswdVisBtn {
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  transform: translateX(-50px);
+  border: none;
+  background-color: transparent;
+  outline: red;
 }
-.input {
+
+.pswdBtnImg {
+  border: none;
 }
-.btn {
+
+.errorMessage {
+  position: absolute;
+  transform: translate(5px, -35px);
+  color: red;
+  font-size: 10px;
+  max-width: 260px;
 }
-.btn:hover {
-}
-.btn:disabled {
+
+@media screen and (min-width: 768px) {
+  .loginForm {
+    width: 240px;
+    margin: 0;
+  }
+
+  .btnCont {
+    flex-direction: row;
+    width: 394px;
+    height: 44px;
+  }
 }

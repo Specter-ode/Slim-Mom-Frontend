@@ -1,7 +1,7 @@
 import s from './AdditionalHeaderField.module.css';
 import { ReactComponent as BackArrow } from 'assets/icons/back-arrow.svg';
 import { UserInfo } from 'components';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { getModalStatus } from 'redux/auth/auth-selector';
 import { Navigate, useLocation } from 'react-router-dom';
 import { updateModalStatus } from 'redux/auth/auth-slice';
@@ -14,8 +14,7 @@ const AdditionalHeaderField = () => {
   // const { name } = useSelector(getUser);
   // const token = useSelector(getToken);
   const dispatch = useDispatch();
-  const token = true;
-
+  const isLogin = true;
   return (
     <div className={s.block}>
       {showModal && (
@@ -37,7 +36,7 @@ const AdditionalHeaderField = () => {
           <BackArrow className={s.icon} />
         </Navigate>
       )}
-      {token && <UserInfo />}
+      {isLogin && <UserInfo />}
     </div>
   );
 };
