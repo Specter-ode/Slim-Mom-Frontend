@@ -1,4 +1,4 @@
-import { DiaryAddProductForm } from '../../components';
+import { DiaryAddProductForm } from 'components';
 import s from './DiaryMobileForm.module.css';
 
 const DiaryMobileForm = () => {

@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
-import Container from './Container/Container';
-import Header from './Header/Header';
+import { Header, BurgerMenu, Background } from 'components';
 import PagesRoutes from 'PagesRoutes/PagesRoutes';
 import { ToastContainer, Zoom } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
-import BurgerMenu from 'components/BurgerMenu/BurgerMenu';
-import Background from './Background/Background';
 
 const App = () => {
   const [menuActive, setMenuActive] = useState(false);
@@ -18,9 +15,7 @@ const App = () => {
       <Background>
         <Header menuActive={menuActive} setMenuActive={setMenuActive} />
         {menuActive && <BurgerMenu toggleNavMenu={toggleNavMenu} />}
-        <Container>
-          <PagesRoutes />
-        </Container>
+        <PagesRoutes />
       </Background>
       <ToastContainer
         autoClose={2000}

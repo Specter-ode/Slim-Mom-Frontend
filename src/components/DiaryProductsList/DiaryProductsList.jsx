@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { getDailyMeals } from 'redux/products/products-operations';
+import { DiaryProductsItem } from 'components';
 
-import { getDailyMeals } from '../../redux/products/products-operations';
-import { DiaryProductsItem } from '../';
 import s from './DiaryProductsList.module.css';
 
 const DiaryProductsList = () => {

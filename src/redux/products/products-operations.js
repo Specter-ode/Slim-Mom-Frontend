@@ -1,9 +1,8 @@
-import * as api from '../../services/api/products';
+import * as api from 'services/api/products';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
 
 // DailyMeals - Operations for the Dairy
-
 export const getProductsByQuery = createAsyncThunk(
   'products/getProductsByQuery',
   async (query, { rejectWithValue }) => {
