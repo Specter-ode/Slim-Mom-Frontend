@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/221.d9745783.chunk.css","mappings":"AAAA,iCAGE,aAAqB,CAFrB,YAAa,CACb,4BAA6B,CAE7B,aACF","sources":["pages/CalculatorPage/CalculatorPage.module.css"],"sourcesContent":[".container {\n  display: flex;\n  justify-content: space-evenly;\n  color: rgb(17, 1, 70);\n  margin: 20px 0;\n}\n"],"names":[],"sourceRoot":""}
