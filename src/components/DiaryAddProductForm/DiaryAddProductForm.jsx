@@ -1,5 +1,5 @@
 import useWindowDimensions from '../../services/hooks/useWindowDimensions';
-import { Button, ButtonPlus } from '../';
+import { Button, ButtonPlus } from 'components';
 import s from './DiaryAddProductForm.module.css';
 
 const DiaryAddProductForm = ({ date }) => {

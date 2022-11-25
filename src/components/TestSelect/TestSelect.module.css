@@ -1,0 +1,90 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 280px;
+}
+
+.label {
+  width: 100%;
+}
+
+.input {
+  width: 100%;
+  padding: 8px 0;
+  border: none;
+  /* color */
+  color: var(--second-color);
+  border-bottom: 1px solid var(--border-color);
+  /* font */
+  font-weight: 700;
+  line-height: 1.21;
+}
+
+.input:focus {
+  outline: none;
+  border-bottom: 1px solid var(--accent-color);
+}
+
+.input::placeholder {
+  color: var(--second-color);
+}
+
+@media screen and (max-width: 320px) {
+  .form {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .form {
+    margin: 0 auto;
+  }
+
+  .label {
+    margin-bottom: 24px;
+  }
+
+  .label:last-of-type {
+    margin-bottom: 60px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .form {
+    flex-direction: row;
+    align-items: flex-end;
+
+    margin-bottom: 40px;
+    min-width: 455px;
+  }
+  .label {
+    flex-shrink: 0;
+    width: 240px;
+    margin-right: 20px;
+  }
+
+  .label:last-of-type {
+    width: 105px;
+    margin-right: 85px;
+  }
+
+  .label:last-of-type .input {
+    text-align: end;
+  }
+
+  .input {
+    flex-shrink: 0;
+    padding: 20px 0;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .label {
+    margin-right: 50px;
+  }
+
+  .label:last-of-type {
+    margin-right: 60px;
+  }
+}

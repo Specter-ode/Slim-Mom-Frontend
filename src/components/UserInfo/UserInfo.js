@@ -1,31 +1,21 @@
 import s from './UserInfo.module.css';
-import { ReactComponent as BackArrow } from 'assets/icons/back-arrow.svg';
-// import { useSelector, useDispatch } from 'react-redux';
-// import { getUser, getToken } from 'redux/auth/auth-selector';
-// import { logout } from 'redux/auth/auth-operations';
-const UserInfo = ({ modalShow }) => {
-  // const { name } = useSelector(getUser);
-  // const token = useSelector(getToken);
+import { useSelector, useDispatch } from 'react-redux';
+import { getUser } from 'redux/auth/auth-selector';
+import { handleLogout } from 'redux/auth/auth-operations';
+const UserInfo = () => {
+  const { name = 'Nick' } = useSelector(getUser);
 
-  const token = true;
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   // const onLogout = token => {
   //   dispatch(logout(token));
   // };
   return (
-    <div className={s.block}>
-      {<BackArrow className={s.icon} />}
-      <div className={s.userinfo}>
-        {token && (
-          <>
-            <p className={s.text}>Nick</p>
-            <button className={s.btn} onClick={() => {}}>
-              Exit
-            </button>
-          </>
-        )}
-      </div>
+    <div className={s.userinfo}>
+      <p className={s.text}>{name}</p>
+      <button className={s.btn} onClick={() => dispatch(handleLogout())}>
+        Exit
+      </button>
     </div>
   );
 };
