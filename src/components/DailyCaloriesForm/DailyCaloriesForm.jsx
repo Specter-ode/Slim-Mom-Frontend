@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Button, Modal } from 'components';
 import { toast } from 'react-toastify';
 
-import { getCalorieIntake } from 'redux/auth/auth-operations';
-
+import { getCalorieIntake, getCalorieIntakeForUser } from 'redux/auth/auth-operations';
+import { getLoginStatus } from 'redux/auth/auth-selector';
 import s from '../DailyCaloriesForm/DailyCaloriesForm.module.css';
 
 export default function DailyCaloriesForm() {
@@ -15,12 +15,21 @@ export default function DailyCaloriesForm() {
   const [currentWeight, setCurrentWeight] = useState('');
   const [desiredWeight, setDesiredWeight] = useState('');
   const [bloodType, setBloodType] = useState('');
-
   const [showModal, setShowModal] = useState(false);
+
+  const isLoggedIn = useSelector(getLoginStatus);
 
   const toggleModal = () => {
     setShowModal(state => !state);
     document.body.style.overflowY = 'visible';
+  };
+
+  const resetForm = () => {
+    setHeight('');
+    setAge('');
+    setCurrentWeight('');
+    setDesiredWeight('');
+    setBloodType('');
   };
 
   const handleInputChange = ({ target: { name, value, checked = false } }) => {
@@ -67,15 +76,14 @@ export default function DailyCaloriesForm() {
   const onFormSubmit = event => {
     event.preventDefault();
 
-    if (bloodType !== '') {
-      setHeight('');
-      setAge('');
-      setCurrentWeight('');
-      setDesiredWeight('');
-      setBloodType('');
+    if (bloodType === '') {
+      return toast.warn('Please сhoose your blood type');
+    }
 
+    if (isLoggedIn) {
+      resetForm();
       dispatch(
-        getCalorieIntake({
+        getCalorieIntakeForUser({
           height,
           age,
           currentWeight,
@@ -86,7 +94,17 @@ export default function DailyCaloriesForm() {
 
       toggleModal();
     } else {
-      toast.warn('Please сhoose your blood type');
+      resetForm();
+      dispatch(
+        getCalorieIntake({
+          height,
+          age,
+          currentWeight,
+          desiredWeight,
+          bloodType,
+        })
+      );
+      toggleModal();
     }
   };
 

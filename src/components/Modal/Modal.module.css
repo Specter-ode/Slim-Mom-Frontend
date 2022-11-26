@@ -1,12 +1,14 @@
 .modal {
+  border: 1px solid red;
+  position: absolute;
+  top: 120px;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: relative;
-  /* width: 320px; */
+
   width: 100%;
-  border: 1px solid red;
 
   padding: 40px 20px 119px 20px;
 
@@ -15,6 +17,10 @@
 
 @media screen and (min-width: 768px) {
   .modal {
+    position: relative;
+
+    top: unset;
+
     width: 672px;
     height: 573px;
 
@@ -65,16 +71,3 @@
     border: none;
   }
 }
-
-/* .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--modal-overlay-color);
-    z-index: 1200;
-  } */

@@ -43,8 +43,12 @@ export const getCurrentUser = async () => {
 };
 
 export const getCalorieIntake = async payload => {
-  const { data } = await instance.post(`/api/daily-intake`, payload);
+  const { data } = await instance.post(`/daily-intake`, payload);
+  return data;
+};
 
+export const getCalorieIntakeForUser = async payload => {
+  const { data } = await instance.post(`/daily-intake/user`, payload);
   return data;
 };
 

@@ -12,7 +12,6 @@
   border: none;
   border-radius: 30px;
 
-  /* По умолчанию FontSize 14px в браузере стоит но не работает почему то */
   font-size: 14px;
   font-weight: 700;
   line-height: 1.2;

@@ -1,6 +1,8 @@
 import { useSelector } from 'react-redux';
 import { getDailyIntake } from 'redux/auth/auth-selector';
-import { Button } from 'components';
+
+import { NavLink } from 'react-router-dom';
+
 import { nanoid } from '@reduxjs/toolkit';
 import s from '../DailyCalorieIntake/DailyCalorieIntake.module.css';
 
@@ -19,12 +21,11 @@ export default function DailyCalorieIntake() {
       <p className={s.textPrimary}>
         {calories} <span className={s.textPrimarySpan}>kcal</span>
       </p>
-
       <p className={s.textSecondary}>Foods you should not eat</p>
-
       <ol className={s.list}>{productsNotAllowed}</ol>
-
-      <Button text="Start losing weight" width={210} />
+      <NavLink className={s.navLink} to="registration">
+        Start losing weight
+      </NavLink>
     </>
   );
 }
