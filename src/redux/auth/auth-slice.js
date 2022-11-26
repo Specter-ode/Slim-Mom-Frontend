@@ -1,7 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { handleRegistration, handleLogin, handleLogout, getCurrentUser } from './auth-operations';
+import {
+  handleRegistration,
+  handleLogin,
+  handleLogout,
+  getCurrentUser,
+  getCalorieIntake,
+} from './auth-operations';
 
 const initialState = {
+  userDailyDiet: { calories: null, notRecomendedProducts: null },
+  dailyDiet: { calories: null, notRecomendedProducts: null },
   user: {},
   accessToken: '',
   refreshToken: '',
@@ -90,6 +98,11 @@ const authSlice = createSlice({
     [getCurrentUser.rejected]: (store, { error }) => {
       store.loading = false;
       store.error = error.message;
+    },
+    // Daily Intake
+    [getCalorieIntake.fulfilled](state, { payload: { notAllowedProduct, calories } }) {
+      state.dailyDiet.calories = calories;
+      state.dailyDiet.notRecomendedProducts = notAllowedProduct;
     },
   },
 });

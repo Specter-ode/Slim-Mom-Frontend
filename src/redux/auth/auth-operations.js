@@ -58,3 +58,14 @@ export const getCurrentUser = createAsyncThunk(
     },
   }
 );
+
+export const getCalorieIntake = createAsyncThunk('daily-intake', async (payload, thunkAPI) => {
+  try {
+    const result = await api.getCalorieIntake(payload);
+
+    return result;
+  } catch (error) {
+    toast.error(`Sorry, request failed.`);
+    return thunkAPI.rejectWithValue(error);
+  }
+});

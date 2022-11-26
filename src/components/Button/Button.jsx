@@ -25,5 +25,5 @@ Button.propTypes = {
   text: PropTypes.string.isRequired,
   isPrimaryButton: PropTypes.bool,
   width: PropTypes.number.isRequired,
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
 };

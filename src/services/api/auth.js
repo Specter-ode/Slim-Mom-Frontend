@@ -1,7 +1,7 @@
 import axios from 'axios';
 const { BACKEND_URL } = process.env;
 const instance = axios.create({
-  baseURL: BACKEND_URL || 'https://localhost:4000/',
+  baseURL: BACKEND_URL || 'http://localhost:4000/',
 });
 
 const setToken = (token = '') => {
@@ -36,6 +36,12 @@ export const getCurrentUser = async () => {
     setToken('');
     throw error;
   }
+};
+
+export const getCalorieIntake = async payload => {
+  const { data } = await instance.post(`/api/daily-intake`, payload);
+
+  return data;
 };
 
 export default instance;
