@@ -53,20 +53,12 @@
   border: transparent;
   padding: 32px 0;
 }
-@media screen and (max-width: 767px) {
-  .header {
-    margin-bottom: 32px;
-  }
-}
 @media screen and (min-width: 480px) {
   .block {
     width: 480px;
   }
 }
 @media screen and (min-width: 768px) {
-  .header {
-    margin-bottom: 100px;
-  }
   .block {
     width: 768px;
     padding: 0 32px;
@@ -78,9 +70,6 @@
 }
 
 @media screen and (min-width: 1280px) {
-  .header {
-    margin-bottom: 150px;
-  }
   .block {
     width: 1280px;
     padding: 0 16px;

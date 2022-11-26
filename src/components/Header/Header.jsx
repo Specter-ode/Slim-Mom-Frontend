@@ -19,7 +19,7 @@ const Header = ({ menuActive, setMenuActive }) => {
       enableBodyScroll(body);
     }
   }, [menuActive]);
-  const isLogin = true;
+  const isLogin = false;
 
   return (
     <header className={s.header}>
@@ -42,7 +42,7 @@ const Header = ({ menuActive, setMenuActive }) => {
             <AuthNav />
           )}
         </div>
-        <AdditionalHeaderField />
+        {/* <AdditionalHeaderField /> */}
       </nav>
     </header>
   );
