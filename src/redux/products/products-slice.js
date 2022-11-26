@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+
 import { getProductsByQuery, getDailyMeals, addMeal, deleteMeal } from './products-operations';
 
 const initialState = {

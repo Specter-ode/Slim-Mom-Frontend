@@ -1,5 +1,11 @@
 import s from './Header.module.css';
-import { AdditionalHeaderField, AuthNav, UserNav, UserInfo, Logo } from 'components';
+import {
+  // AdditionalHeaderField,
+  AuthNav,
+  UserNav,
+  UserInfo,
+  Logo,
+} from 'components';
 import { ReactComponent as Burger } from 'assets/icons/burger.svg';
 import useWindowDimensions from 'services/hooks/useWindowDimensions';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
