@@ -1,13 +1,17 @@
 import s from './CalculatorPage.module.css';
-import { DailyCaloriesForm, SideBar } from 'components';
+import { DailyCaloriesForm, SideBar, Container } from 'components';
 
 const CalculatorPage = () => {
   return (
-    <main>
-      <h3 className={s.title}>Calculator Page</h3>
-      <DailyCaloriesForm />
-      <SideBar />
-    </main>
+    <section className={s.section}>
+      <Container>
+        <h3 className="visually-hidden">Calculator Page</h3>
+        <div className={s.flex}>
+          <DailyCaloriesForm />
+          <SideBar />
+        </div>
+      </Container>
+    </section>
   );
 };
 

@@ -85,8 +85,6 @@ export const getCalorieIntake = createAsyncThunk('daily-intake', async (payload,
 export const getCalorieIntakeForUser = createAsyncThunk(
   'daily-intake/user',
   async (payload, thunkAPI) => {
-    console.log('payload', payload);
-    console.log('thunkAPI', thunkAPI);
     try {
       const result = await api.getCalorieIntakeForUser(payload);
 

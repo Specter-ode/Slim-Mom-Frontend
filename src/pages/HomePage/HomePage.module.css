@@ -1,5 +1,18 @@
+.section {
+  padding-top: 32px;
+}
+
 @media screen and (min-width: 768px) {
   .container {
     min-height: 100vh;
+  }
+  .section {
+    padding-top: 100px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .section {
+    padding-top: 140px;
   }
 }

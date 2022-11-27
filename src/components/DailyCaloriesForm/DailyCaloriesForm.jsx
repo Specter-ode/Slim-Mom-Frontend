@@ -2,9 +2,9 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, Modal } from 'components';
 import { toast } from 'react-toastify';
-
 import { getCalorieIntake, getCalorieIntakeForUser } from 'redux/auth/auth-operations';
 import { getLoginStatus } from 'redux/auth/auth-selector';
+
 import s from '../DailyCaloriesForm/DailyCaloriesForm.module.css';
 
 export default function DailyCaloriesForm() {
@@ -30,6 +30,20 @@ export default function DailyCaloriesForm() {
     setCurrentWeight('');
     setDesiredWeight('');
     setBloodType('');
+  };
+
+  const dispatchForm = () => {
+    const intakeData = {
+      height,
+      age,
+      currentWeight,
+      desiredWeight,
+      bloodType,
+    };
+
+    return isLoggedIn
+      ? dispatch(getCalorieIntakeForUser(intakeData))
+      : dispatch(getCalorieIntake(intakeData));
   };
 
   const handleInputChange = ({ target: { name, value, checked = false } }) => {
@@ -78,34 +92,23 @@ export default function DailyCaloriesForm() {
 
     if (bloodType === '') {
       return toast.warn('Please сhoose your blood type');
-    }
-
-    if (isLoggedIn) {
-      resetForm();
-      dispatch(
-        getCalorieIntakeForUser({
-          height,
-          age,
-          currentWeight,
-          desiredWeight,
-          bloodType,
-        })
-      );
-
-      toggleModal();
     } else {
       resetForm();
-      dispatch(
-        getCalorieIntake({
-          height,
-          age,
-          currentWeight,
-          desiredWeight,
-          bloodType,
-        })
-      );
+      dispatchForm();
       toggleModal();
     }
+
+    // if (bloodType === '') {
+    //   return toast.warn('Please сhoose your blood type');
+    // } else if (isLoggedIn) {
+    //   resetForm();
+    //   dispatch(getCalorieIntakeForUser(intakeData));
+    //   toggleModal();
+    // } else {
+    //   resetForm();
+    //   dispatch(getCalorieIntake(intakeData));
+    //   toggleModal();
+    // }
   };
 
   return (
