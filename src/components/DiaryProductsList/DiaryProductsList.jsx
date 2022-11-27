@@ -14,8 +14,8 @@ const DiaryProductsList = () => {
     dispatch(getDailyMeals({ date: date }));
   }, [dispatch, date]);
 
-  const showMeals = dailyMeals.length > 0 && !error && !isLoading;
-  const noMeals = dailyMeals.length === 0 && !error && !isLoading;
+  const showMeals = dailyMeals?.length > 0 && !error && !isLoading;
+  const noMeals = dailyMeals?.length === 0 && !error && !isLoading;
 
   return (
     <ul className={s.list}>

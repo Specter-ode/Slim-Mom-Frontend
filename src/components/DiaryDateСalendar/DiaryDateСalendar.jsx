@@ -3,12 +3,13 @@ import DatePicker from 'react-datepicker';
 import { ReactComponent as NewCalendar } from 'assets/icons/calendar.svg';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { setDate } from '../../redux/products/products-slice';
 
 const DiaryDateСalendar = ({ location }) => {
+  const { date } = useSelector(state => state.products);
   const dispatch = useDispatch();
   const [dateObject, setDateObject] = useState(() => new Date());
 
@@ -16,6 +17,11 @@ const DiaryDateСalendar = ({ location }) => {
     if (!dateObject) return;
     dispatch(setDate(dateObject.toISOString().slice(0, 10)));
   }, [dispatch, dateObject]);
+
+  useEffect(() => {
+    if (!date) return;
+    setDateObject(new Date(date));
+  }, [dispatch, date]);
 
   const diaryCalendar = location === 'diary';
   const sidebarCalendar = location === 'sidebar';
