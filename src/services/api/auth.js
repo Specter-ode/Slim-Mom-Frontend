@@ -1,7 +1,8 @@
 import axios from 'axios';
-const { BACKEND_URL } = process.env;
+const { REACT_APP_BACKEND_URL } = process.env;
+console.log(REACT_APP_BACKEND_URL);
 const instance = axios.create({
-  baseURL: BACKEND_URL || 'http://localhost:4000/api',
+  baseURL: REACT_APP_BACKEND_URL || 'http://localhost:4000/api',
 });
 
 const setToken = (token = '') => {
