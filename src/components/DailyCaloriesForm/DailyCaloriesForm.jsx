@@ -2,9 +2,9 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, Modal } from 'components';
 import { toast } from 'react-toastify';
-
 import { getCalorieIntake, getCalorieIntakeForUser } from 'redux/auth/auth-operations';
-import { getLoginStatus } from 'redux/auth/auth-selector';
+import { getLoginStatus, getModalStatus } from 'redux/auth/auth-selector';
+import { updateModalStatus } from 'redux/auth/auth-slice';
 import s from '../DailyCaloriesForm/DailyCaloriesForm.module.css';
 
 export default function DailyCaloriesForm() {
@@ -15,12 +15,13 @@ export default function DailyCaloriesForm() {
   const [currentWeight, setCurrentWeight] = useState('');
   const [desiredWeight, setDesiredWeight] = useState('');
   const [bloodType, setBloodType] = useState('');
-  const [showModal, setShowModal] = useState(false);
+
+  const showModal = useSelector(getModalStatus);
 
   const isLoggedIn = useSelector(getLoginStatus);
 
   const toggleModal = () => {
-    setShowModal(state => !state);
+    dispatch(updateModalStatus(!showModal));
     document.body.style.overflowY = 'visible';
   };
 
@@ -30,6 +31,20 @@ export default function DailyCaloriesForm() {
     setCurrentWeight('');
     setDesiredWeight('');
     setBloodType('');
+  };
+
+  const dispatchForm = () => {
+    const intakeData = {
+      height,
+      age,
+      currentWeight,
+      desiredWeight,
+      bloodType,
+    };
+
+    return isLoggedIn
+      ? dispatch(getCalorieIntakeForUser(intakeData))
+      : dispatch(getCalorieIntake(intakeData));
   };
 
   const handleInputChange = ({ target: { name, value, checked = false } }) => {
@@ -78,32 +93,9 @@ export default function DailyCaloriesForm() {
 
     if (bloodType === '') {
       return toast.warn('Please сhoose your blood type');
-    }
-
-    if (isLoggedIn) {
-      resetForm();
-      dispatch(
-        getCalorieIntakeForUser({
-          height,
-          age,
-          currentWeight,
-          desiredWeight,
-          bloodType,
-        })
-      );
-
-      toggleModal();
     } else {
       resetForm();
-      dispatch(
-        getCalorieIntake({
-          height,
-          age,
-          currentWeight,
-          desiredWeight,
-          bloodType,
-        })
-      );
+      dispatchForm();
       toggleModal();
     }
   };

@@ -39,13 +39,22 @@
   width: 10px;
   height: 149px;
 }
+
 .list::-webkit-scrollbar-track {
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
+
 .list::-webkit-scrollbar-thumb {
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 
   background-color: var(--accent-color);
+}
+
+@media screen and (min-width: 768px) {
+  .list {
+    max-width: 100%;
+    height: 100%;
+  }
 }
 
 .item:not(:last-child) {

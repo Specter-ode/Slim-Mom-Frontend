@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { getDailyIntake } from 'redux/auth/auth-selector';
+import { getDailyIntake, getLoginStatus } from 'redux/auth/auth-selector';
 
 import { NavLink } from 'react-router-dom';
 
@@ -8,6 +8,9 @@ import s from '../DailyCalorieIntake/DailyCalorieIntake.module.css';
 
 export default function DailyCalorieIntake() {
   const { calories, notRecomendedProducts } = useSelector(getDailyIntake);
+  const isLoggedIn = useSelector(getLoginStatus);
+
+  const navigateTo = isLoggedIn ? '/diary' : '/registration';
 
   const productsNotAllowed = notRecomendedProducts?.map(el => (
     <li key={nanoid()} className={s.item}>
@@ -23,7 +26,7 @@ export default function DailyCalorieIntake() {
       </p>
       <p className={s.textSecondary}>Foods you should not eat</p>
       <ol className={s.list}>{productsNotAllowed}</ol>
-      <NavLink className={s.navLink} to="registration">
+      <NavLink className={s.navLink} to={navigateTo}>
         Start losing weight
       </NavLink>
     </>

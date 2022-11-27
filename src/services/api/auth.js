@@ -53,6 +53,7 @@ export const getCalorieIntake = async payload => {
 
 export const getCalorieIntakeForUser = async payload => {
   const { data } = await instance.post(`/daily-intake/user`, payload);
+
   return data;
 };
 

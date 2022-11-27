@@ -41,6 +41,7 @@ export default function Modal({ onClose }) {
             <use href={closeIcon + '#close-modal-cross'}></use>
           </svg>
         </button>
+
         <DailyCalorieIntake />
       </div>
     </div>,
