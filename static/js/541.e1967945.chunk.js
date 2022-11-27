@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkslim_mom_frontend=self.webpackChunkslim_mom_frontend||[]).push([[541],{1541:function(n,e,r){r.r(e),r.d(e,{default:function(){return c}});var s="HomePage_container__uNu-e",u=r(6767),t=r(184),c=function(){return(0,t.jsx)("main",{className:s,children:(0,t.jsx)(u.W2,{children:(0,t.jsx)(u.pP,{})})})}}}]);
+//# sourceMappingURL=541.e1967945.chunk.js.map
