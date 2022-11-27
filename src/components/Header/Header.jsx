@@ -7,7 +7,6 @@ import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 // import { useSelector } from 'react-redux';
 import { getLoginStatus } from 'redux/auth/auth-selector';
-import { Link } from 'react-router-dom';
 
 const Header = ({ menuActive, setMenuActive }) => {
   const { width } = useWindowDimensions();
@@ -25,9 +24,7 @@ const Header = ({ menuActive, setMenuActive }) => {
     <header className={s.header}>
       <nav className={s.nav}>
         <div className={s.block}>
-          <Link to="/" className={s.goback}>
-            <Logo />
-          </Link>
+          <Logo />
           {!(isLogin && width < 1280) && (
             <div className={s.info}>
               <UserNav isLogin={isLogin} />
