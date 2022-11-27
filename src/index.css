@@ -52,11 +52,11 @@ a {
   margin: -1px;
 }
 
-/* img {
+img {
   display: block;
-  min-width: 100%;
+  max-width: 100%;
   height: auto;
-} */
+}
 
 h1,
 h2,

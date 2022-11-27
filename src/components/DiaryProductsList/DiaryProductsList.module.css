@@ -13,10 +13,12 @@
   .list {
     padding: 0 40px 0 0;
     max-height: 250px;
+    max-width: 610px;
   }
 }
 @media screen and (min-width: 1280px) {
   .list {
     max-height: 300px;
+    max-width: 623px;
   }
 }

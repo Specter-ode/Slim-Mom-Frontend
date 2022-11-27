@@ -7,7 +7,7 @@
   margin-bottom: 24px;
 }
 
-.calendar {
+.diaryCalendar {
   width: 300px;
   /* color */
   border: none;
@@ -30,12 +30,24 @@
   height: 20px;
 }
 
+.sidebarCalendar {
+  /* color */
+  border: none;
+  outline: none;
+  color: var(--main-color);
+  background-color: transparent;
+  /* font */
+  font-size: inherit;
+
+  pointer-events: none;
+}
+
 @media screen and (min-width: 768px) {
   .block {
     margin-bottom: 40px;
   }
 
-  .calendar {
+  .diaryCalendar {
     font-size: 34px;
     line-height: 1.21;
   }
