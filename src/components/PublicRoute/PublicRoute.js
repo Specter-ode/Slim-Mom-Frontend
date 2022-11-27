@@ -1,11 +1,21 @@
-import { Outlet } from 'react-router-dom';
-// import { useSelector } from 'react-redux';
-// import { getToken } from 'redux/auth/auth-selector';
+import { Navigate, Outlet } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { getLoginStatus, getUserDailyDiet } from 'redux/auth/auth-selector';
 
 const PublicRoute = () => {
-  return <Outlet />;
-  // const isToken = useSelector(getToken);
-  // return <>{isToken ? <Navigate to="/contacts" /> : <Outlet />}</>;
+  const isLogin = useSelector(getLoginStatus);
+  const isDailyDiet = useSelector(getUserDailyDiet);
+  return (
+    <>
+      {!isLogin ? (
+        <Outlet />
+      ) : isDailyDiet ? (
+        <Navigate to="/diary" />
+      ) : (
+        <Navigate to="/calculator" />
+      )}
+    </>
+  );
 };
 
 export default PublicRoute;

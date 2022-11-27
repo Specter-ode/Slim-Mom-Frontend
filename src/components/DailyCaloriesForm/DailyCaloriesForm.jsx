@@ -2,9 +2,9 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, Modal } from 'components';
 import { toast } from 'react-toastify';
-
+import { updateModalStatus } from 'redux/auth/auth-slice';
 import { getCalorieIntake, getCalorieIntakeForUser } from 'redux/auth/auth-operations';
-import { getLoginStatus } from 'redux/auth/auth-selector';
+import { getLoginStatus, getModalStatus } from 'redux/auth/auth-selector';
 import s from '../DailyCaloriesForm/DailyCaloriesForm.module.css';
 
 export default function DailyCaloriesForm() {
@@ -15,12 +15,13 @@ export default function DailyCaloriesForm() {
   const [currentWeight, setCurrentWeight] = useState('');
   const [desiredWeight, setDesiredWeight] = useState('');
   const [bloodType, setBloodType] = useState('');
-  const [showModal, setShowModal] = useState(false);
-
   const isLoggedIn = useSelector(getLoginStatus);
 
+  // const [showModal, setShowModal] = useState(false);
+  const showModal = useSelector(getModalStatus);
   const toggleModal = () => {
-    setShowModal(state => !state);
+    // setShowModal(state => !state);
+    dispatch(updateModalStatus(!showModal));
     document.body.style.overflowY = 'visible';
   };
 

@@ -7,8 +7,11 @@ const getLinkClassName = ({ isActive }) => {
   return isActive ? s.activeLink : s.link;
 };
 
-function UserNav({ isAuth }) {
-  const selectLinks = isAuth ? links : links.filter(item => !item.private);
+function UserNav({ isLogin }) {
+  const selectLinks = isLogin
+    ? links.filter(item => item.private)
+    : links.filter(item => !item.private);
+  console.log('selectLinks: ', selectLinks);
   const elements = selectLinks.map(({ id, to, text }) => (
     <li className={s.item} key={id}>
       <NavLink className={getLinkClassName} to={to}>

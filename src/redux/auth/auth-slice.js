@@ -37,7 +37,7 @@ const authSlice = createSlice({
     },
     [handleRegistration.fulfilled]: (store, { payload }) => {
       store.user = { ...payload.user };
-      store.token = payload.token;
+      store.accessToken = payload.accessToken;
       store.isLoading = false;
     },
     [handleRegistration.rejected]: (store, { payload }) => {
@@ -107,8 +107,8 @@ const authSlice = createSlice({
       store.error = null;
     },
     [getCurrentUser.fulfilled]: (store, { payload }) => {
-      store.userData = { ...payload };
-      store.currentUser = true;
+      store.user = { ...payload.user };
+      store.isLogin = true;
     },
     [getCurrentUser.rejected]: (store, { error }) => {
       store.loading = false;

@@ -31,13 +31,11 @@
 
 @media screen and (min-width: 1280px) {
   .backgroundHome {
-    padding-top: 80px;
     background: url(../../assets/png/backgroundAuthDeskTop_x1.png) no-repeat 100% 0%;
     background-size: contain;
   }
 
   .backgroundDiaryCalc {
-    padding-top: 80px;
     background: url(../../assets/png/backgroundDiaryCalcDeskTop_x1.png) no-repeat 100% 0%;
     background-size: contain;
   }

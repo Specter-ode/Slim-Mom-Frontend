@@ -16,17 +16,17 @@ const SideBar = () => {
     dispatch(getDailyMeals({ date: date }));
   }, [dispatch, date, dailyMeals]);
 
-  const dailyCalories = Number(userDailyDiet.calories).toFixed(1);
+  const dailyCalories = Number(userDailyDiet?.calories).toFixed(1);
   const consumedCalories = dailyMeals?.reduce((total, meal) => {
     return total + meal.calories;
   }, 0);
   const leftCalories = (dailyCalories - consumedCalories).toFixed(1);
   const percent = ((consumedCalories * 100) / dailyCalories).toFixed(2);
 
-  const foodCategories = userDailyDiet.notRecomendedProducts?.join(', ');
+  const foodCategories = userDailyDiet?.notRecomendedProducts?.join(', ');
 
-  const showInfo = dailyMeals && userDailyDiet.calories && userDailyDiet.notRecomendedProducts;
-  const noInfo = !userDailyDiet.calories && !userDailyDiet.notRecomendedProducts;
+  const showInfo = dailyMeals && userDailyDiet?.calories && userDailyDiet?.notRecomendedProducts;
+  const noInfo = !userDailyDiet?.calories && !userDailyDiet?.notRecomendedProducts;
 
   return (
     <div className={s.sideBar}>

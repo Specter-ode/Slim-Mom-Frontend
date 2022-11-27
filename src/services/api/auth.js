@@ -1,10 +1,11 @@
 import axios from 'axios';
-const { BACKEND_URL } = process.env;
+const { BACKEND_URL = 'http://localhost:4000/api' } = process.env;
 const instance = axios.create({
-  baseURL: BACKEND_URL || 'http://localhost:4000/api',
+  baseURL: BACKEND_URL,
 });
 
 const setToken = (token = '') => {
+  console.log('instance.defaults.headers.authorization: ', instance.defaults.headers.authorization);
   if (token) {
     return (instance.defaults.headers.authorization = `Bearer ${token}`);
   }
@@ -12,7 +13,9 @@ const setToken = (token = '') => {
 };
 
 export const signup = async data => {
+  console.log('data: ', data);
   const result = await instance.post('/users/signup', data);
+  console.log('result: ', result);
   return result.data;
 };
 
@@ -32,7 +35,7 @@ export const login = async data => {
 };
 
 export const logout = async data => {
-  const result = await instance.post('/users/logout', data);
+  const result = await instance.get('/users/logout', data);
   setToken('');
   return result.data;
 };

@@ -1,5 +1,5 @@
 export { default as AdditionalHeaderField } from './AdditionalHeaderField/AdditionalHeaderField';
-export { default as AuthNav } from './AuthNav/AuthNav';
+
 export { default as Background } from './Background/Background';
 export { default as BurgerMenu } from './BurgerMenu/BurgerMenu';
 export { default as Button } from './Button/Button';

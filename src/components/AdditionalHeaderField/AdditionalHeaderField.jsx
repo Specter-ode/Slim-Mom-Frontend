@@ -3,18 +3,15 @@ import { ReactComponent as BackArrow } from 'assets/icons/back-arrow.svg';
 import { UserInfo } from 'components';
 import { useSelector, useDispatch } from 'react-redux';
 import { getModalStatus } from 'redux/auth/auth-selector';
-import { Navigate, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { updateModalStatus } from 'redux/auth/auth-slice';
-// import { getUser, getToken } from 'redux/auth/auth-selector';
-// import { logout } from 'redux/auth/auth-operations';
+import { getLoginStatus } from 'redux/auth/auth-selector';
 
 const AdditionalHeaderField = () => {
   const showModal = useSelector(getModalStatus);
   const { pathname } = useLocation();
-  // const { name } = useSelector(getUser);
-  // const token = useSelector(getToken);
+  const isLogin = useSelector(getLoginStatus);
   const dispatch = useDispatch();
-  const isLogin = true;
   return (
     <div className={s.block}>
       {showModal && (
@@ -27,16 +24,20 @@ const AdditionalHeaderField = () => {
         </button>
       )}
       {pathname === '/diary' && (
-        <Navigate to="/calculator">
+        <Link to="/calculator">
           <BackArrow className={s.icon} />
-        </Navigate>
+        </Link>
       )}
       {pathname === '/diary-mobile-form' && (
-        <Navigate to="/diary">
+        <Link to="/diary">
           <BackArrow className={s.icon} />
-        </Navigate>
+        </Link>
       )}
-      {isLogin && <UserInfo />}
+      {isLogin && (
+        <div className={s.thumb}>
+          <UserInfo />
+        </div>
+      )}
     </div>
   );
 };
