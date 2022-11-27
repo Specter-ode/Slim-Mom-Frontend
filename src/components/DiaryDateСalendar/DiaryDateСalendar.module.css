@@ -30,6 +30,11 @@
   height: 20px;
 }
 
+.box {
+  display: inline-block;
+  max-width: 150px;
+}
+
 .sidebarCalendar {
   /* color */
   border: none;

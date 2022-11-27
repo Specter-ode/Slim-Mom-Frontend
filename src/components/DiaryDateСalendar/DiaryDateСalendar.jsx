@@ -42,15 +42,15 @@ const DiaryDateСalendar = ({ location }) => {
       )}
 
       {sidebarCalendar && (
-        // <div className={s.block}>
-        <DatePicker
-          className={s.sidebarCalendar}
-          dateFormat="dd/MM/yyyy"
-          maxDate={new Date()}
-          selected={dateObject}
-          onChange={date => setDateObject(date)}
-        />
-        // </div>
+        <div className={s.box}>
+          <DatePicker
+            className={s.sidebarCalendar}
+            dateFormat="dd/MM/yyyy"
+            maxDate={new Date()}
+            selected={dateObject}
+            onChange={date => setDateObject(date)}
+          />
+        </div>
       )}
     </>
   );
