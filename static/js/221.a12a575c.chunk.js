@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkslim_mom_frontend=self.webpackChunkslim_mom_frontend||[]).push([[221],{8221:function(n,e,s){s.r(e),s.d(e,{default:function(){return u}});var r="CalculatorPage_container__158vw",t=s(6767),a=s(184),u=function(){return(0,a.jsxs)("main",{className:r,children:[(0,a.jsx)(t.pP,{}),(0,a.jsx)(t.Ke,{})]})}}}]);
-//# sourceMappingURL=221.a12a575c.chunk.js.map

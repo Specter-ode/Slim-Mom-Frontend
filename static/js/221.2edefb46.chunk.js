@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkslim_mom_frontend=self.webpackChunkslim_mom_frontend||[]).push([[221],{8221:function(e,s,l){l.r(s),l.d(s,{default:function(){return i}});var n="CalculatorPage_section__Wyr9N",a="CalculatorPage_flex__7Ze8-",c=l(6767),r=l(184),i=function(){return(0,r.jsx)("section",{className:n,children:(0,r.jsxs)(c.W2,{children:[(0,r.jsx)("h3",{className:"visually-hidden",children:"Calculator Page"}),(0,r.jsxs)("div",{className:a,children:[(0,r.jsx)(c.pP,{}),(0,r.jsx)(c.Ke,{})]})]})})}}}]);
+//# sourceMappingURL=221.2edefb46.chunk.js.map
