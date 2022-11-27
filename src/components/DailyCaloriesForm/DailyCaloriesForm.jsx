@@ -1,182 +1,125 @@
-import {
-  useState,
-  // useEffect
-} from 'react';
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Button, Modal } from 'components';
+import { toast } from 'react-toastify';
 
+import { getCalorieIntake, getCalorieIntakeForUser } from 'redux/auth/auth-operations';
+import { getLoginStatus } from 'redux/auth/auth-selector';
 import s from '../DailyCaloriesForm/DailyCaloriesForm.module.css';
 
 export default function DailyCaloriesForm() {
+  const dispatch = useDispatch();
+
   const [height, setHeight] = useState('');
   const [age, setAge] = useState('');
   const [currentWeight, setCurrentWeight] = useState('');
   const [desiredWeight, setDesiredWeight] = useState('');
-
+  const [bloodType, setBloodType] = useState('');
   const [showModal, setShowModal] = useState(false);
 
-  const [firstType, setFirstType] = useState(false);
-  const [secondType, setSecondType] = useState(false);
-  const [thirdType, setThirdType] = useState(false);
-  const [fourthType, setFourthType] = useState(false);
-
-  // const [bloodType, setBloodType] = useState([]);
-
-  // const arrayBloodType = [null, false, true, false, false];
-  // console.log('arrayBloodType', arrayBloodType);
-
-  // const arrayRadio = [false, true, false, true];
-  // console.log('array', arrayRadio);
-
-  // const data = [
-  //   {
-  //     _id: {
-  //       $oid: '5d51694802b2373622ff553b',
-  //     },
-  //     categories: ['яйца'],
-  //     weight: 100,
-  //     title: {
-  //       ru: 'Яйцо куриное (желток сухой)',
-  //       ua: 'Яйце куряче (жовток сухий)',
-  //     },
-  //     calories: 623,
-  //     groupBloodNotAllowed: [null, true, false, false, false],
-  //     __v: 0,
-  //   },
-  //   {
-  //     _id: {
-  //       $oid: '5d51694802b2373622ff554d',
-  //     },
-  //     categories: ['зерновые'],
-  //     weight: 100,
-  //     title: {
-  //       ru: 'Горох маш Ярмарка Платинум',
-  //       ua: 'Горох маш Ярмарка Платинум',
-  //     },
-  //     calories: 312,
-  //     groupBloodNotAllowed: [null, true, false, false, false],
-  //     __v: 0,
-  //   },
-  //   {
-  //     _id: {
-  //       $oid: '5d51694802b2373622ff555c',
-  //     },
-  //     categories: ['зерновые'],
-  //     weight: 100,
-  //     title: {
-  //       ru: 'Гречневая крупа (ядрица) зелёная',
-  //       ua: 'Гречана крупа (ядриця) зелена',
-  //     },
-  //     calories: 296,
-  //     groupBloodNotAllowed: [null, true, false, true, true],
-  //     __v: 0,
-  //   },
-  // ];
-  // const test = () => {
-  //   // if (arrayBloodType[1] === arrayRadio[0] && arrayBloodType[1] === true) {
-  //   //   console.log('Первый эелемент прошел условия!');
-  //   // } else if (arrayBloodType[2] === arrayRadio[1] && arrayBloodType[2] === true) {
-  //   //   console.log('Второй элемент прошел условия!');
-  //   // } else if (arrayBloodType[3] === arrayRadio[2] && arrayBloodType[3] === true) {
-  //   //   console.log('Третий элемент прошел условия!');
-  //   // } else if (arrayBloodType[4] === arrayRadio[3] && arrayBloodType[4] === true) {
-  //   //   console.log('Четвертый элемент прошел условия!');
-  //   // }
-  //   // for (let index = 0; index < arrayBloodType.length; index++) {
-  //   //   const element = arrayBloodType[index];
-  //   //   // console.log('element', element);
-  //   //   if (element === firstType && element === true) {
-  //   //     console.log('Первый эелемент прошел условия!', element);
-  //   //     console.log('secondType не прошел условие', secondType);
-  //   //     console.log('thirdType не прошел условие', secondType);
-  //   //     console.log('fourthType не прошел условие', secondType);
-  //   //   } else if (element === secondType && element === true) {
-  //   //     console.log('Второй эелемент прошел условия!', element);
-  //   //   } else if (element === thirdType && element === true) {
-  //   //     console.log('Третий эелемент прошел условия!', element);
-  //   //   } else if (element === fourthType && element === true) {
-  //   //     console.log('Четвертый эелемент прошел условия!', element);
-  //   //   }
-  //   // }
-  //   // arrayBloodType.map(el => {
-  //   //   if (el !== null) {
-  //   //     console.log('el', el);
-  //   //     console.log('el === firstTupe', el === firstType);
-  //   //   }
-  //   // });
-  // };
-
-  // test();
-
-  // console.log('firstType', firstType);
-  // console.log('secondType', secondType);
-  // console.log('thirdType', thirdType);
-  // console.log('fourthType', fourthType);
-
-  // useEffect(() => {
-  //   setBloodType(prevState => console.log('prevState', prevState));
-  // }, []);
+  const isLoggedIn = useSelector(getLoginStatus);
 
   const toggleModal = () => {
     setShowModal(state => !state);
+    document.body.style.overflowY = 'visible';
   };
 
-  // setBloodType(prevState => console.log('prevState', prevState));
-  // console.log('bloodType', bloodType);
+  const resetForm = () => {
+    setHeight('');
+    setAge('');
+    setCurrentWeight('');
+    setDesiredWeight('');
+    setBloodType('');
+  };
 
-  const handleInputChange = ({ target: { name, value } }) => {
+  const handleInputChange = ({ target: { name, value, checked = false } }) => {
+    const isButtonChecked = checked ? value : '';
+
     switch (name) {
       case 'height':
         setHeight(value);
         break;
+
       case 'age':
         setAge(value);
         break;
+
       case 'currentWeight':
         setCurrentWeight(value);
         break;
+
       case 'desiredWeight':
         setDesiredWeight(value);
         break;
 
       case 'firstType':
-        setFirstType(true);
-        setSecondType(false);
-        setThirdType(false);
-        setFourthType(false);
+        setBloodType(isButtonChecked);
         break;
+
       case 'secondType':
-        setFirstType(false);
-        setSecondType(true);
-        setThirdType(false);
-        setFourthType(false);
+        setBloodType(isButtonChecked);
         break;
+
       case 'thirdType':
-        setFirstType(false);
-        setSecondType(false);
-        setThirdType(true);
-        setFourthType(false);
+        setBloodType(isButtonChecked);
         break;
+
       case 'fourthType':
-        setFirstType(false);
-        setSecondType(false);
-        setThirdType(false);
-        setFourthType(true);
+        setBloodType(isButtonChecked);
         break;
+
       default:
         return;
     }
   };
 
+  const onFormSubmit = event => {
+    event.preventDefault();
+
+    if (bloodType === '') {
+      return toast.warn('Please сhoose your blood type');
+    }
+
+    if (isLoggedIn) {
+      resetForm();
+      dispatch(
+        getCalorieIntakeForUser({
+          height,
+          age,
+          currentWeight,
+          desiredWeight,
+          bloodType,
+        })
+      );
+
+      toggleModal();
+    } else {
+      resetForm();
+      dispatch(
+        getCalorieIntake({
+          height,
+          age,
+          currentWeight,
+          desiredWeight,
+          bloodType,
+        })
+      );
+      toggleModal();
+    }
+  };
+
   return (
-    <div className={s.div}>
+    <div className={s.formContainer}>
       <h2 className={s.title}>Calculate your daily calorie intake right now</h2>
-      <form>
+      <form className={s.form} onSubmit={onFormSubmit}>
         <div className={s.labelContainer}>
           <label className={s.label} htmlFor="height">
             <input
               className={s.input}
               onChange={handleInputChange}
               value={height}
+              min="100"
+              max="300"
               id="height"
               type="number"
               name="height"
@@ -190,6 +133,8 @@ export default function DailyCaloriesForm() {
               className={s.input}
               onChange={handleInputChange}
               value={age}
+              min="6"
+              max="130"
               id="age"
               type="number"
               name="age"
@@ -203,6 +148,8 @@ export default function DailyCaloriesForm() {
               className={s.input}
               onChange={handleInputChange}
               value={currentWeight}
+              min="40"
+              max="270"
               id="currentWeight"
               type="number"
               name="currentWeight"
@@ -216,6 +163,8 @@ export default function DailyCaloriesForm() {
               className={s.input}
               onChange={handleInputChange}
               value={desiredWeight}
+              min="40"
+              max="270"
               id="desiredWeight"
               type="number"
               name="desiredWeight"
@@ -224,7 +173,7 @@ export default function DailyCaloriesForm() {
             />
           </label>
 
-          <p className={s.text}>Blood type *</p>
+          <p className={s.textBloodType}>Blood type *</p>
 
           <div>
             <label className={s.labelRadio}>
@@ -233,7 +182,7 @@ export default function DailyCaloriesForm() {
                 onChange={handleInputChange}
                 type="radio"
                 name="firstType"
-                checked={firstType}
+                checked={bloodType === '1'}
                 value={1}
               />
 
@@ -245,7 +194,7 @@ export default function DailyCaloriesForm() {
                 onChange={handleInputChange}
                 type="radio"
                 name="secondType"
-                checked={secondType}
+                checked={bloodType === '2'}
                 value={2}
               />
 
@@ -257,7 +206,7 @@ export default function DailyCaloriesForm() {
                 onChange={handleInputChange}
                 type="radio"
                 name="thirdType"
-                checked={thirdType}
+                checked={bloodType === '3'}
                 value={3}
               />
 
@@ -269,7 +218,7 @@ export default function DailyCaloriesForm() {
                 onChange={handleInputChange}
                 type="radio"
                 name="fourthType"
-                checked={fourthType}
+                checked={bloodType === '4'}
                 value={4}
               />
 
@@ -278,7 +227,7 @@ export default function DailyCaloriesForm() {
           </div>
         </div>
         <div className={s.buttonPosition}>
-          <Button text="Start losing weight" width={210} onClick={toggleModal} />
+          <Button text="Start losing weight" width={210} />
         </div>
       </form>
 

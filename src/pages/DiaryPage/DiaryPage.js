@@ -1,20 +1,37 @@
+import { useNavigate } from 'react-router-dom';
+
+import useWindowDimensions from '../../services/hooks/useWindowDimensions';
+import {
+  ButtonPlus,
+  DiaryAddProductForm,
+  DiaryDateСalendar,
+  DiaryProductsList,
+  SideBar,
+} from '../../components';
 import s from './DiaryPage.module.css';
-import SideBar from 'components/SideBar/SideBar';
-import DiaryAddProductForm from 'components/DiaryAddProductForm/DiaryAddProductForm';
-import DiaryDateСalendar from 'components/DiaryDateСalendar/DiaryDateСalendar';
-import DiaryProductsList from 'components/DiaryProductsList/DiaryProductsList';
-import { useState } from 'react';
 
 const DiaryPage = () => {
-  const [date, setDate] = useState(() => new Date());
-  console.log('date: ', date);
+  const navigate = useNavigate();
+
+  const { width } = useWindowDimensions();
+
+  const handleMobileFormOpen = () => {
+    navigate(`/diary-mobile-form`);
+  };
+
   return (
-    <main>
-      <h3 className={s.title}>DiaryPage </h3>
-      <DiaryDateСalendar date={date} setDate={setDate} />
-      <DiaryAddProductForm date={date} />
-      <DiaryProductsList date={date} />
-      <SideBar date={date} />
+    <main className={s.main}>
+      <div className={s.diary}>
+        <DiaryDateСalendar location="diary" />
+
+        {width > 767 && <DiaryAddProductForm />}
+
+        <DiaryProductsList />
+
+        {width < 768 && <ButtonPlus type="button" onClick={handleMobileFormOpen} />}
+      </div>
+
+      <SideBar />
     </main>
   );
 };

@@ -6,5 +6,8 @@
 <symbol id="arrow-to-back-mobile" viewBox="0 0 53 32">
 <path stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="7.1111" d="M49.778 4.833v10.667h-42.667M7.111 15.5l12.444-12.444M7.111 15.5l12.444 12.444"></path>
 </symbol>
+<symbol id="plus" viewBox="0 0 24 24">
+<path  d="M18.72 12.96h-5.76v5.76h-1.92v-5.76h-5.76v-1.92h5.76v-5.76h1.92v5.76h5.76v1.92z"></path>
+</symbol>
 </defs>
 </svg>

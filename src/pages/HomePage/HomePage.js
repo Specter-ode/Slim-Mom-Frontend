@@ -1,11 +1,12 @@
 import s from './HomePage.module.css';
-import CalculatorСalorieForm from 'components/DailyCaloriesForm/DailyCaloriesForm';
+import { Container, DailyCaloriesForm } from 'components';
 
 const HomePage = () => {
   return (
     <main className={s.container}>
-      <h3 className={s.title}>HomePage </h3>
-      <CalculatorСalorieForm />
+      <Container>
+        <DailyCaloriesForm />
+      </Container>
     </main>
   );
 };

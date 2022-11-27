@@ -2,8 +2,15 @@
   min-width: 320px;
   max-width: 1280px;
   margin: 0 auto;
+  font-family: 'Gotham-Pro';
+  font-weight: 700;
+  line-height: 0.95;
 }
-
+.field {
+  position: absolute;
+  right: 20px;
+  top: 0;
+}
 .nav {
   display: flex;
   flex-direction: column;
@@ -11,17 +18,16 @@
 .block {
   display: flex;
   align-items: center;
-  height: 80px;
   min-width: 100%;
   margin-left: auto;
   margin-right: auto;
-  padding: 0 20px;
+  padding: 20px 20px 16px 20px;
+}
+.info {
+  display: flex;
 }
 .nickName {
-  font-family: 'Gotham Pro';
   position: relative;
-  font-weight: 700;
-  line-height: 0.95;
   padding: 15px 18px 13px 0;
 }
 .nickName::after {
@@ -34,13 +40,10 @@
   background-color: #e0e0e0;
 }
 .exitBtn {
-  font-family: 'Gotham Pro';
   display: inline-block;
   text-decoration: none;
   padding: 15px 0 13px 16px;
   border: none;
-  font-weight: 700;
-  line-height: 0.95;
 }
 .exitBtn:hover {
   color: var(--second-color);
@@ -51,11 +54,7 @@
 
 .burgerBtn {
   border: transparent;
-}
-@media screen and (max-width: 767px) {
-  .header {
-    margin-bottom: 32px;
-  }
+  padding: 14px 0;
 }
 @media screen and (min-width: 480px) {
   .block {
@@ -63,30 +62,35 @@
   }
 }
 @media screen and (min-width: 768px) {
-  .header {
-    margin-bottom: 100px;
-  }
   .block {
     width: 768px;
-    padding: 0 32px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+  .burgerBtn {
+    border: transparent;
+    margin-left: 53px;
   }
 }
 
 @media screen and (min-width: 1280px) {
   .header {
-    margin-bottom: 150px;
+    padding-top: 80px;
+    padding-bottom: 0;
   }
   .block {
     width: 1280px;
     padding: 0 16px;
-    align-items: baseline;
-    border-bottom: none;
+
+    align-items: flex-end;
   }
   .burgerBtn {
     display: none;
   }
-  .nickName {
-    margin-left: auto;
+
+  .info {
+    margin-left: 22px;
+    margin-right: auto;
   }
 }
 @media screen and (max-width: 1279px) {

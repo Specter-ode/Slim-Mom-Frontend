@@ -1,7 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { handleRegistration, handleLogin, handleLogout, getCurrentUser } from './auth-operations';
+import {
+  handleRegistration,
+  handleLogin,
+  handleLogout,
+  getCurrentUser,
+  handleFacebookRegistration,
+  getCalorieIntake,
+} from './auth-operations';
 
 const initialState = {
+  userDailyDiet: { calories: null, notRecomendedProducts: null },
+  dailyDiet: { calories: null, notRecomendedProducts: null },
   user: {},
   accessToken: '',
   refreshToken: '',
@@ -23,17 +32,17 @@ const authSlice = createSlice({
   extraReducers: {
     // -------------------registration------------------------------
     [handleRegistration.pending]: store => {
-      store.loading = true;
-      store.error = null;
+      store.isLoading = true;
+      store.isError = null;
     },
     [handleRegistration.fulfilled]: (store, { payload }) => {
-      store.userData = { ...payload.userData };
-      store.token = payload.token;
-      store.loading = false;
+      store.user = { ...payload.user };
+      store.accessToken = payload.accessToken;
+      store.isLoading = false;
     },
     [handleRegistration.rejected]: (store, { payload }) => {
-      store.loading = false;
-      store.error = payload.message;
+      store.isLoading = false;
+      store.isError = payload.message;
     },
     // -----------------auth/google----------------------------
     // [handleAuthGoogle.pending]: store => {
@@ -48,34 +57,47 @@ const authSlice = createSlice({
     //   store.error = payload.message;
     // },
 
-    // -------------------login------------------------------
-
-    [handleLogin.pending]: store => {
+    // -----------------auth/facebook----------------------------
+    [handleFacebookRegistration.pending]: store => {
       store.loading = true;
       store.error = null;
     },
-    [handleLogin.fulfilled]: (store, { payload }) => {
-      store.userData = { ...payload.userData };
-      store.accessToken = payload.accessToken;
+    [handleFacebookRegistration.fulfilled]: (store, { payload }) => {
       store.loading = false;
-      store.sid = payload.sid;
-      store.refreshToken = payload.refreshToken;
-      store.currentUser = true;
     },
-    [handleLogin.rejected]: (store, { payload }) => {
+    [handleFacebookRegistration.rejected]: (store, { payload }) => {
       store.loading = false;
       store.error = payload.message;
+    },
+
+    // -------------------login------------------------------
+
+    [handleLogin.pending]: store => {
+      store.isLoading = true;
+      store.isError = null;
+    },
+    [handleLogin.fulfilled]: (store, { payload }) => {
+      store.user = { ...payload.user };
+      store.accessToken = payload.accessToken;
+      store.isLoading = false;
+      store.isLogin = true;
+      store.refreshToken = payload.refreshToken;
+      store.userDailyDiet = payload.dailyDiet;
+    },
+    [handleLogin.rejected]: (store, { payload }) => {
+      store.isLoading = false;
+      store.isError = payload.message;
     },
 
     // -------------------logout------------------------------
     [handleLogout.pending]: store => {
-      store.loading = true;
-      store.error = null;
+      store.isLoading = true;
+      store.isError = null;
     },
     [handleLogout.fulfilled]: () => ({ ...initialState }),
     [handleLogout.rejected]: (store, { payload }) => {
-      store.loading = false;
-      store.error = payload.message;
+      store.isLoading = false;
+      store.isError = payload.message;
     },
 
     // -------------------currentUser----------------------------------
@@ -84,12 +106,27 @@ const authSlice = createSlice({
       store.error = null;
     },
     [getCurrentUser.fulfilled]: (store, { payload }) => {
-      store.userData = { ...payload };
-      store.currentUser = true;
+      store.user = { ...payload.user };
+      store.isLogin = true;
     },
     [getCurrentUser.rejected]: (store, { error }) => {
       store.loading = false;
       store.error = error.message;
+    },
+    // Daily Intake
+    [getCalorieIntake.pending](state, _) {
+      state.isLoading = true;
+      state.isError = null;
+    },
+
+    [getCalorieIntake.fulfilled](state, { payload: { notAllowedProduct, calories } }) {
+      state.dailyDiet.calories = calories;
+      state.dailyDiet.notRecomendedProducts = notAllowedProduct;
+      state.isLoading = false;
+    },
+    [getCalorieIntake.rejected](state, { payload }) {
+      state.isLoading = false;
+      state.isError = payload.message;
     },
   },
 });

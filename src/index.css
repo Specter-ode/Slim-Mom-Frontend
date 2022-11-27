@@ -39,11 +39,11 @@ a {
   text-decoration: none;
 }
 
-/* img {
+img {
   display: block;
-  min-width: 100%;
+  max-width: 100%;
   height: auto;
-} */
+}
 
 h1,
 h2,
@@ -60,4 +60,10 @@ button {
   background-color: transparent;
   cursor: pointer;
   padding: 0;
+}
+
+@media screen and (min-width: 1280px) {
+  #modal-nav {
+    display: none;
+  }
 }

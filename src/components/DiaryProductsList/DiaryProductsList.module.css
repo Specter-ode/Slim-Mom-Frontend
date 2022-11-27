@@ -1,5 +1,22 @@
 .list {
-  padding: 0;
-  list-style: none;
-  margin: 0;
+  max-height: 200px;
+  overflow: auto;
+}
+
+@media screen and (max-width: 767px) {
+  .list {
+    margin-bottom: 60px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .list {
+    padding: 0 40px 0 0;
+    max-height: 250px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .list {
+    max-height: 300px;
+  }
 }
