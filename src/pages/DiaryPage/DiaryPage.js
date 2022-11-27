@@ -22,7 +22,7 @@ const DiaryPage = () => {
   return (
     <main className={s.main}>
       <div className={s.diary}>
-        <DiaryDateСalendar />
+        <DiaryDateСalendar location="diary" />
 
         {width > 767 && <DiaryAddProductForm />}
 

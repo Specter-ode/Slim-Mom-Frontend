@@ -5,9 +5,12 @@ import {
   handleLogout,
   getCurrentUser,
   handleFacebookRegistration,
+  getCalorieIntake,
 } from './auth-operations';
 
 const initialState = {
+  userDailyDiet: { calories: null, notRecomendedProducts: null },
+  dailyDiet: { calories: null, notRecomendedProducts: null },
   user: {},
   accessToken: '',
   refreshToken: '',
@@ -15,8 +18,6 @@ const initialState = {
   isLoading: false,
   isError: null,
   showModal: false,
-  userDailyDiet: { calories: null, notRecomendedProducts: null },
-  dailyDiet: { calories: null, notRecomendedProducts: null },
 };
 
 const authSlice = createSlice({
@@ -112,6 +113,21 @@ const authSlice = createSlice({
     [getCurrentUser.rejected]: (store, { error }) => {
       store.loading = false;
       store.error = error.message;
+    },
+    // Daily Intake
+    [getCalorieIntake.pending](state, _) {
+      state.isLoading = true;
+      state.isError = null;
+    },
+
+    [getCalorieIntake.fulfilled](state, { payload: { notAllowedProduct, calories } }) {
+      state.dailyDiet.calories = calories;
+      state.dailyDiet.notRecomendedProducts = notAllowedProduct;
+      state.isLoading = false;
+    },
+    [getCalorieIntake.rejected](state, { payload }) {
+      state.isLoading = false;
+      state.isError = payload.message;
     },
   },
 });
