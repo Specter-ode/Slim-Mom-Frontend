@@ -1,1 +1,0 @@
-{"version":3,"file":"static/css/541.b254624a.chunk.css","mappings":"AAAA,oCACE,2BACE,gBACF,CACF","sources":["pages/HomePage/HomePage.module.css"],"sourcesContent":["@media screen and (min-width: 768px) {\n  .container {\n    min-height: 100vh;\n  }\n}\n"],"names":[],"sourceRoot":""}
