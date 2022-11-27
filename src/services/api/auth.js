@@ -20,8 +20,13 @@ export const googleSignup = async () => {
   await instance.get('/users/google');
 };
 
+export const facebookSignup = async () => {
+  await instance.get('/users/facebook');
+};
+
 export const login = async data => {
   const result = await instance.post('/users/login', data);
+  console.log(' login result: ', result);
   setToken(result.data.accessToken);
   return result.data;
 };

@@ -1,5 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { handleRegistration, handleLogin, handleLogout, getCurrentUser } from './auth-operations';
+import {
+  handleRegistration,
+  handleLogin,
+  handleLogout,
+  getCurrentUser,
+  handleFacebookRegistration,
+} from './auth-operations';
 
 const initialState = {
   user: {},
@@ -49,6 +55,20 @@ const authSlice = createSlice({
     //   store.loading = false;
     //   store.error = payload.message;
     // },
+
+    // -----------------auth/facebook----------------------------
+    [handleFacebookRegistration.pending]: store => {
+      store.loading = true;
+      store.error = null;
+    },
+    [handleFacebookRegistration.fulfilled]: (store, { payload }) => {
+      console.log('payload: ', payload);
+      store.loading = false;
+    },
+    [handleFacebookRegistration.rejected]: (store, { payload }) => {
+      store.loading = false;
+      store.error = payload.message;
+    },
 
     // -------------------login------------------------------
 
