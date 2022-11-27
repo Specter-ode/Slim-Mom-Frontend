@@ -82,4 +82,3 @@ export const getCurrentUser = createAsyncThunk(
     },
   }
 );
-/auth/google
