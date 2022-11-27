@@ -5,7 +5,6 @@ const HomePage = () => {
   return (
     <main className={s.container}>
       <Container>
-        <h3 className={s.title}>HomePage </h3>
         <DailyCaloriesForm />
       </Container>
     </main>

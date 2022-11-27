@@ -1,17 +1,11 @@
-.div {
-  border: 1px solid red;
-}
-
 @media screen and (min-width: 768px) {
-  .div {
-    width: 512px;
+  .formContainer {
+    max-width: 608px;
   }
 }
 
 .title {
   margin-bottom: 32px;
-
-  font-family: 'Verdana';
 
   font-weight: 700;
   font-size: 18px;
@@ -22,59 +16,61 @@
 
 @media screen and (min-width: 768px) {
   .title {
+    display: inline-block;
     margin-bottom: 68px;
 
     font-size: 34px;
     line-height: 1.2;
-    max-width: 550px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .form {
+    width: 512px;
   }
 }
 
 .labelContainer {
+  width: 100%;
   margin-bottom: 40px;
 }
 
 @media screen and (min-width: 768px) {
   .labelContainer {
+    margin-bottom: 60px;
+
     width: 512px;
-    max-height: 308px;
+    max-height: 228px;
 
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-
-    margin-bottom: 60px;
-  }
-}
-
-.label:nth-child(-n + 4) {
-  display: block;
-  margin-bottom: 32px;
-}
-
-@media screen and (min-width: 768px) {
-  .label:nth-child(-n + 4) {
-    margin-bottom: 40px;
   }
 }
 
 .input {
-  outline: none;
-  width: 240px;
-  height: 24px;
+  width: 100%;
 
   padding-bottom: 8px;
 
   border: none;
   border-bottom: 1px solid var(--border-color);
 
-  /* По умолчанию FontSize 14px в браузере стоит но не работает почему то */
-  font-family: 'Verdana';
-
-  font-weight: 700;
   font-size: 14px;
+  font-weight: 700;
   line-height: 1.2;
   letter-spacing: 0.04em;
+
+  outline: none;
 
   color: var(--second-color);
 }
@@ -86,16 +82,12 @@
 @media screen and (min-width: 768px) {
   .input {
     padding-bottom: 20px;
-    height: 36px;
   }
 }
 
-.text {
+.textBloodType {
   margin-bottom: 8px;
 
-  /* По умолчанию FontSize 14px в браузере стоит но не работает почему то */
-  font-family: 'Verdana';
-  font-style: normal;
   font-weight: 700;
   font-size: 14px;
   line-height: 1.2;
@@ -105,17 +97,40 @@
 }
 
 @media screen and (min-width: 768px) {
-  .text {
-    width: 240px;
-    height: 36px;
-
+  .textBloodType {
+    margin-top: 40px;
     padding-bottom: 20px;
-
     border-bottom: 1px solid var(--border-color);
   }
 }
 
-/* Radio buttons */
+.label {
+  width: 100%;
+  display: block;
+  margin-bottom: 32px;
+}
+
+@media screen and (min-width: 768px) {
+  .label {
+    width: 240px;
+    margin-bottom: 0;
+  }
+
+  .label:nth-child(-n + 2) {
+    display: block;
+    margin-right: 32px;
+    margin-bottom: 40px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .buttonPosition {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+/* Radio Buttons */
 
 .labelRadio:not(:last-child) {
   display: inline-block;
@@ -137,8 +152,6 @@
   position: relative;
   display: inline-block;
   padding-left: 28px;
-  /* По умолчанию FontSize 14px в браузере стоит но не работает почему то */
-  font-family: 'Verdana';
 
   font-size: 14px;
   line-height: 1.2;
@@ -192,22 +205,4 @@
 .inputRadio:checked + .numbers {
   color: var(--accent-color);
   font-weight: 700;
-}
-
-.buttonPosition {
-  display: flex;
-  justify-content: center;
-  max-height: 44px;
-}
-
-@media screen and (min-width: 768px) {
-  .buttonPosition {
-    justify-content: start;
-  }
-}
-
-@media screen and (min-width: 1280px) {
-  .buttonPosition {
-    justify-content: end;
-  }
 }

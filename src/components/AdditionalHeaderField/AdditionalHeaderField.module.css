@@ -1,5 +1,6 @@
 @media screen and (max-width: 767px) {
   .block {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -15,4 +16,3 @@
     display: none;
   }
 }
-

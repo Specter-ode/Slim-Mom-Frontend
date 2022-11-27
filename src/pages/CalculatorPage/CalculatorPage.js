@@ -3,8 +3,7 @@ import { DailyCaloriesForm, SideBar } from 'components';
 
 const CalculatorPage = () => {
   return (
-    <main>
-      <h3 className={s.title}>Calculator Page</h3>
+    <main  className={s.container}>
       <DailyCaloriesForm />
       <SideBar />
     </main>
