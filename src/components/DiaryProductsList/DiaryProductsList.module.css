@@ -3,6 +3,19 @@
   overflow: auto;
 }
 
+.list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.list::-webkit-scrollbar-track {
+  padding-left: 20px;
+  background-color: var(--scroll-color);
+}
+
+.list::-webkit-scrollbar-thumb {
+  background-color: var(--third-color);
+}
+
 @media screen and (max-width: 767px) {
   .list {
     margin-bottom: 60px;
