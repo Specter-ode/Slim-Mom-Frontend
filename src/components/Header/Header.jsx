@@ -20,7 +20,6 @@ const Header = ({ menuActive, setMenuActive }) => {
       enableBodyScroll(body);
     }
   }, [menuActive]);
-  console.log('{isLogin && width > 767: ', isLogin && width > 767);
   return (
     <header className={s.header}>
       <nav className={s.nav}>

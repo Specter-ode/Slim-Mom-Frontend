@@ -7,7 +7,6 @@ export const handleRegistration = createAsyncThunk(
   async (data, { rejectWithValue }) => {
     try {
       const result = await api.signup(data);
-      console.log('handleRegistration result: ', result);
       return result;
     } catch (error) {
       toast.error(`Sorry, registration failed. Try again.`);

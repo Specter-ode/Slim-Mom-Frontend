@@ -63,7 +63,6 @@ const authSlice = createSlice({
       store.error = null;
     },
     [handleFacebookRegistration.fulfilled]: (store, { payload }) => {
-      console.log('payload: ', payload);
       store.loading = false;
     },
     [handleFacebookRegistration.rejected]: (store, { payload }) => {

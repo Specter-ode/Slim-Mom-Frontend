@@ -11,7 +11,6 @@ function UserNav({ isLogin }) {
   const selectLinks = isLogin
     ? links.filter(item => item.private)
     : links.filter(item => !item.private);
-  console.log('selectLinks: ', selectLinks);
   const elements = selectLinks.map(({ id, to, text }) => (
     <li className={s.item} key={id}>
       <NavLink className={getLinkClassName} to={to}>

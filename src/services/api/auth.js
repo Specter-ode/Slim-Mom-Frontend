@@ -5,7 +5,6 @@ const instance = axios.create({
 });
 
 const setToken = (token = '') => {
-  console.log('instance.defaults.headers.authorization: ', instance.defaults.headers.authorization);
   if (token) {
     return (instance.defaults.headers.authorization = `Bearer ${token}`);
   }
@@ -13,9 +12,7 @@ const setToken = (token = '') => {
 };
 
 export const signup = async data => {
-  console.log('data: ', data);
   const result = await instance.post('/users/signup', data);
-  console.log('result: ', result);
   return result.data;
 };
 
@@ -29,7 +26,6 @@ export const facebookSignup = async () => {
 
 export const login = async data => {
   const result = await instance.post('/users/login', data);
-  console.log(' login result: ', result);
   setToken(result.data.accessToken);
   return result.data;
 };
