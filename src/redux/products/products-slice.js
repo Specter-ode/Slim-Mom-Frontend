@@ -4,7 +4,7 @@ import { getProductsByQuery, getDailyMeals, addMeal, deleteMeal } from './produc
 
 const initialState = {
   productsOptions: [],
-  dailyMeals: [],
+  dailyMeals: null,
   date: '',
   isLoading: false,
   error: '',
@@ -59,7 +59,7 @@ const productsSlice = createSlice({
     [addMeal.fulfilled]: (state, action) => {
       state.isLoading = false;
       state.dailyMeals = [...state.dailyMeals, action.payload];
-      state.products = [];
+      state.productsOptions = [];
     },
     [addMeal.rejected]: (state, action) => {
       state.isLoading = false;

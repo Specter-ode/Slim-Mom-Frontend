@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import useWindowDimensions from '../../services/hooks/useWindowDimensions';
 import {
   ButtonPlus,
+  Container,
   DiaryAddProductForm,
   DiaryDateСalendar,
   DiaryProductsList,
@@ -20,19 +21,43 @@ const DiaryPage = () => {
   };
 
   return (
-    <main className={s.main}>
-      <div className={s.diary}>
-        <DiaryDateСalendar location="diary" />
+    <>
+      {width < 1280 && (
+        <main className={s.main}>
+          <div className={s.diary}>
+            <Container>
+              <DiaryDateСalendar location="diary" />
 
-        {width > 767 && <DiaryAddProductForm />}
+              {width > 767 && <DiaryAddProductForm />}
 
-        <DiaryProductsList />
+              <DiaryProductsList />
 
-        {width < 768 && <ButtonPlus type="button" onClick={handleMobileFormOpen} />}
-      </div>
+              {width < 768 && <ButtonPlus type="button" onClick={handleMobileFormOpen} />}
+            </Container>
+          </div>
 
-      <SideBar />
-    </main>
+          <div className={s.sidebar}>
+            <Container>
+              <SideBar />
+            </Container>
+          </div>
+        </main>
+      )}
+
+      {width > 1279 && (
+        <Container>
+          <main className={s.main}>
+            <div className={s.diary}>
+              <DiaryDateСalendar location="diary" />
+              <DiaryAddProductForm />
+              <DiaryProductsList />
+            </div>
+
+            <SideBar />
+          </main>
+        </Container>
+      )}
+    </>
   );
 };
 

@@ -23,10 +23,12 @@ const SideBar = () => {
   const leftCalories = (dailyCalories - consumedCalories).toFixed(1);
   const percent = ((consumedCalories * 100) / dailyCalories).toFixed(2);
 
-  const foodCategories = userDailyDiet?.notRecomendedProducts?.join(', ');
+  const foodCategories = userDailyDiet?.notAllowedProduct?.join(', ');
 
-  const showInfo = dailyMeals && userDailyDiet?.calories && userDailyDiet?.notRecomendedProducts;
-  const noInfo = !userDailyDiet?.calories && !userDailyDiet?.notRecomendedProducts;
+  const showInfo = userDailyDiet?.calories && userDailyDiet?.notAllowedProduct;
+  const showDailyInfo =
+    dailyMeals?.length > 0 && userDailyDiet?.calories && userDailyDiet?.notAllowedProduct;
+  const noInfo = !userDailyDiet || !userDailyDiet?.calories || !userDailyDiet?.notAllowedProduct;
 
   return (
     <div className={s.sideBar}>
@@ -41,11 +43,11 @@ const SideBar = () => {
           <ul className={s.list}>
             <li className={s.item}>
               <p>Left</p>
-              <p>{leftCalories} kcal</p>
+              <p>{showDailyInfo ? leftCalories : '000'} kcal</p>
             </li>
             <li className={s.item}>
               <p>Consumed</p>
-              <p>{consumedCalories} kcal</p>
+              <p>{showDailyInfo ? consumedCalories : '000'} kcal</p>
             </li>
             <li className={s.item}>
               <p>Daily rate</p>
@@ -53,14 +55,14 @@ const SideBar = () => {
             </li>
             <li className={s.item}>
               <p>n% of normal</p>
-              <p>{percent} %</p>
+              <p>{showDailyInfo ? percent : 0} %</p>
             </li>
           </ul>
         )}
       </section>
       <section className={s.section}>
         <h2 className={s.title}>Food not recommended</h2>
-        {showInfo && <p>{foodCategories}</p>}
+        {showInfo && <p className={s.text}>{foodCategories}</p>}
 
         {noInfo && <p>Your diet will be displayed here</p>}
       </section>
