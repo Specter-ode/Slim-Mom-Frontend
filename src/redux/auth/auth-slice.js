@@ -4,6 +4,7 @@ import {
   handleLogin,
   handleLogout,
   getCurrentUser,
+  handleFacebookRegistration,
   getCalorieIntake,
 } from './auth-operations';
 
@@ -36,7 +37,7 @@ const authSlice = createSlice({
     },
     [handleRegistration.fulfilled]: (store, { payload }) => {
       store.user = { ...payload.user };
-      store.token = payload.token;
+      store.accessToken = payload.accessToken;
       store.isLoading = false;
     },
     [handleRegistration.rejected]: (store, { payload }) => {
@@ -55,6 +56,19 @@ const authSlice = createSlice({
     //   store.loading = false;
     //   store.error = payload.message;
     // },
+
+    // -----------------auth/facebook----------------------------
+    [handleFacebookRegistration.pending]: store => {
+      store.loading = true;
+      store.error = null;
+    },
+    [handleFacebookRegistration.fulfilled]: (store, { payload }) => {
+      store.loading = false;
+    },
+    [handleFacebookRegistration.rejected]: (store, { payload }) => {
+      store.loading = false;
+      store.error = payload.message;
+    },
 
     // -------------------login------------------------------
 
@@ -92,8 +106,8 @@ const authSlice = createSlice({
       store.error = null;
     },
     [getCurrentUser.fulfilled]: (store, { payload }) => {
-      store.userData = { ...payload };
-      store.currentUser = true;
+      store.user = { ...payload.user };
+      store.isLogin = true;
     },
     [getCurrentUser.rejected]: (store, { error }) => {
       store.loading = false;

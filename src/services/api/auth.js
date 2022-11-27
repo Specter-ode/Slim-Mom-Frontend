@@ -1,7 +1,7 @@
 import axios from 'axios';
-const { BACKEND_URL } = process.env;
+const { BACKEND_URL = 'http://localhost:4000/api' } = process.env;
 const instance = axios.create({
-  baseURL: BACKEND_URL || 'http://localhost:4000/api',
+  baseURL: BACKEND_URL,
 });
 
 const setToken = (token = '') => {
@@ -20,6 +20,10 @@ export const googleSignup = async () => {
   await instance.get('/users/google');
 };
 
+export const facebookSignup = async () => {
+  await instance.get('/users/facebook');
+};
+
 export const login = async data => {
   const result = await instance.post('/users/login', data);
   setToken(result.data.accessToken);
@@ -27,7 +31,7 @@ export const login = async data => {
 };
 
 export const logout = async data => {
-  const result = await instance.post('/users/logout', data);
+  const result = await instance.get('/users/logout', data);
   setToken('');
   return result.data;
 };

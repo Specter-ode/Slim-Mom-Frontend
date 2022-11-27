@@ -39,6 +39,17 @@
     display: none;
   }
   .logo {
+    position: relative;
     margin-right: 20px;
+    padding-bottom: 7px;
+  }
+  .logo::after {
+    position: absolute;
+    content: '';
+    bottom: 0;
+    right: -22px;
+    height: 33px;
+    width: 2px;
+    background-color: #e0e0e0;
   }
 }

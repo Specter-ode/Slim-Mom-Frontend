@@ -26,10 +26,22 @@ export const handleGoogleRegistration = createAsyncThunk(
     }
   }
 );
-
+export const handleFacebookRegistration = createAsyncThunk(
+  'auth/facebook',
+  async (_, { rejectWithValue }) => {
+    try {
+      const result = await api.facebookSignup();
+      console.log('result handleFacebookRegistration: ', result);
+    } catch (error) {
+      toast.error(`Sorry, registration failed. Try again.`);
+      return rejectWithValue(error);
+    }
+  }
+);
 export const handleLogin = createAsyncThunk('auth/login', async (data, { rejectWithValue }) => {
   try {
     const result = await api.login(data);
+    console.log('result: ', result);
     return result;
   } catch (error) {
     toast.error(`Sorry, login failed. Check email and password. Try again.`);

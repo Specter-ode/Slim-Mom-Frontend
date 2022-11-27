@@ -1,5 +1,5 @@
 export { default as AdditionalHeaderField } from './AdditionalHeaderField/AdditionalHeaderField';
-export { default as AuthNav } from './AuthNav/AuthNav';
+
 export { default as Background } from './Background/Background';
 export { default as BurgerMenu } from './BurgerMenu/BurgerMenu';
 export { default as Button } from './Button/Button';
@@ -21,3 +21,4 @@ export { default as SideBar } from './SideBar/SideBar';
 export { default as UserInfo } from './UserInfo/UserInfo';
 export { default as UserNav } from './UserNav/UserNav';
 export { default as TestSelect } from './TestSelect/TestSelect';
+export { default as FacebookLogin } from './FacebookLogin/FacebookLogin';

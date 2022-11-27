@@ -1,12 +1,11 @@
 import s from './Background.module.css';
-// import { useSelector } from 'react-redux';
-// import { isLogin } from 'redux/auth/auth-selector';
+import { useSelector } from 'react-redux';
+import { getLoginStatus } from 'redux/auth/auth-selector';
 import { useLocation } from 'react-router-dom';
 
 const Background = ({ children }) => {
-  // const isLoginIn = useSelector(isLogin);
+  const isLogin = useSelector(getLoginStatus);
   const { pathname } = useLocation();
-  const isLogin = false;
   const style = (function () {
     if (pathname === '/registration' || pathname === '/login') {
       if (window.innerWidth >= 1280) {

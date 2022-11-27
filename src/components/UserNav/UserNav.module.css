@@ -7,7 +7,7 @@
   text-decoration: none;
   font-weight: 700;
   line-height: 0.95;
-  padding: 15px 18px 15px 0;
+  padding: 15px 0;
   color: var(--main-color);
 }
 .link:hover {
@@ -26,8 +26,16 @@
 .item:not(:last-child) {
   margin-right: 20px;
 }
-@media screen and (max-width: 1280px) {
+/* @media screen and (max-width: 767px) {
   .nav {
     display: none;
+  }
+} */
+@media screen and (min-width: 1280px) {
+  .link {
+    padding: 10px 16px 10px 0;
+  }
+  .link:last-child {
+    padding-right: 0;
   }
 }
