@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Button, Modal } from 'components';
 import { toast } from 'react-toastify';
 import { getCalorieIntake, getCalorieIntakeForUser } from 'redux/auth/auth-operations';
-import { getLoginStatus } from 'redux/auth/auth-selector';
-
+import { getLoginStatus, getModalStatus } from 'redux/auth/auth-selector';
+import { updateModalStatus } from 'redux/auth/auth-slice';
 import s from '../DailyCaloriesForm/DailyCaloriesForm.module.css';
 
 export default function DailyCaloriesForm() {
@@ -15,12 +15,13 @@ export default function DailyCaloriesForm() {
   const [currentWeight, setCurrentWeight] = useState('');
   const [desiredWeight, setDesiredWeight] = useState('');
   const [bloodType, setBloodType] = useState('');
-  const [showModal, setShowModal] = useState(false);
+
+  const showModal = useSelector(getModalStatus);
 
   const isLoggedIn = useSelector(getLoginStatus);
 
   const toggleModal = () => {
-    setShowModal(state => !state);
+    dispatch(updateModalStatus(!showModal));
     document.body.style.overflowY = 'visible';
   };
 
@@ -97,18 +98,6 @@ export default function DailyCaloriesForm() {
       dispatchForm();
       toggleModal();
     }
-
-    // if (bloodType === '') {
-    //   return toast.warn('Please сhoose your blood type');
-    // } else if (isLoggedIn) {
-    //   resetForm();
-    //   dispatch(getCalorieIntakeForUser(intakeData));
-    //   toggleModal();
-    // } else {
-    //   resetForm();
-    //   dispatch(getCalorieIntake(intakeData));
-    //   toggleModal();
-    // }
   };
 
   return (

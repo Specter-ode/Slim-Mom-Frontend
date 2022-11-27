@@ -4,6 +4,12 @@
   }
 }
 
+@media screen and (min-width: 1280px) {
+  .formContainer {
+    margin-right: 139px;
+  }
+}
+
 .title {
   margin-bottom: 32px;
 
@@ -58,6 +64,7 @@
 }
 
 .input {
+  background: none;
   width: 100%;
 
   padding-bottom: 8px;
