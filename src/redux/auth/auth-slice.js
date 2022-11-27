@@ -84,10 +84,10 @@ const authSlice = createSlice({
       store.refreshToken = payload.refreshToken;
       store.userDailyDiet = payload.dailyDiet;
     },
-    [handleLogin.rejected]: (store, { payload }) => {
-      store.isLoading = false;
-      store.isError = payload.message;
-    },
+    // [handleLogin.rejected]: (store, { payload }) => {
+    //   store.isLoading = false;
+    //   store.isError = payload.response.data.message;
+    // },
 
     // -------------------logout------------------------------
     [handleLogout.pending]: store => {

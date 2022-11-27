@@ -44,6 +44,7 @@ export const handleLogin = createAsyncThunk('auth/login', async (data, { rejectW
     console.log('result: ', result);
     return result;
   } catch (error) {
+    console.log(error);
     toast.error(`Sorry, login failed. Check email and password. Try again.`);
     return rejectWithValue(error);
   }
