@@ -2,35 +2,53 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  padding-top: 40px;
+  min-height: calc(100vh - 153px);
 }
 
 .diary {
-  width: 440px;
+  width: 100%;
   margin-bottom: 60px;
 }
 
-@media screen and (max-width: 479px) {
-  .diary {
-    width: 100%;
-  }
-}
-
-@media screen and (max-width: 767px) {
-  .main {
-    padding: 8px 0 0 0;
-  }
+.sidebar {
+  flex-grow: 1;
+  width: 100%;
+  background-color: var(--scroll-color);
 }
 
 @media screen and (min-width: 768px) {
+  .main {
+    padding-top: 100px;
+  }
+
   .diary {
-    width: 610px;
     margin-bottom: 55px;
+  }
+
+  .sidebar {
+    /* background */
+    background-image: url(../../assets/png/backgroundDiaryTab_x1.png);
+    background-repeat: no-repeat;
+    background-position: 100% 100%;
+    background-size: 369px 338px;
+  }
+
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (-webkit-min-device-pixel-ratio: 2),
+    screen and (-o-min-device-pixel-ratio: 2/1),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    .sidebar {
+      background-image: url(../../assets/png/backgroundDiaryTab_x2.png);
+    }
   }
 }
 
 @media screen and (min-width: 1280px) {
   .main {
     flex-direction: row;
+    padding-top: 145px;
   }
 
   .diary {

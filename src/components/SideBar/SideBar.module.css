@@ -28,6 +28,11 @@
   margin-bottom: 15px;
 }
 
+.text {
+  max-height: 130px;
+  overflow-y: auto;
+}
+
 @media screen and (max-width: 479px) {
   .sideBar {
     width: 100%;
@@ -44,7 +49,7 @@
   .sideBar {
     display: flex;
     width: 610px;
-    padding: 80px 0;
+    padding: 80px 0 90px 0;
   }
 
   .section:first-child {
