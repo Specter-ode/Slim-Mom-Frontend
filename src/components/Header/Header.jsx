@@ -6,12 +6,12 @@ import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 // import { useSelector } from 'react-redux';
-import { getLoginStatus } from 'redux/auth/auth-selector';
+import { getLoginStatus, getModalStatus } from 'redux/auth/auth-selector';
 
 const Header = ({ menuActive, setMenuActive }) => {
   const { width } = useWindowDimensions();
   const isLogin = useSelector(getLoginStatus);
-
+  const showModal = useSelector(getModalStatus);
   useEffect(() => {
     const body = document.querySelector('#root');
     if (menuActive) {
@@ -41,7 +41,7 @@ const Header = ({ menuActive, setMenuActive }) => {
             </button>
           )}
         </div>
-        <AdditionalHeaderField />
+        {(isLogin || showModal) && <AdditionalHeaderField />}
       </nav>
     </header>
   );

@@ -107,8 +107,11 @@ const authSlice = createSlice({
       store.error = null;
     },
     [getCurrentUser.fulfilled]: (store, { payload }) => {
+      console.log('payload: ', payload);
       store.user = { ...payload.user };
+      store.isLoading = false;
       store.isLogin = true;
+      store.userDailyDiet = payload.dailyDiet;
     },
     [getCurrentUser.rejected]: (store, { error }) => {
       store.loading = false;
