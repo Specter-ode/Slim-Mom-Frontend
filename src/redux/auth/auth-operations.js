@@ -3,7 +3,7 @@ import * as api from '../../services/api/auth';
 import { toast } from 'react-toastify';
 
 export const handleRegistration = createAsyncThunk(
-  'auth/signup',
+  'users/signup',
   async (data, { rejectWithValue }) => {
     try {
       const result = await api.signup(data);
@@ -16,7 +16,7 @@ export const handleRegistration = createAsyncThunk(
 );
 
 export const handleGoogleRegistration = createAsyncThunk(
-  'auth/google',
+  'users/google',
   async (_, { rejectWithValue }) => {
     try {
       const result = await api.googleSignup();
@@ -28,7 +28,7 @@ export const handleGoogleRegistration = createAsyncThunk(
   }
 );
 export const handleFacebookRegistration = createAsyncThunk(
-  'auth/facebook',
+  'users/facebook',
   async (_, { rejectWithValue }) => {
     try {
       const result = await api.facebookSignup();
@@ -39,7 +39,7 @@ export const handleFacebookRegistration = createAsyncThunk(
     }
   }
 );
-export const handleLogin = createAsyncThunk('auth/login', async (data, { rejectWithValue }) => {
+export const handleLogin = createAsyncThunk('users/login', async (data, { rejectWithValue }) => {
   try {
     const result = await api.login(data);
     console.log('result: ', result);
@@ -51,7 +51,7 @@ export const handleLogin = createAsyncThunk('auth/login', async (data, { rejectW
   }
 });
 
-export const handleLogout = createAsyncThunk('auth/logout', async (data, { rejectWithValue }) => {
+export const handleLogout = createAsyncThunk('users/logout', async (data, { rejectWithValue }) => {
   try {
     const result = await api.logout(data);
     return result;
@@ -62,11 +62,10 @@ export const handleLogout = createAsyncThunk('auth/logout', async (data, { rejec
 });
 
 export const getCurrentUser = createAsyncThunk(
-  'auth/current-user',
-  async (_, { rejectWithValue, getState }) => {
+  'users/current',
+  async (_, { rejectWithValue }) => {
     try {
-      const { auth } = getState();
-      const result = await api.getCurrentUser(auth.token);
+      const result = await api.getCurrentUser();
       return result;
     } catch (error) {
       return rejectWithValue(
@@ -79,8 +78,11 @@ export const getCurrentUser = createAsyncThunk(
   },
   {
     condition: (_, thunkAPI) => {
-      const { auth } = thunkAPI.getState();
-      if (!auth.token) return false;
+      const state = thunkAPI.getState();
+      if (!state.auth.accessToken) {
+        return false;
+      }
+      api.setToken(state.auth.accessToken);
     },
   }
 );

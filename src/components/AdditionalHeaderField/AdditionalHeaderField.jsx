@@ -16,6 +16,7 @@ const AdditionalHeaderField = () => {
     <div className={s.block}>
       {showModal && (
         <button
+          className={s.btn}
           onClick={() => {
             dispatch(updateModalStatus(false));
           }}

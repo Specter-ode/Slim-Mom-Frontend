@@ -9,10 +9,19 @@
     height: 40px;
     padding: 0 20px;
   }
+  .icon {
+    stroke: var(--main-color);
+  }
+  .icon:hover {
+    stroke: var(--accent-color);
+  }
 }
 
 @media screen and (min-width: 768px) {
   .block {
     display: none;
   }
+}
+.btn {
+  border: none;
 }

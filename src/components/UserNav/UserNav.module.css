@@ -8,14 +8,14 @@
   font-weight: 700;
   line-height: 0.95;
   padding: 15px 0;
-  color: var(--main-color);
+  color: var(--second-color);
 }
 .link:hover {
-  color: var(--second-color);
+  color: var(--main-color);
 }
 .activeLink {
   composes: link;
-  color: var(--second-color);
+  color: var(--main-color);
 }
 .nav {
   list-style: none;
@@ -26,11 +26,6 @@
 .item:not(:last-child) {
   margin-right: 20px;
 }
-/* @media screen and (max-width: 767px) {
-  .nav {
-    display: none;
-  }
-} */
 @media screen and (min-width: 1280px) {
   .link {
     padding: 10px 16px 10px 0;
