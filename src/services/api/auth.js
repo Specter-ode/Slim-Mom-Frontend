@@ -4,7 +4,7 @@ const instance = axios.create({
   baseURL: BACKEND_URL,
 });
 
-const setToken = (token = '') => {
+export const setToken = (token = '') => {
   if (token) {
     return (instance.defaults.headers.authorization = `Bearer ${token}`);
   }
@@ -37,24 +37,19 @@ export const logout = async data => {
 };
 
 export const getCurrentUser = async () => {
-  try {
-    const result = await instance.get('/users/current');
-    return result.data;
-  } catch (error) {
-    setToken('');
-    throw error;
-  }
+  console.log('instance.defaults.headers.authorization: ', instance.defaults.headers.authorization);
+  const result = await instance.get('/users/current');
+  return result.data;
 };
 
 export const getCalorieIntake = async payload => {
-  const { data } = await instance.post(`/daily-intake`, payload);
-  return data;
+  const result = await instance.post(`/daily-intake`, payload);
+  return result.data;
 };
 
 export const getCalorieIntakeForUser = async payload => {
-  const { data } = await instance.post(`/daily-intake/user`, payload);
-
-  return data;
+  const result = await instance.post(`/daily-intake/user`, payload);
+  return result.data;
 };
 
 export default instance;
