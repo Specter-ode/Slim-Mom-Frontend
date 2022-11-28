@@ -32,6 +32,7 @@ div.react-select__value-container {
 
 div.react-select__placeholder {
   color: inherit;
+  text-align: start;
 }
 
 div.react-select__input-container {

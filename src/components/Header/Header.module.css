@@ -81,11 +81,13 @@
   .block {
     width: 1280px;
     padding: 0 16px;
+
     align-items: flex-end;
   }
   .burgerBtn {
     display: none;
   }
+
   .info {
     margin-left: 22px;
     margin-right: auto;

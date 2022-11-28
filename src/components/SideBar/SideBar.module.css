@@ -33,6 +33,18 @@
   overflow-y: auto;
 }
 
+.text::-webkit-scrollbar {
+  width: 6px;
+}
+
+.text::-webkit-scrollbar-track {
+  background-color: var(--scroll-color);
+}
+
+.text::-webkit-scrollbar-thumb {
+  background-color: var(--third-color);
+}
+
 @media screen and (max-width: 479px) {
   .sideBar {
     width: 100%;

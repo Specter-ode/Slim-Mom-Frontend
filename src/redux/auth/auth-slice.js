@@ -6,6 +6,7 @@ import {
   getCurrentUser,
   handleFacebookRegistration,
   getCalorieIntake,
+  getCalorieIntakeForUser,
 } from './auth-operations';
 
 const initialState = {
@@ -113,7 +114,7 @@ const authSlice = createSlice({
       store.loading = false;
       store.error = error.message;
     },
-    // Daily Intake
+    //Daily Intake for NOT logged in user
     [getCalorieIntake.pending](state, _) {
       state.isLoading = true;
       state.isError = null;
@@ -125,6 +126,21 @@ const authSlice = createSlice({
       state.isLoading = false;
     },
     [getCalorieIntake.rejected](state, { payload }) {
+      state.isLoading = false;
+      state.isError = payload.message;
+    },
+    //Daily Intake for logged user
+    [getCalorieIntakeForUser.pending](state, _) {
+      state.isLoading = true;
+      state.isError = null;
+    },
+
+    [getCalorieIntakeForUser.fulfilled](state, { payload: { notAllowedProduct, calories } }) {
+      state.dailyDiet.calories = calories;
+      state.dailyDiet.notRecomendedProducts = notAllowedProduct;
+      state.isLoading = false;
+    },
+    [getCalorieIntakeForUser.rejected](state, { payload }) {
       state.isLoading = false;
       state.isError = payload.message;
     },
