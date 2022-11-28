@@ -12,6 +12,8 @@ import { useState } from 'react';
 
 import { handleLogin, handleGoogleRegistration } from '../../redux/auth/auth-operations';
 
+import { redirect } from 'react-router-dom';
+
 const SignupSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Email is required'),
   password: Yup.string()
@@ -31,16 +33,6 @@ const LoginForm = () => {
     }
   };
   const dispatch = useDispatch();
-
-  // const login = useGoogleLogin({
-  //   onSuccess: tokenResponse => {
-  //     const data = {
-  //       email: tokenResponse.email,
-  //       password: tokenResponse.id,
-  //     };
-  //     dispatch(authOperations.register(data));
-  //   },
-  // });
 
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -110,10 +102,14 @@ const LoginForm = () => {
                   handleSubmit();
                 }}
               />
-
               <button
                 onClick={() => {
-                  dispatch(handleGoogleRegistration());
+                  dispatch(handleGoogleRegistration()).then(data => {
+                    const url = data.payload.request.responseURL;
+                    console.log(url);
+
+                    return redirect(url);
+                  });
                 }}
                 className={s.googleBtn}
                 type="button"

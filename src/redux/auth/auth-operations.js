@@ -19,7 +19,8 @@ export const handleGoogleRegistration = createAsyncThunk(
   'auth/google',
   async (_, { rejectWithValue }) => {
     try {
-      await api.googleSignup();
+      const result = await api.googleSignup();
+      return result;
     } catch (error) {
       toast.error(`Sorry, registration failed. Try again.`);
       return rejectWithValue(error);

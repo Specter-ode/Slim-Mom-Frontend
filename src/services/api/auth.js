@@ -1,6 +1,5 @@
 import axios from 'axios';
 const { REACT_APP_BACKEND_URL } = process.env;
-console.log(REACT_APP_BACKEND_URL);
 const instance = axios.create({
   baseURL: REACT_APP_BACKEND_URL || 'http://localhost:4000/api',
 });
@@ -18,7 +17,8 @@ export const signup = async data => {
 };
 
 export const googleSignup = async () => {
-  await instance.get('/users/google');
+  const result = await instance.get('/users/google');
+  return result;
 };
 
 export const facebookSignup = async () => {
