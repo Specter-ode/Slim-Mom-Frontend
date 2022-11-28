@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getDailyMeals } from 'redux/products/products-operations';
-import { DiaryProductsItem } from 'components';
+import { DiaryProductsItem, Loader } from 'components';
 
 import s from './DiaryProductsList.module.css';
 
@@ -19,7 +19,7 @@ const DiaryProductsList = () => {
 
   return (
     <ul className={s.list}>
-      {isLoading && <p>Loading...</p>}
+      {isLoading && <Loader />}
       {error && <p>Error. {error.message}</p>}
       {showMeals &&
         dailyMeals.map(i => (

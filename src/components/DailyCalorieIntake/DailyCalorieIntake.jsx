@@ -1,16 +1,18 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { getDailyIntake, getLoginStatus } from 'redux/auth/auth-selector';
-
 import { NavLink } from 'react-router-dom';
 
-import { nanoid } from '@reduxjs/toolkit';
-import s from '../DailyCalorieIntake/DailyCalorieIntake.module.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { getDailyIntake, getLoginStatus } from 'redux/auth/auth-selector';
 import { updateModalStatus } from 'redux/auth/auth-slice';
+import { nanoid } from '@reduxjs/toolkit';
+
+import s from '../DailyCalorieIntake/DailyCalorieIntake.module.css';
 
 export default function DailyCalorieIntake() {
+  const dispatch = useDispatch();
+
   const { calories, notRecomendedProducts } = useSelector(getDailyIntake);
   const isLoggedIn = useSelector(getLoginStatus);
-  const dispatch = useDispatch();
+
   const navigateTo = isLoggedIn ? '/diary' : '/registration';
 
   const productsNotAllowed = notRecomendedProducts?.map(el => (

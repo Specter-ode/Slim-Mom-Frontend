@@ -21,3 +21,4 @@ export { default as SideBar } from './SideBar/SideBar';
 export { default as UserInfo } from './UserInfo/UserInfo';
 export { default as UserNav } from './UserNav/UserNav';
 export { default as FacebookLogin } from './FacebookLogin/FacebookLogin';
+export { default as Loader } from './Loader/Loader';
