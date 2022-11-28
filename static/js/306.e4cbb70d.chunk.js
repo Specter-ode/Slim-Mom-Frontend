@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkslim_mom_frontend=self.webpackChunkslim_mom_frontend||[]).push([[306],{4306:function(n,e,r){r.r(e),r.d(e,{default:function(){return t}});var i=r(7074),s="DiaryMobileForm_main__6+2DA",m=r(184),t=function(){return(0,m.jsx)("main",{className:s,children:(0,m.jsx)(i.E4,{})})}}}]);
+//# sourceMappingURL=306.e4cbb70d.chunk.js.map
