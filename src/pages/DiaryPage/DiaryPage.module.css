@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: flex-start;
   padding-top: 40px;
-  min-height: calc(100vh - 153px);
+  min-height: calc(100vh - 122px);
 }
 
 .diary {
@@ -20,6 +20,7 @@
 @media screen and (min-width: 768px) {
   .main {
     padding-top: 100px;
+    min-height: calc(100vh - 82px);
   }
 
   .diary {
@@ -49,6 +50,7 @@
   .main {
     flex-direction: row;
     padding-top: 145px;
+    min-height: calc(100vh - 153px);
   }
 
   .diary {

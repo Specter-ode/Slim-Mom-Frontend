@@ -1,19 +1,57 @@
 .section {
-  padding: 32px 20px 0px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 32px 0 0 0;
+}
+
+.calculator {
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.sidebar {
+  width: 100%;
+  background-color: var(--scroll-color);
 }
 
 @media screen and (min-width: 768px) {
   .section {
-    padding: 100px 32px 0px 32px;
+    padding: 100px 0 0 0;
+  }
+
+  .calculator {
+    margin-bottom: 50px;
+  }
+
+  .sidebar {
+    /* background */
+    background-image: url(../../assets/png/backgroundDiaryTab_x1.png);
+    background-repeat: no-repeat;
+    background-position: 100% 100%;
+    background-size: 369px 338px;
+  }
+
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (-webkit-min-device-pixel-ratio: 2),
+    screen and (-o-min-device-pixel-ratio: 2/1),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    .sidebar {
+      background-image: url(../../assets/png/backgroundDiaryTab_x2.png);
+    }
   }
 }
 
 @media screen and (min-width: 1280px) {
-  .flex {
-    display: flex;
+  .section {
+    flex-direction: row;
+    padding: 140px 0 0 0;
+    min-height: calc(100vh - 153px);
   }
 
-  .section {
-    padding: 140px 16px 0px 16px;
+  .calculator {
+    max-width: 610px;
+    margin-right: 245px;
   }
 }
