@@ -1,4 +1,5 @@
 import GoogleLogo from '../../images/googleLogo.svg';
+import { ReactComponent as FacebookLogo } from 'assets/icons/facebook.svg';
 import eyeOpened from '../../images/eye.svg';
 import eyeClosed from '../../images/eye-blocked.svg';
 import { Button } from 'components';
@@ -7,8 +8,7 @@ import { useDispatch } from 'react-redux';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { useState } from 'react';
-
-import { handleLogin, handleGoogleRegistration } from '../../redux/auth/auth-operations';
+import { handleLogin } from '../../redux/auth/auth-operations';
 
 const SignupSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Email is required'),
@@ -30,15 +30,12 @@ const LoginForm = () => {
   };
   const dispatch = useDispatch();
 
-  // const login = useGoogleLogin({
-  //   onSuccess: tokenResponse => {
-  //     const data = {
-  //       email: tokenResponse.email,
-  //       password: tokenResponse.id,
-  //     };
-  //     dispatch(authOperations.register(data));
-  //   },
-  // });
+  const facebookAuth = () => {
+    window.open('http://localhost:4000/api/users/facebook', '_self');
+  };
+  const googleAuth = () => {
+    window.open('http://localhost:4000/api/users/facebook', '_self');
+  };
 
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -109,16 +106,12 @@ const LoginForm = () => {
                 }}
               />
 
-              <button
-                onClick={() => {
-                  dispatch(handleGoogleRegistration());
-                }}
-                className={s.googleBtn}
-                type="button"
-              >
+              <a className={s.googleBtn} href="http://localhost:4000/api/users/facebook">
                 <img src={GoogleLogo} alt="Google logo" />
-              </button>
-              {/* <FacebookLogin /> */}
+              </a>
+              <a href="http://localhost:4000/api/users/facebook">
+                <FacebookLogo width={20} />
+              </a>
             </div>
           </Form>
         )}
