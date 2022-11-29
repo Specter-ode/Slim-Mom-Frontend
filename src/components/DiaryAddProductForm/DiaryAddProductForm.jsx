@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Select from 'react-select';
+import debounce from 'lodash.debounce';
 
 import { getProductsByQuery, addMeal } from '../../redux/products/products-operations';
 import useWindowDimensions from '../../services/hooks/useWindowDimensions';
@@ -18,12 +19,21 @@ const DiaryAddProductForm = () => {
 
   const selectOptions = productsOptions.map(i => ({ value: i.title, label: i.title }));
 
+  const getProductsOptions = useMemo(
+    () =>
+      debounce(value => {
+        dispatch(getProductsByQuery(value));
+      }, 400),
+    [dispatch]
+  );
+
   useEffect(() => {
     if (!product) return;
-    dispatch(getProductsByQuery(product));
-  }, [dispatch, product]);
+    getProductsOptions(product);
+  }, [product, getProductsOptions]);
 
   const handleSelectChange = value => {
+    console.log(value);
     setProduct(value);
   };
 
