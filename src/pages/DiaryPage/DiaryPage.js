@@ -24,6 +24,7 @@ const DiaryPage = () => {
     <>
       {width < 1280 && (
         <main className={s.main}>
+          <h1 className="visually-hidden">Diary Page</h1>
           <div className={s.diary}>
             <Container>
               <DiaryDateСalendar location="diary" />

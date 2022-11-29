@@ -28,14 +28,6 @@ const authSlice = createSlice({
     updateModalStatus: (store, { payload }) => {
       store.showModal = payload;
     },
-    setAccessToken: (store, { payload }) => {
-      console.log('setAccessToken payload: ', payload);
-      store.accessToken = payload;
-    },
-    setRefreshToken: (store, { payload }) => {
-      console.log('setAccessToken payload: ', payload);
-      store.refreshToken = payload;
-    },
   },
   extraReducers: builder => {
     builder
@@ -62,7 +54,10 @@ const authSlice = createSlice({
         store.isLoading = false;
         store.isLogin = true;
         store.refreshToken = payload.refreshToken;
-        store.userDailyDiet = payload.dailyDiet;
+        store.userDailyDiet = {
+        calories: payload.dailyDiet.calories,
+        notRecomendedProducts: payload.dailyDiet.notAllowedProduct,
+      };
       })
       .addCase(handleLogin.rejected, (store, { payload }) => {
         store.isLoading = false;
@@ -96,7 +91,10 @@ const authSlice = createSlice({
         store.user = { ...payload.user };
         store.isLoading = false;
         store.isLogin = true;
-        store.userDailyDiet = payload.dailyDiet;
+        store.userDailyDiet = {
+        calories: payload.dailyDiet.calories,
+        notRecomendedProducts: payload.dailyDiet.notAllowedProduct,
+      };
       })
       .addCase(getCurrentUser.rejected, (store, { payload }) => {
         store.isLoading = false;
@@ -110,7 +108,7 @@ const authSlice = createSlice({
         getCalorieIntake.fulfilled,
         (store, { payload: { notAllowedProduct, calories } }) => {
           store.dailyDiet.calories = calories;
-          store.dailyDiet.notRecomendedProducts = notAllowedProduct;
+          store.dailyDiet.notRecomendedProducts = [...notAllowedProduct];
           store.isLoading = false;
         }
       )
@@ -126,7 +124,7 @@ const authSlice = createSlice({
         getCalorieIntakeForUser.fulfilled,
         (state, { payload: { notAllowedProduct, calories } }) => {
           state.dailyDiet.calories = calories;
-          state.dailyDiet.notRecomendedProducts = notAllowedProduct;
+          state.dailyDiet.notRecomendedProducts = [...notAllowedProduct];
           state.isLoading = false;
         }
       )
