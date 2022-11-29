@@ -3,9 +3,7 @@ import eyeOpened from '../../images/eye.svg';
 import eyeClosed from '../../images/eye-blocked.svg';
 import { Button } from 'components';
 import s from './LoginForm.module.css';
-
 import { useDispatch } from 'react-redux';
-
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { useState } from 'react';
@@ -120,6 +118,7 @@ const LoginForm = () => {
               >
                 <img src={GoogleLogo} alt="Google logo" />
               </button>
+              {/* <FacebookLogin /> */}
             </div>
           </Form>
         )}

@@ -4,18 +4,23 @@ import PagesRoutes from 'PagesRoutes/PagesRoutes';
 import { ToastContainer, Zoom } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getCurrentUser } from 'redux/auth/auth-operations';
+import { getAccessToken, getLoginStatus } from 'redux/auth/auth-selector';
 
 const App = () => {
   const [menuActive, setMenuActive] = useState(false);
   const toggleNavMenu = () => {
     setMenuActive(!menuActive);
   };
+  const isLogin = useSelector(getLoginStatus);
+  const accessToken = useSelector(getAccessToken);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getCurrentUser());
-  }, [dispatch]);
+    if (!isLogin && accessToken) {
+      dispatch(getCurrentUser());
+    }
+  }, [dispatch, isLogin, accessToken]);
   return (
     <>
       <Background>

@@ -2,7 +2,6 @@ import * as api from 'services/api/products';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
 
-// DailyMeals - Operations for the Dairy
 export const getProductsByQuery = createAsyncThunk(
   'products/getProductsByQuery',
   async (query, { rejectWithValue }) => {
@@ -11,7 +10,7 @@ export const getProductsByQuery = createAsyncThunk(
       return products;
     } catch (error) {
       toast.error(`Sorry, request failed. We can't load products options for your diary.`);
-      return rejectWithValue(error);
+      return rejectWithValue(error.message);
     }
   }
 );
@@ -24,7 +23,7 @@ export const getDailyMeals = createAsyncThunk(
       return meals;
     } catch (error) {
       toast.error(`Sorry, request failed. We can't load your meals.`);
-      return rejectWithValue(error);
+      return rejectWithValue(error.message);
     }
   }
 );
@@ -35,7 +34,7 @@ export const addMeal = createAsyncThunk('meals/addMeal', async (newMeal, { rejec
     return meal;
   } catch (error) {
     toast.error(`Sorry, request failed. We can't add your meal.`);
-    return rejectWithValue(error);
+    return rejectWithValue(error.message);
   }
 });
 
@@ -47,7 +46,7 @@ export const deleteMeal = createAsyncThunk(
       return mealId;
     } catch (error) {
       toast.error(`Sorry, request failed. We can't delete your meal.`);
-      return rejectWithValue(error);
+      return rejectWithValue(error.message);
     }
   }
 );

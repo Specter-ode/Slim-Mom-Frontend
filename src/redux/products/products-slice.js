@@ -14,72 +14,61 @@ const productsSlice = createSlice({
   name: 'products',
   initialState,
   reducers: {
-    setDate: (state, action) => {
-      state.date = action.payload;
+    setDate: (state, { payload }) => {
+      state.date = payload;
     },
   },
-  extraReducers: {
-    // ------------ getProductsByQuery ------------
-
-    [getProductsByQuery.pending]: (state, _) => {
-      state.isLoading = true;
-      state.error = '';
-    },
-    [getProductsByQuery.fulfilled]: (state, action) => {
-      state.isLoading = false;
-      state.productsOptions = action.payload;
-    },
-    [getProductsByQuery.rejected]: (state, action) => {
-      state.isLoading = false;
-      state.error = action.payload.message;
-    },
-
-    // ------------ getDailyMeals ------------
-
-    [getDailyMeals.pending]: (state, _) => {
-      state.isLoading = true;
-      state.error = '';
-    },
-    [getDailyMeals.fulfilled]: (state, action) => {
-      state.isLoading = false;
-
-      state.dailyMeals = action.payload;
-    },
-    [getDailyMeals.rejected]: (state, action) => {
-      state.isLoading = false;
-      state.error = action.payload.message;
-    },
-
-    // ------------ addMeal ------------
-
-    [addMeal.pending]: (state, _) => {
-      state.isLoading = true;
-      state.error = '';
-    },
-    [addMeal.fulfilled]: (state, action) => {
-      state.isLoading = false;
-      state.dailyMeals = [...state.dailyMeals, action.payload];
-      state.productsOptions = [];
-    },
-    [addMeal.rejected]: (state, action) => {
-      state.isLoading = false;
-      state.error = action.payload.message;
-    },
-
-    // ------------ deleteMeal ------------
-
-    [deleteMeal.pending]: (state, _) => {
-      state.isLoading = true;
-      state.error = '';
-    },
-    [deleteMeal.fulfilled]: (state, action) => {
-      state.isLoading = false;
-      state.dailyMeals = state.dailyMeals.filter(item => item._id !== action.payload);
-    },
-    [deleteMeal.rejected]: (state, action) => {
-      state.isLoading = false;
-      state.error = action.payload.message;
-    },
+  extraReducers: builder => {
+    builder
+      .addCase(getProductsByQuery.pending, (state, _) => {
+        state.isLoading = true;
+        state.error = '';
+      })
+      .addCase(getProductsByQuery.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.productsOptions = payload;
+      })
+      .addCase(getProductsByQuery.rejected, (state, { payload }) => {
+        state.isLoading = false;
+        state.error = payload;
+      })
+      .addCase(getDailyMeals.pending, (state, _) => {
+        state.isLoading = true;
+        state.error = '';
+      })
+      .addCase(getDailyMeals.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.dailyMeals = payload;
+      })
+      .addCase(getDailyMeals.rejected, (state, { payload }) => {
+        state.isLoading = false;
+        state.error = payload;
+      })
+      .addCase(addMeal.pending, (state, _) => {
+        state.isLoading = true;
+        state.error = '';
+      })
+      .addCase(addMeal.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.dailyMeals = [...state.dailyMeals, payload];
+        state.productsOptions = [];
+      })
+      .addCase(addMeal.rejected, (state, { payload }) => {
+        state.isLoading = false;
+        state.error = payload;
+      })
+      .addCase(deleteMeal.pending, (state, _) => {
+        state.isLoading = true;
+        state.error = '';
+      })
+      .addCase(deleteMeal.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.dailyMeals = state.dailyMeals.filter(item => item._id !== payload);
+      })
+      .addCase(deleteMeal.rejected, (state, { payload }) => {
+        state.isLoading = false;
+        state.error = payload;
+      });
   },
 });
 
