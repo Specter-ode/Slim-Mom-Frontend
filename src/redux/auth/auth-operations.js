@@ -34,7 +34,6 @@ export const handleFacebookRegistration = createAsyncThunk(
       console.log('result handleFacebookRegistration: ', result);
     } catch (error) {
       toast.error(`Sorry, registration failed. Try again.`);
-      // return rejectWithValue(error);
       return rejectWithValue(error.message);
     }
   }
@@ -46,7 +45,6 @@ export const handleLogin = createAsyncThunk('users/login', async (data, { reject
     return result;
   } catch (error) {
     toast.error(`Sorry, login failed. Check email and password. Try again.`);
-    // return rejectWithValue(error);
     return rejectWithValue(error.message);
   }
 });
