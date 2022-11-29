@@ -37,7 +37,6 @@ export const logout = async data => {
 };
 
 export const getCurrentUser = async () => {
-  console.log('instance.defaults.headers.authorization: ', instance.defaults.headers.authorization);
   const result = await instance.get('/users/current');
   return result.data;
 };

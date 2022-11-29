@@ -1,5 +1,6 @@
-import s from '../Button/Button.module.css';
 import PropTypes from 'prop-types';
+
+import s from '../Button/Button.module.css';
 
 // Кнопка принимает 4 пропса.
 
@@ -9,7 +10,7 @@ import PropTypes from 'prop-types';
 // 3. width = Обязательный пропс минимальный размер,
 //  так как одна кнопка Add, кнопки логинизации/регистрации,
 //  кнопки калькулятора разной ширины.
-// 4. onClick = Обязательный пропс действие при клике.
+// 4. onClick =  пропс действие при клике.
 
 export default function Button({ text, isPrimaryButton = true, width, onClick }) {
   const buttonClass = isPrimaryButton ? s.primaryButton : s.secondaryButton;

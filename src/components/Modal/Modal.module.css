@@ -18,17 +18,13 @@
 @media screen and (min-width: 768px) {
   .modal {
     position: relative;
-    justify-content: center;
 
     top: unset;
 
     width: 672px;
     height: 573px;
 
-    /* был паддинг */
-    /* padding: 64px 81px 81px 81px; */
-    /* Новый  паддинг */
-    padding: 64px 81px 25px 81px;
+    padding: 35px 81px;
   }
 
   .overlay {
