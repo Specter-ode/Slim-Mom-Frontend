@@ -83,7 +83,10 @@ const authSlice = createSlice({
       store.isLoading = false;
       store.isLogin = true;
       store.refreshToken = payload.refreshToken;
-      store.userDailyDiet = payload.dailyDiet;
+      store.userDailyDiet = {
+        calories: payload.dailyDiet.calories,
+        notRecomendedProducts: payload.dailyDiet.notAllowedProduct,
+      };
     },
     [handleLogin.rejected]: (store, { payload }) => {
       store.isLoading = false;
@@ -111,7 +114,10 @@ const authSlice = createSlice({
       store.user = { ...payload.user };
       store.isLoading = false;
       store.isLogin = true;
-      store.userDailyDiet = payload.dailyDiet;
+      store.userDailyDiet = {
+        calories: payload.dailyDiet.calories,
+        notRecomendedProducts: payload.dailyDiet.notAllowedProduct,
+      };
     },
     [getCurrentUser.rejected]: (store, { error }) => {
       store.loading = false;
@@ -125,7 +131,7 @@ const authSlice = createSlice({
 
     [getCalorieIntake.fulfilled](state, { payload: { notAllowedProduct, calories } }) {
       state.dailyDiet.calories = calories;
-      state.dailyDiet.notRecomendedProducts = notAllowedProduct;
+      state.dailyDiet.notRecomendedProducts = [...notAllowedProduct];
       state.isLoading = false;
     },
     [getCalorieIntake.rejected](state, { payload }) {
@@ -139,8 +145,8 @@ const authSlice = createSlice({
     },
 
     [getCalorieIntakeForUser.fulfilled](state, { payload: { notAllowedProduct, calories } }) {
-      state.dailyDiet.calories = calories;
-      state.dailyDiet.notRecomendedProducts = notAllowedProduct;
+      state.userDailyDiet.calories = calories;
+      state.userDailyDiet.notRecomendedProducts = [...notAllowedProduct];
       state.isLoading = false;
     },
     [getCalorieIntakeForUser.rejected](state, { payload }) {
