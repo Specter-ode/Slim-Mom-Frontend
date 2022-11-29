@@ -134,7 +134,7 @@ const RegistrationForm = () => {
                 className={s.googleBtn}
                 type="button"
               >
-                <img src={GoogleLogo} alt="Google logo" />
+                <img className={s.googleLogo} src={GoogleLogo} alt="Google logo" />
               </button>
             </div>
           </Form>

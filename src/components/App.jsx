@@ -13,8 +13,12 @@ const App = () => {
     setMenuActive(!menuActive);
   };
   const dispatch = useDispatch();
+
   useEffect(() => {
-    dispatch(getCurrentUser());
+    if (localStorage.getItem('persist:user-token')) {
+      const { accessToken } = JSON.parse(localStorage.getItem('persist:user-token'));
+      dispatch(getCurrentUser());
+    }
   }, [dispatch]);
   return (
     <>

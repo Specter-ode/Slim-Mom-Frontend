@@ -12,7 +12,7 @@ import { useState } from 'react';
 
 import { handleLogin, handleGoogleRegistration } from '../../redux/auth/auth-operations';
 
-import { redirect } from 'react-router-dom';
+import { redirect, useNavigate } from 'react-router-dom';
 
 const SignupSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Email is required'),
@@ -35,6 +35,8 @@ const LoginForm = () => {
   const dispatch = useDispatch();
 
   const [errorMessage, setErrorMessage] = useState('');
+
+  const navigate = useNavigate();
 
   return (
     <>
@@ -105,16 +107,16 @@ const LoginForm = () => {
               <button
                 onClick={() => {
                   dispatch(handleGoogleRegistration()).then(data => {
-                    const url = data.payload.request.responseURL;
+                    const url = data.payload.url;
                     console.log(url);
 
-                    return redirect(url);
+                    return navigate(url);
                   });
                 }}
                 className={s.googleBtn}
                 type="button"
               >
-                <img src={GoogleLogo} alt="Google logo" />
+                <img className={s.googleLogo} src={GoogleLogo} alt="Google logo" />
               </button>
             </div>
           </Form>

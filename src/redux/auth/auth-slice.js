@@ -7,6 +7,7 @@ import {
   handleFacebookRegistration,
   getCalorieIntake,
   getCalorieIntakeForUser,
+  refreshUserToken,
 } from './auth-operations';
 
 const initialState = {
@@ -85,10 +86,27 @@ const authSlice = createSlice({
       store.refreshToken = payload.refreshToken;
       store.userDailyDiet = payload.dailyDiet;
     },
-    // [handleLogin.rejected]: (store, { payload }) => {
-    //   store.isLoading = false;
-    //   store.isError = payload.response.data.message;
-    // },
+    [handleLogin.rejected]: (store, { payload }) => {
+      store.isLoading = false;
+      store.isError = payload.response.data.message;
+    },
+
+    // -------------------refresh------------------------------
+
+    [refreshUserToken.pending]: store => {
+      store.isLoading = true;
+      store.isError = null;
+    },
+    [refreshUserToken.fulfilled]: (store, { payload }) => {
+      store.accessToken = payload.accessToken;
+      store.isLoading = false;
+      // store.isLogin = true;
+      store.refreshToken = payload.refreshToken;
+    },
+    [refreshUserToken.rejected]: (store, { payload }) => {
+      store.isLoading = false;
+      store.isError = payload.response.data.message;
+    },
 
     // -------------------logout------------------------------
     [handleLogout.pending]: store => {
@@ -103,19 +121,18 @@ const authSlice = createSlice({
 
     // -------------------currentUser----------------------------------
     [getCurrentUser.pending]: store => {
-      store.loading = true;
-      store.error = null;
+      store.isLoading = true;
+      store.isError = null;
     },
     [getCurrentUser.fulfilled]: (store, { payload }) => {
-      console.log('payload: ', payload);
       store.user = { ...payload.user };
       store.isLoading = false;
       store.isLogin = true;
       store.userDailyDiet = payload.dailyDiet;
     },
     [getCurrentUser.rejected]: (store, { error }) => {
-      store.loading = false;
-      store.error = error.message;
+      store.isLoading = false;
+      store.isError = error.message;
     },
     //Daily Intake for NOT logged in user
     [getCalorieIntake.pending](state, _) {

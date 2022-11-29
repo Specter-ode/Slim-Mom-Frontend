@@ -42,14 +42,25 @@ export const handleFacebookRegistration = createAsyncThunk(
 export const handleLogin = createAsyncThunk('users/login', async (data, { rejectWithValue }) => {
   try {
     const result = await api.login(data);
-    console.log('result: ', result);
     return result;
   } catch (error) {
-    console.log(error);
     toast.error(`Sorry, login failed. Check email and password. Try again.`);
     return rejectWithValue(error);
   }
 });
+
+export const refreshUserToken = createAsyncThunk(
+  'users/refresh',
+  async (data, { rejectWithValue }) => {
+    try {
+      const result = await api.refresh(data);
+      return result;
+    } catch (error) {
+      toast.error(`Sorry, refresh failed.`);
+      return rejectWithValue(error);
+    }
+  }
+);
 
 export const handleLogout = createAsyncThunk('users/logout', async (data, { rejectWithValue }) => {
   try {
