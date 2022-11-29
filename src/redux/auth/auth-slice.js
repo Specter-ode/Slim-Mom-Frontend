@@ -13,7 +13,7 @@ const initialState = {
   userDailyDiet: { calories: null, notRecomendedProducts: null },
   dailyDiet: { calories: null, notRecomendedProducts: null },
   user: {},
-  accessToken: '',
+  accessToken: null,
   refreshToken: '',
   isLogin: false,
   isLoading: false,
@@ -25,8 +25,16 @@ const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    updateModalStatus: (state, { payload }) => {
-      state.showModal = payload;
+    updateModalStatus: (store, { payload }) => {
+      store.showModal = payload;
+    },
+    setAccessToken: (store, { payload }) => {
+      console.log('setAccessToken payload: ', payload);
+      store.accessToken = payload;
+    },
+    setRefreshToken: (store, { payload }) => {
+      console.log('setAccessToken payload: ', payload);
+      store.refreshToken = payload;
     },
   },
   extraReducers: builder => {
@@ -117,7 +125,6 @@ const authSlice = createSlice({
       .addCase(
         getCalorieIntakeForUser.fulfilled,
         (state, { payload: { notAllowedProduct, calories } }) => {
-          console.log('calories: ', calories);
           state.dailyDiet.calories = calories;
           state.dailyDiet.notRecomendedProducts = notAllowedProduct;
           state.isLoading = false;
@@ -130,5 +137,5 @@ const authSlice = createSlice({
   },
 });
 
-export const { updateModalStatus } = authSlice.actions;
+export const { updateModalStatus, setAccessToken, setRefreshToken } = authSlice.actions;
 export default authSlice.reducer;
