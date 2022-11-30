@@ -10,8 +10,8 @@ import {
 } from './auth-operations';
 
 const initialState = {
-  userDailyDiet: { calories: null, notRecommendedProducts: null },
-  dailyDiet: { calories: null, notRecommendedProducts: null },
+  userDailyDiet: null,
+  dailyDiet: null,
   user: {},
   accessToken: '',
   refreshToken: '',
@@ -42,7 +42,7 @@ const authSlice = createSlice({
         store.isError = null;
       })
       .addCase(handleRegistration.fulfilled, (store, { payload }) => {
-        store.user = { ...payload.user };
+        store.user = payload.user;
         store.accessToken = payload.accessToken;
         store.isLoading = false;
       })
@@ -50,22 +50,33 @@ const authSlice = createSlice({
         store.isLoading = false;
         store.isError = payload;
       })
-      .addCase(handleLogin.pending, (store, _) => {
+      .addCase(handleLogin.pending, store => {
         store.isLoading = true;
         store.isError = null;
       })
       .addCase(handleLogin.fulfilled, (store, { payload }) => {
-        store.user = { ...payload.user };
+        store.user = payload.user;
         store.accessToken = payload.accessToken;
         store.isLoading = false;
         store.isLogin = true;
         store.refreshToken = payload.refreshToken;
-        store.userDailyDiet = {
-          calories: payload.dailyDiet.calories,
-          notRecommendedProducts: payload.dailyDiet.notAllowedProduct,
-        };
+        store.userDailyDiet = payload.dailyDiet;
       })
       .addCase(handleLogin.rejected, (store, { payload }) => {
+        store.isLoading = false;
+        store.isError = payload;
+      })
+      .addCase(getCurrentUser.pending, store => {
+        store.isLoading = true;
+        store.isError = null;
+      })
+      .addCase(getCurrentUser.fulfilled, (store, { payload }) => {
+        store.user = payload.user;
+        store.isLoading = false;
+        store.isLogin = true;
+        store.userDailyDiet = payload.dailyDiet;
+      })
+      .addCase(getCurrentUser.rejected, (store, { payload }) => {
         store.isLoading = false;
         store.isError = payload;
       })
@@ -82,35 +93,14 @@ const authSlice = createSlice({
         store.accessToken = payload.accessToken;
         store.refreshToken = payload.refreshToken;
       })
-      .addCase(getCurrentUser.pending, store => {
-        store.isLoading = true;
-        store.isError = null;
-      })
-      .addCase(getCurrentUser.fulfilled, (store, { payload }) => {
-        store.user = { ...payload.user };
-        store.isLoading = false;
-        store.isLogin = true;
-        store.userDailyDiet = {
-          calories: payload.dailyDiet.calories,
-          notRecommendedProducts: payload.dailyDiet.notAllowedProduct,
-        };
-      })
-      .addCase(getCurrentUser.rejected, (store, { payload }) => {
-        store.isLoading = false;
-        store.isError = payload;
-      })
       .addCase(getCalorieIntake.pending, store => {
         store.isLoading = true;
         store.isError = null;
       })
-      .addCase(
-        getCalorieIntake.fulfilled,
-        (store, { payload: { notAllowedProduct, calories } }) => {
-          store.dailyDiet.calories = calories;
-          store.dailyDiet.notRecommendedProducts = [...notAllowedProduct];
-          store.isLoading = false;
-        }
-      )
+      .addCase(getCalorieIntake.fulfilled, (store, { payload }) => {
+        store.dailyDiet = payload;
+        store.isLoading = false;
+      })
       .addCase(getCalorieIntake.rejected, (store, { payload }) => {
         store.isLoading = false;
         store.isError = payload;
@@ -119,14 +109,10 @@ const authSlice = createSlice({
         store.isLoading = true;
         store.isError = null;
       })
-      .addCase(
-        getCalorieIntakeForUser.fulfilled,
-        (state, { payload: { notAllowedProduct, calories } }) => {
-          state.dailyDiet.calories = calories;
-          state.dailyDiet.notRecommendedProducts = [...notAllowedProduct];
-          state.isLoading = false;
-        }
-      )
+      .addCase(getCalorieIntakeForUser.fulfilled, (store, { payload }) => {
+        store.userDailyDiet = payload;
+        store.isLoading = false;
+      })
       .addCase(getCalorieIntakeForUser.rejected, (store, { payload }) => {
         store.isLoading = false;
         store.isError = payload;
