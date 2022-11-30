@@ -1,6 +1,8 @@
-import GoogleLogo from '../../images/googleLogo.svg';
-import eyeOpened from '../../images/eye.svg';
-import eyeClosed from '../../images/eye-blocked.svg';
+import GoogleLogo from '../../assets/icons/googleLogo.svg';
+import FacebookText from '../../assets/icons/facebookText.svg';
+// import { ReactComponent as FacebookLogo } from 'assets/icons/facebook.svg';
+import eyeOpened from '../../assets/icons/eye.svg';
+import eyeClosed from '../../assets/icons/eye-blocked.svg';
 import { Button } from 'components';
 import s from './RegistrationForm.module.css';
 
@@ -127,15 +129,14 @@ const RegistrationForm = () => {
                 }}
               />
 
-              <button
-                onClick={() => {
-                  dispatch(handleGoogleRegistration());
-                }}
-                className={s.googleBtn}
-                type="button"
-              >
-                <img src={GoogleLogo} alt="Google logo" />
-              </button>
+              <a className={s.googleBtn} href="http://localhost:4000/api/users/google">
+                <img className={s.googleLogo} src={GoogleLogo} alt="Google logo" />
+              </a>
+              <a className={s.googleBtn} href="http://localhost:4000/api/users/facebook">
+                <img className={s.googleLogo} src={FacebookText} alt="Facebook logo" />
+
+                {/* <FacebookLogo width={20} /> */}
+              </a>
             </div>
           </Form>
         )}

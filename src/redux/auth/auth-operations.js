@@ -45,6 +45,19 @@ export const handleLogin = createAsyncThunk('users/login', async (data, { reject
   }
 });
 
+export const refreshUserToken = createAsyncThunk(
+  'users/refresh',
+  async (data, { rejectWithValue }) => {
+    try {
+      const result = await api.refresh(data);
+      return result;
+    } catch (error) {
+      toast.error(`Sorry, refresh failed.`);
+      return rejectWithValue(error);
+    }
+  }
+);
+
 export const handleLogout = createAsyncThunk('users/logout', async (data, { rejectWithValue }) => {
   try {
     const result = await api.logout(data);

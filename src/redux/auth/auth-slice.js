@@ -6,6 +6,7 @@ import {
   getCurrentUser,
   getCalorieIntake,
   getCalorieIntakeForUser,
+  refreshUserToken,
 } from './auth-operations';
 
 const initialState = {
@@ -76,6 +77,10 @@ const authSlice = createSlice({
       .addCase(handleLogout.rejected, (store, { payload }) => {
         store.isLoading = false;
         store.isError = payload;
+      })
+      .addCase(refreshUserToken.fulfilled, (store, { payload }) => {
+        store.accessToken = payload.accessToken;
+        store.refreshToken = payload.refreshToken;
       })
       .addCase(getCurrentUser.pending, store => {
         store.isLoading = true;
