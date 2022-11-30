@@ -4,16 +4,15 @@ import {
   handleLogin,
   handleLogout,
   getCurrentUser,
-  handleFacebookRegistration,
   getCalorieIntake,
   getCalorieIntakeForUser,
 } from './auth-operations';
 
 const initialState = {
-  userDailyDiet: { calories: null, notRecomendedProducts: null },
-  dailyDiet: { calories: null, notRecomendedProducts: null },
+  userDailyDiet: { calories: null, notRecommendedProducts: null },
+  dailyDiet: { calories: null, notRecommendedProducts: null },
   user: {},
-  accessToken: null,
+  accessToken: '',
   refreshToken: '',
   isLogin: false,
   isLoading: false,
@@ -27,6 +26,12 @@ const authSlice = createSlice({
   reducers: {
     updateModalStatus: (store, { payload }) => {
       store.showModal = payload;
+    },
+    setAccessToken: (store, { payload }) => {
+      store.accessToken = payload;
+    },
+    setRefreshToken: (store, { payload }) => {
+      store.refreshToken = payload;
     },
   },
   extraReducers: builder => {
@@ -55,22 +60,11 @@ const authSlice = createSlice({
         store.isLogin = true;
         store.refreshToken = payload.refreshToken;
         store.userDailyDiet = {
-        calories: payload.dailyDiet.calories,
-        notRecomendedProducts: payload.dailyDiet.notAllowedProduct,
-      };
+          calories: payload.dailyDiet.calories,
+          notRecommendedProducts: payload.dailyDiet.notAllowedProduct,
+        };
       })
       .addCase(handleLogin.rejected, (store, { payload }) => {
-        store.isLoading = false;
-        store.isError = payload;
-      })
-      .addCase(handleFacebookRegistration.pending, store => {
-        store.isLoading = true;
-        store.isError = null;
-      })
-      .addCase(handleFacebookRegistration.fulfilled, store => {
-        store.isLoading = false;
-      })
-      .addCase(handleFacebookRegistration.rejected, (store, { payload }) => {
         store.isLoading = false;
         store.isError = payload;
       })
@@ -92,9 +86,9 @@ const authSlice = createSlice({
         store.isLoading = false;
         store.isLogin = true;
         store.userDailyDiet = {
-        calories: payload.dailyDiet.calories,
-        notRecomendedProducts: payload.dailyDiet.notAllowedProduct,
-      };
+          calories: payload.dailyDiet.calories,
+          notRecommendedProducts: payload.dailyDiet.notAllowedProduct,
+        };
       })
       .addCase(getCurrentUser.rejected, (store, { payload }) => {
         store.isLoading = false;
@@ -108,7 +102,7 @@ const authSlice = createSlice({
         getCalorieIntake.fulfilled,
         (store, { payload: { notAllowedProduct, calories } }) => {
           store.dailyDiet.calories = calories;
-          store.dailyDiet.notRecomendedProducts = [...notAllowedProduct];
+          store.dailyDiet.notRecommendedProducts = [...notAllowedProduct];
           store.isLoading = false;
         }
       )
@@ -124,7 +118,7 @@ const authSlice = createSlice({
         getCalorieIntakeForUser.fulfilled,
         (state, { payload: { notAllowedProduct, calories } }) => {
           state.dailyDiet.calories = calories;
-          state.dailyDiet.notRecomendedProducts = [...notAllowedProduct];
+          state.dailyDiet.notRecommendedProducts = [...notAllowedProduct];
           state.isLoading = false;
         }
       )

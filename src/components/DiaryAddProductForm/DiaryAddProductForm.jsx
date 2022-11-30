@@ -20,7 +20,7 @@ const DiaryAddProductForm = () => {
   const [clarification, setСlarification] = useState(false);
 
   const selectOptions = productsOptions.map(i => {
-    if (userDailyDiet?.notRecomendedProducts?.find(item => item === i.title)) {
+    if (userDailyDiet?.notRecommendedProducts?.find(item => item === i.title)) {
       return {
         value: i.title,
         label: `${i.title} *`,
