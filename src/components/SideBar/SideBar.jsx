@@ -23,12 +23,13 @@ const SideBar = () => {
   const leftCalories = (dailyCalories - consumedCalories).toFixed(1);
   const percent = ((consumedCalories * 100) / dailyCalories).toFixed(2);
 
-  const foodCategories = userDailyDiet?.notAllowedProduct?.join(', ');
+  const foodCategories = userDailyDiet?.notRecommendedProducts?.join(', ');
 
-  const showInfo = userDailyDiet?.calories && userDailyDiet?.notAllowedProduct;
+  const showInfo = userDailyDiet?.calories && userDailyDiet?.notRecommendedProducts;
   const showDailyInfo =
-    dailyMeals?.length > 0 && userDailyDiet?.calories && userDailyDiet?.notAllowedProduct;
-  const noInfo = !userDailyDiet || !userDailyDiet?.calories || !userDailyDiet?.notAllowedProduct;
+    dailyMeals?.length > 0 && userDailyDiet?.calories && userDailyDiet?.notRecommendedProducts;
+  const noInfo =
+    !userDailyDiet || !userDailyDiet?.calories || !userDailyDiet?.notRecommendedProducts;
 
   return (
     <div className={s.sideBar}>

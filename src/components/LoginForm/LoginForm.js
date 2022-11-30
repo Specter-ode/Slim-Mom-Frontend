@@ -31,12 +31,12 @@ const LoginForm = () => {
   };
   const dispatch = useDispatch();
 
-  const facebookAuth = () => {
-    window.open('http://localhost:4000/api/users/facebook', '_self');
-  };
-  const googleAuth = () => {
-    window.open('http://localhost:4000/api/users/facebook', '_self');
-  };
+  // const facebookAuth = () => {
+  //   window.open('http://localhost:4000/api/users/facebook', '_self');
+  // };
+  // const googleAuth = () => {
+  //   window.open('http://localhost:4000/api/users/facebook', '_self');
+  // };
 
   const [errorMessage, setErrorMessage] = useState('');
 

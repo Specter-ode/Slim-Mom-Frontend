@@ -19,8 +19,6 @@ export const handleGoogleRegistration = createAsyncThunk(
   'users/google',
   async (_, { rejectWithValue }) => {
     try {
-      const result = await api.googleSignup();
-      return result;
     } catch (error) {
       toast.error(`Sorry, registration failed. Try again.`);
       return rejectWithValue(error.message);
@@ -31,8 +29,6 @@ export const handleFacebookRegistration = createAsyncThunk(
   'users/facebook',
   async (_, { rejectWithValue }) => {
     try {
-      const result = await api.facebookSignup();
-      console.log('result handleFacebookRegistration: ', result);
     } catch (error) {
       toast.error(`Sorry, registration failed. Try again.`);
       return rejectWithValue(error.message);
