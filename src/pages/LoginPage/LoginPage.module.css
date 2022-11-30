@@ -24,7 +24,7 @@
   .container {
     min-height: 130vh;
     width: 768px;
-    padding: 160px 340px 0 32px;
+    padding: 160px 32px 32px 32px;
   }
 
   .title {
@@ -36,6 +36,6 @@
     min-height: 100vh;
     width: 1280px;
     padding-left: 16px;
-    padding-right: 868px;
+    padding-right: 16px;
   }
 }

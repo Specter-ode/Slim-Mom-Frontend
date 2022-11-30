@@ -1,18 +1,15 @@
-import GoogleLogo from '../../images/googleLogo.svg';
-import eyeOpened from '../../images/eye.svg';
-import eyeClosed from '../../images/eye-blocked.svg';
+import GoogleLogo from '../../assets/icons/googleLogo.svg';
+import FacebookText from '../../assets/icons/facebookText.svg';
+// import { ReactComponent as FacebookLogo } from 'assets/icons/facebook.svg';
+import eyeOpened from '../../assets/icons/eye.svg';
+import eyeClosed from '../../assets/icons/eye-blocked.svg';
 import { Button } from 'components';
 import s from './LoginForm.module.css';
-
 import { useDispatch } from 'react-redux';
-
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { useState } from 'react';
-
-import { handleLogin, handleGoogleRegistration } from '../../redux/auth/auth-operations';
-
-import { redirect, useNavigate } from 'react-router-dom';
+import { handleLogin } from '../../redux/auth/auth-operations';
 
 const SignupSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Email is required'),
@@ -34,9 +31,14 @@ const LoginForm = () => {
   };
   const dispatch = useDispatch();
 
-  const [errorMessage, setErrorMessage] = useState('');
+  const facebookAuth = () => {
+    window.open('http://localhost:4000/api/users/facebook', '_self');
+  };
+  const googleAuth = () => {
+    window.open('http://localhost:4000/api/users/facebook', '_self');
+  };
 
-  const navigate = useNavigate();
+  const [errorMessage, setErrorMessage] = useState('');
 
   return (
     <>
@@ -104,20 +106,15 @@ const LoginForm = () => {
                   handleSubmit();
                 }}
               />
-              <button
-                onClick={() => {
-                  dispatch(handleGoogleRegistration()).then(data => {
-                    const url = data.payload.url;
-                    console.log(url);
 
-                    return navigate(url);
-                  });
-                }}
-                className={s.googleBtn}
-                type="button"
-              >
+              <a className={s.googleBtn} href="http://localhost:4000/api/users/google">
                 <img className={s.googleLogo} src={GoogleLogo} alt="Google logo" />
-              </button>
+              </a>
+              <a className={s.googleBtn} href="http://localhost:4000/api/users/facebook">
+                <img className={s.googleLogo} src={FacebookText} alt="Facebook logo" />
+
+                {/* <FacebookLogo width={20} /> */}
+              </a>
             </div>
           </Form>
         )}

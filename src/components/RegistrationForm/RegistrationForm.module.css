@@ -12,13 +12,10 @@ input[data-autocompleted] {
   margin: 0 auto;
 }
 
-.googleLogo {
-  display: block;
-  margin: 0 auto;
-}
-
 .googleBtn {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin: 0;
   width: 182px;
   height: 44px;
@@ -37,7 +34,6 @@ input[data-autocompleted] {
 }
 
 .formInput {
-  /* position: relative; */
   width: 100%;
   height: 37px;
   font-weight: 700;
@@ -67,7 +63,7 @@ input[data-autocompleted] {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 108px;
+  height: 172px;
   margin-top: 21px;
 }
 
@@ -101,7 +97,7 @@ input[data-autocompleted] {
 
   .btnCont {
     flex-direction: row;
-    width: 394px;
+    width: 608px;
     height: 44px;
   }
 }
