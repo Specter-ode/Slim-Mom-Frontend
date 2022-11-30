@@ -2,7 +2,7 @@
   "name": "slim-mom-frontend",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://specter-ode.github.io/Slim-Mom-Frontend/",
+  "homepage": "https://slim-mom-frontend.vercel.app/",
   "dependencies": {
     "@moeindana/google-oauth": "^0.1.5",
     "@reduxjs/toolkit": "^1.9.0",
