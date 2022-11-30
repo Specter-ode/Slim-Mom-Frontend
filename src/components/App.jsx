@@ -22,24 +22,16 @@ const App = () => {
   const refreshTokenFromURL = searchParams.get('refreshToken');
 
   useEffect(() => {
-    console.log('accessTokenFromURL: ', accessTokenFromURL);
-    console.log('refreshTokenFromURL: ', refreshTokenFromURL);
     if (accessTokenFromURL && refreshTokenFromURL) {
-      console.log('effect');
       setAccessToken(accessTokenFromURL);
       setRefreshToken(refreshTokenFromURL);
     }
   }, [accessTokenFromURL, refreshTokenFromURL]);
 
   const dispatch = useDispatch();
-  console.log('isLogin: ', isLogin);
-  console.log('accessToken: ', accessToken);
+
   useEffect(() => {
-    console.log('!isLogin && accessToken: ', !isLogin && accessToken);
-    console.log('useEffect isLogin: ', isLogin);
-    console.log('useEffect accessToken: ', accessToken);
     if (!isLogin && accessToken) {
-      console.log('сработал getCurrentUser');
       dispatch(getCurrentUser());
     }
   }, [dispatch, isLogin, accessToken]);

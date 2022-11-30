@@ -10,12 +10,12 @@ import s from '../DailyCalorieIntake/DailyCalorieIntake.module.css';
 export default function DailyCalorieIntake() {
   const dispatch = useDispatch();
 
-  const { calories, notRecomendedProducts } = useSelector(getDailyIntake);
+  const { calories, notRecommendedProducts } = useSelector(getDailyIntake);
   const isLoggedIn = useSelector(getLoginStatus);
 
   const navigateTo = isLoggedIn ? '/diary' : '/registration';
 
-  const productsNotAllowed = notRecomendedProducts?.map(el => (
+  const productsNotAllowed = notRecommendedProducts?.map(el => (
     <li key={nanoid()} className={s.item}>
       <p className={s.text}>{el}</p>
     </li>
