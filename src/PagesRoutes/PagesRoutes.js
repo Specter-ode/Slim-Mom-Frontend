@@ -13,6 +13,7 @@ const RegistrationPage = lazy(() => import('../pages/RegistrationPage/Registrati
 const CalculatorPage = lazy(() => import('../pages/CalculatorPage/CalculatorPage'));
 const DiaryMobileForm = lazy(() => import('../pages/DiaryMobileForm/DiaryMobileForm'));
 const DiaryPage = lazy(() => import('../pages/DiaryPage/DiaryPage'));
+const DevelopersPage = lazy(() => import('../pages/DevelopersPage/DevelopersPage'));
 
 const PagesRoutes = () => {
   const isLogin = useSelector(getLoginStatus);
@@ -37,6 +38,7 @@ const PagesRoutes = () => {
           <Route path="/calculator" element={<CalculatorPage />} />
           <Route path="/diary" element={<DiaryPage />} />
           <Route path="/diary-mobile-form" element={<DiaryMobileForm />} />
+          <Route path="/developers" element={<DevelopersPage />} />
         </Route>
         <Route path="*" element={correctComponent} />
       </Routes>
