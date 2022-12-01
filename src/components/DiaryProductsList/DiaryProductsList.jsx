@@ -18,21 +18,23 @@ const DiaryProductsList = () => {
   const noMeals = dailyMeals?.length === 0 && !error && !isLoading;
 
   return (
-    <ul className={s.list}>
-      {isLoading && <Loader />}
-      {error && <p>Error. {error.message}</p>}
-      {showMeals &&
-        dailyMeals.map(i => (
-          <DiaryProductsItem
-            key={i._id}
-            id={i._id}
-            product={i.product}
-            grams={i.grams}
-            calories={i.calories}
-          />
-        ))}
-      {noMeals && <li>You haven't added any meal this day.</li>}
-    </ul>
+    <>
+      {isLoading && <Loader size={50} />}
+      <ul className={s.list}>
+        {error && <p>Error. {error.message}</p>}
+        {showMeals &&
+          dailyMeals.map(i => (
+            <DiaryProductsItem
+              key={i._id}
+              id={i._id}
+              product={i.product}
+              grams={i.grams}
+              calories={i.calories}
+            />
+          ))}
+        {noMeals && <li>You haven't added any meal this day.</li>}
+      </ul>
+    </>
   );
 };
 
