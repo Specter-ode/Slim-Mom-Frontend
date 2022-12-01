@@ -8,6 +8,7 @@ import {
   DiaryDateСalendar,
   DiaryProductsList,
   SideBar,
+  Footer,
 } from '../../components';
 import s from './DiaryPage.module.css';
 
@@ -41,22 +42,26 @@ const DiaryPage = () => {
             <Container>
               <SideBar />
             </Container>
+            <Footer />
           </div>
         </main>
       )}
 
       {width > 1279 && (
-        <Container>
-          <main className={s.main}>
-            <div className={s.diary}>
-              <DiaryDateСalendar location="diary" />
-              <DiaryAddProductForm />
-              <DiaryProductsList />
-            </div>
+        <>
+          <Container>
+            <main className={s.main}>
+              <div className={s.diary}>
+                <DiaryDateСalendar location="diary" />
+                <DiaryAddProductForm />
+                <DiaryProductsList />
+              </div>
 
-            <SideBar />
-          </main>
-        </Container>
+              <SideBar />
+            </main>
+          </Container>
+          <Footer />
+        </>
       )}
     </>
   );
