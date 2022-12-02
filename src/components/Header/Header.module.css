@@ -58,12 +58,12 @@
 }
 @media screen and (min-width: 480px) {
   .block {
-    width: 480px;
+    max-width: 480px;
   }
 }
 @media screen and (min-width: 768px) {
   .block {
-    width: 768px;
+    max-width: 768px;
     padding-left: 32px;
     padding-right: 32px;
   }
@@ -79,7 +79,7 @@
     padding-bottom: 0;
   }
   .block {
-    width: 1280px;
+    max-width: 1280px;
     padding: 0 16px;
 
     align-items: flex-end;

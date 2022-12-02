@@ -29,6 +29,7 @@
 }
 
 .text {
+  padding-right: 10px;
   max-height: 130px;
   overflow-y: auto;
 }
@@ -38,7 +39,7 @@
 }
 
 .text::-webkit-scrollbar-track {
-  background-color: var(--scroll-color);
+  background-color: var(--bg-color);
 }
 
 .text::-webkit-scrollbar-thumb {

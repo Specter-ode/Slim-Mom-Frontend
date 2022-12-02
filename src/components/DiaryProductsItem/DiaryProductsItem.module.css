@@ -1,6 +1,7 @@
 .item {
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
 }
 
 .item:not(:last-child) {
@@ -25,8 +26,19 @@
   flex-grow: 1;
 }
 
-.info:not(:first-child) {
+.info:nth-child(2),
+.info:nth-child(3) {
+  flex-shrink: 0;
+
   text-align: end;
+}
+
+.info:nth-child(2) {
+  min-width: 48px;
+}
+
+.info:nth-child(3) {
+  min-width: 78px;
 }
 
 .small {
