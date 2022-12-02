@@ -3,7 +3,18 @@
   flex-direction: column;
   align-items: flex-start;
   padding-top: 40px;
-  min-height: calc(100vh - 122px);
+}
+
+.main::-webkit-scrollbar {
+  width: 6px;
+}
+
+.main::-webkit-scrollbar-track {
+  background-color: var(--scroll-color);
+}
+
+.main::-webkit-scrollbar-thumb {
+  background-color: var(--third-color);
 }
 
 .diary {
@@ -17,10 +28,19 @@
   background-color: var(--scroll-color);
 }
 
+@media screen and (max-width: 767px) {
+  .main {
+    height: calc(100vh - 122px);
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .main {
     padding-top: 100px;
     min-height: calc(100vh - 82px);
+    overflow-y: visible;
   }
 
   .diary {
@@ -54,6 +74,7 @@
   }
 
   .diary {
+    flex-grow: 0;
     width: 623px;
     margin-right: 230px;
     margin-bottom: 0;

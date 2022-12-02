@@ -73,7 +73,7 @@ const DiaryAddProductForm = () => {
   };
 
   const colourStyles = {
-    option: (styles, { data, isDisabled, isFocused, isSelected }) => {
+    option: (styles, { data }) => {
       return {
         ...styles,
         backgroundColor: data.color ? data.color : 'transparent',
@@ -83,12 +83,13 @@ const DiaryAddProductForm = () => {
 
   return (
     <>
-      {clarification && (
-        <p className={s.clarification}>
-          * Items on the orange background in the drop down list are not recommended for your diet.
-        </p>
-      )}
       <form className={s.form} onSubmit={handleFormSubmit}>
+        {clarification && (
+          <p className={s.clarification}>
+            * Items on the orange background in the drop down list are not recommended for your
+            diet.
+          </p>
+        )}
         <label className={s.label}>
           <Select
             // common

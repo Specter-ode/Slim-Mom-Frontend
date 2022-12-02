@@ -5,6 +5,18 @@
   padding: 32px 0 0 0;
 }
 
+.section::-webkit-scrollbar {
+  width: 6px;
+}
+
+.section::-webkit-scrollbar-track {
+  background-color: var(--scroll-color);
+}
+
+.section::-webkit-scrollbar-thumb {
+  background-color: var(--third-color);
+}
+
 .calculator {
   width: 100%;
   margin-bottom: 40px;
@@ -13,6 +25,14 @@
 .sidebar {
   width: 100%;
   background-color: var(--scroll-color);
+}
+
+@media screen and (max-width: 767px) {
+  .section {
+    height: calc(100vh - 122px);
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
 }
 
 @media screen and (min-width: 768px) {
