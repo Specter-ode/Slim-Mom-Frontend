@@ -14,29 +14,11 @@
 .item {
   margin: 20px;
   width: 200px;
+  box-shadow: 0px 0px 5px 1px var(--accent-color);
+  border-radius: 4px;
 }
 
 .text {
   color: var(--main-color);
   padding: 10px 0 10px 10px;
-}
-
-@media screen and (max-width: 1279px) {
-  .page {
-    /* background */
-    background-image: url(../../assets/png/backgroundDiaryTab_x1.png);
-    background-repeat: no-repeat;
-    background-position: 100% 100%;
-    background-size: 369px 338px;
-  }
-
-  @media screen and (min-device-pixel-ratio: 2),
-    screen and (-webkit-min-device-pixel-ratio: 2),
-    screen and (-o-min-device-pixel-ratio: 2/1),
-    screen and (min-resolution: 192dpi),
-    screen and (min-resolution: 2dppx) {
-    .page {
-      background-image: url(../../assets/png/backgroundDiaryTab_x2.png);
-    }
-  }
 }
