@@ -1,16 +1,15 @@
 .footer {
-  color: var(--third-color);
+  color: var(--second-color);
   margin-top: auto;
   padding-top: 20px;
   padding-bottom: 40px;
-  text-align: center;
 }
 .link {
   color: var(--accent-color);
 }
-/* 
-@media screen and (max-width: 1279px) {
+
+@media screen and (max-width: 768px) {
   .footer {
-    border-top: 2px solid #e0e0e0;
+    text-align: center;
   }
-} */
+}
