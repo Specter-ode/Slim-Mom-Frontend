@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkslim_mom_frontend=self.webpackChunkslim_mom_frontend||[]).push([[425],{425:function(n,e,s){s.r(e),s.d(e,{default:function(){return m}});var i="LoginPage_container__ZK1ET",r="LoginPage_title__RBt-o",a=s(2617),t=s(4654),c=s(9434),l=s(5374),o=s(184),m=function(){var n=(0,c.v9)(t.vc),e=(0,o.jsxs)(o.Fragment,{children:[(0,o.jsx)("h3",{className:r,children:"Sign In"}),(0,o.jsx)(a.Z,{})]});return(0,o.jsx)("main",{children:(0,o.jsx)("div",{className:i,children:n?(0,o.jsx)(l.aN,{}):e})})}}}]);
-//# sourceMappingURL=425.c26d4030.chunk.js.map
