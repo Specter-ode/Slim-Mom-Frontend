@@ -1,11 +1,11 @@
 import s from './Header.module.css';
 import { AdditionalHeaderField, UserNav, UserInfo, Logo } from 'components';
 import { ReactComponent as Burger } from 'assets/icons/burger.svg';
+import { ReactComponent as Close } from 'assets/icons/close.svg';
 import useWindowDimensions from 'services/hooks/useWindowDimensions';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-// import { useSelector } from 'react-redux';
 import { getLoginStatus, getModalStatus } from 'redux/auth/auth-selector';
 
 const Header = ({ menuActive, setMenuActive }) => {
@@ -37,7 +37,7 @@ const Header = ({ menuActive, setMenuActive }) => {
               className={s.burgerBtn}
               onClick={() => setMenuActive(!menuActive)}
             >
-              <Burger />
+              {menuActive ? <Close /> : <Burger />}
             </button>
           )}
         </div>

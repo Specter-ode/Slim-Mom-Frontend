@@ -21,3 +21,4 @@ export { default as UserInfo } from './UserInfo/UserInfo';
 export { default as UserNav } from './UserNav/UserNav';
 export { default as Loader } from './Loader/Loader';
 export { default as Footer } from './Footer/Footer';
+export { default as PageLoader } from './Loader/PageLoader';
