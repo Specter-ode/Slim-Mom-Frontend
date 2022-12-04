@@ -7,3 +7,7 @@ export const getErrorStatus = store => store.auth.isError;
 export const getLoginStatus = store => store.auth.isLogin;
 export const getDailyIntake = store => store.auth.dailyDiet;
 export const getUserDailyDiet = store => store.auth.userDailyDiet;
+export const getEmailStatus = store => store.auth.emailStatus;
+export const gettEmailOnCheck = store => store.auth.emailOnCheck;
+export const getKeyStatus = store => store.auth.keyStatus;
+export const getPasswordStatus = store => store.auth.passwordStatus;

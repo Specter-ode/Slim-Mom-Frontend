@@ -60,7 +60,7 @@ const RegistrationForm = () => {
               name="name"
               title="Please enter your name or nickname'"
               placeholder="Name *"
-              min-length="6"
+              min-length="2"
               required
               id="name"
             />

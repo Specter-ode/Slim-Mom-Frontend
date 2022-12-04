@@ -5,9 +5,9 @@ import axios from 'axios';
 // import { getRefreshToken, getStore, getAccessToken } from 'redux/auth/auth-selector';
 // import { setAccessToken, setRefreshToken } from 'redux/auth/auth-slice';
 
-const { REACT_APP_BACKEND_URL } = process.env;
+const { REACT_APP_BACKEND_URL = 'http://localhost:4000/api' } = process.env;
 const instance = axios.create({
-  baseURL: REACT_APP_BACKEND_URL || 'http://localhost:4000/api',
+  baseURL: REACT_APP_BACKEND_URL,
 });
 
 // const onRequestSuccess = config => {
@@ -124,6 +124,21 @@ export const logout = async data => {
 
 export const getCurrentUser = async () => {
   const result = await instance.get('/users/current');
+  return result.data;
+};
+
+export const getActivationKey = async email => {
+  const result = await instance.get(`/users/key/${email}`);
+  return result.data;
+};
+
+export const getKeyVerify = async key => {
+  const result = await instance.get(`/users/verify/${key}`);
+  return result.data;
+};
+
+export const saveNewPassword = async data => {
+  const result = await instance.patch(`/users/password`, data);
   return result.data;
 };
 

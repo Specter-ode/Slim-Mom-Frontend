@@ -7,6 +7,9 @@ import {
   getCalorieIntake,
   getCalorieIntakeForUser,
   refreshUserToken,
+  saveNewPassword,
+  getKeyVerify,
+  getActivationKey,
 } from './auth-operations';
 
 const initialState = {
@@ -19,6 +22,10 @@ const initialState = {
   isLoading: false,
   isError: null,
   showModal: false,
+  keyStatus: false,
+  emailStatus: false,
+  passwordStatus: false,
+  emailOnCheck: '',
 };
 
 const authSlice = createSlice({
@@ -33,6 +40,9 @@ const authSlice = createSlice({
     },
     setRefreshToken: (store, { payload }) => {
       store.refreshToken = payload;
+    },
+    setPasswordStatus: (store, { payload }) => {
+      store.passwordStatus = payload;
     },
   },
   extraReducers: builder => {
@@ -116,9 +126,51 @@ const authSlice = createSlice({
       .addCase(getCalorieIntakeForUser.rejected, (store, { payload }) => {
         store.isLoading = false;
         store.isError = payload;
+      })
+      .addCase(saveNewPassword.pending, store => {
+        store.isLoading = true;
+        store.isError = null;
+      })
+      .addCase(saveNewPassword.fulfilled, store => {
+        store.passwordStatus = true;
+        store.emailOnCheck = '';
+        store.keyStatus = false;
+        store.emailStatus = false;
+        store.isLoading = false;
+      })
+      .addCase(saveNewPassword.rejected, (store, { payload }) => {
+        store.isLoading = false;
+        store.isError = payload;
+      })
+      .addCase(getKeyVerify.pending, store => {
+        store.isLoading = true;
+        store.isError = null;
+      })
+      .addCase(getKeyVerify.fulfilled, (store, { payload }) => {
+        store.emailOnCheck = payload.email;
+        store.keyStatus = payload.verifiedKey;
+        store.isLoading = false;
+      })
+      .addCase(getKeyVerify.rejected, (store, { payload }) => {
+        store.isLoading = false;
+        store.keyStatus = false;
+        store.isError = payload;
+      })
+      .addCase(getActivationKey.pending, store => {
+        store.isLoading = true;
+        store.isError = null;
+      })
+      .addCase(getActivationKey.fulfilled, store => {
+        store.emailStatus = true;
+        store.isLoading = false;
+      })
+      .addCase(getActivationKey.rejected, (store, { payload }) => {
+        store.isLoading = false;
+        store.isError = payload;
       });
   },
 });
 
-export const { updateModalStatus, setAccessToken, setRefreshToken } = authSlice.actions;
+export const { updateModalStatus, setAccessToken, setRefreshToken, setPasswordStatus } =
+  authSlice.actions;
 export default authSlice.reducer;
