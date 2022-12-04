@@ -40,9 +40,8 @@ const DiaryPage = () => {
 
           <div className={s.sidebar}>
             <Container>
-              <SideBar />
+              <SideBar /> <Footer />
             </Container>
-            <Footer />
           </div>
         </main>
       )}
@@ -59,8 +58,8 @@ const DiaryPage = () => {
 
               <SideBar />
             </main>
+            <Footer />
           </Container>
-          <Footer />
         </>
       )}
     </>

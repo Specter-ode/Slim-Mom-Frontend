@@ -33,8 +33,8 @@ const CalculatorPage = () => {
               </div>
               <SideBar />
             </section>
+            <Footer />
           </Container>
-          <Footer />
         </>
       )}
     </>
