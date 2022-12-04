@@ -29,9 +29,14 @@
 }
 
 .text {
+  margin-bottom: 25px;
   padding-right: 10px;
-  max-height: 130px;
+  max-height: 160px;
   overflow-y: auto;
+}
+
+.text__item:not(:last-child) {
+  margin-bottom: 15px;
 }
 
 .text::-webkit-scrollbar {

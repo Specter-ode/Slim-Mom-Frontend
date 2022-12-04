@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: flex-start;
   padding-top: 40px;
+  overflow-y: auto;
 }
 
 .main::-webkit-scrollbar {
@@ -31,7 +32,7 @@
 @media screen and (max-width: 767px) {
   .main {
     height: calc(100vh - 122px);
-    overflow-y: auto;
+
     overflow-x: hidden;
   }
 }
@@ -40,7 +41,6 @@
   .main {
     padding-top: 100px;
     min-height: calc(100vh - 82px);
-    overflow-y: visible;
   }
 
   .diary {
@@ -70,6 +70,7 @@
   .main {
     flex-direction: row;
     padding-top: 145px;
+    padding-bottom: 120px;
     min-height: calc(100vh - 153px);
   }
 
