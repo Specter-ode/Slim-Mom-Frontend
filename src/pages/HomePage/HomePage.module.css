@@ -1,24 +1,20 @@
 .section {
   padding-top: 32px;
+  padding-bottom: 32px;
 }
 
 @media screen and (min-width: 768px) {
   .container {
     min-height: 120vh;
-    /* padding-bottom: 400px; */
-  }
-}
-@media screen and (min-width: 1280px) {
-  .container {
-    min-height: 80vh;
-    padding-bottom: 0px;
   }
   .section {
     padding-top: 100px;
   }
 }
-
 @media screen and (min-width: 1280px) {
+  .container {
+    min-height: 80vh;
+  }
   .section {
     padding-top: 140px;
   }
