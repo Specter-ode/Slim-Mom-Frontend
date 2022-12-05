@@ -70,8 +70,8 @@
   .main {
     flex-direction: row;
     padding-top: 145px;
-    padding-bottom: 120px;
-    min-height: calc(100vh - 153px);
+    padding-bottom: 60px;
+    min-height: calc(100vh - 229px);
   }
 
   .diary {
@@ -79,5 +79,6 @@
     width: 623px;
     margin-right: 230px;
     margin-bottom: 0;
+    padding-bottom: 60px;
   }
 }
