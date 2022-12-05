@@ -12,6 +12,7 @@ const ForgotPasswordPage = () => {
   const passwordStatus = useSelector(getPasswordStatus);
   const isLoading = useSelector(getLoadingStatus);
   const emailOnCheck = useSelector(gettEmailOnCheck);
+
   const dispatch = useDispatch();
   const sendEmail = email => {
     dispatch(getActivationKey(email));
