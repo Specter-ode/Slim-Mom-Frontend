@@ -14,7 +14,15 @@ const RegistrationPage = () => {
   );
   return (
     <main>
-      <div className={s.container}>{isLoading ? <Loader /> : component}</div>
+      <div className={s.container}>
+        {isLoading ? (
+          <div className={s.block}>
+            <Loader />
+          </div>
+        ) : (
+          component
+        )}
+      </div>
     </main>
   );
 };
