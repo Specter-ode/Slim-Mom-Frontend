@@ -19,7 +19,7 @@ const DiaryProductsList = () => {
 
   return (
     <>
-      {isLoading && <Loader size={50} />}
+      {isLoading && <Loader />}
       <ul className={s.list}>
         {error && <p>Error. {error.message}</p>}
         {showMeals &&
