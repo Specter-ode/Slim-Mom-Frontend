@@ -32,7 +32,6 @@
 @media screen and (min-width: 1280px) {
   .backgroundHome {
     background: url(../../assets/png/backgroundAuthDeskTop_x1.png) no-repeat 100% 0%;
-    background-size: contain;
   }
 
   .backgroundDiaryCalc {

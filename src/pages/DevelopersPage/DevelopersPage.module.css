@@ -1,0 +1,24 @@
+.title {
+  text-align: center;
+  margin: 50px 0 50px 0;
+}
+
+.list {
+  margin: -20px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.item {
+  margin: 20px;
+  width: 200px;
+  box-shadow: 0px 0px 5px 1px var(--accent-color);
+  border-radius: 4px;
+}
+
+.text {
+  color: var(--main-color);
+  padding: 10px 0 10px 10px;
+}

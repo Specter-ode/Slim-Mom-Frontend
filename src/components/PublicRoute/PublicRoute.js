@@ -9,7 +9,7 @@ const PublicRoute = () => {
     <>
       {!isLogin ? (
         <Outlet />
-      ) : isDailyDiet ? (
+      ) : isDailyDiet?.calories ? (
         <Navigate to="/diary" />
       ) : (
         <Navigate to="/calculator" />

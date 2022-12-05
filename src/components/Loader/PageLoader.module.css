@@ -1,0 +1,48 @@
+.circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  background: var(--bg-color);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  font-size: 24px;
+  font-family: 'Gotham-Pro';
+  color: var(--accent-color);
+  text-shadow: 0 0 10px rgba(252, 132, 45, 0.5);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+}
+
+.dote {
+  position: absolute;
+  top: calc(50% - 2px);
+  left: 50%;
+  width: 50%;
+  transform-origin: left;
+  animation: animate 2s linear infinite;
+}
+
+.dote:before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--accent-color);
+  right: -10px;
+  box-shadow: 0 0 20px var(--accent-color);
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,15 +1,15 @@
 import GoogleLogo from '../../assets/icons/googleLogo.svg';
 import FacebookText from '../../assets/icons/facebookText.svg';
-// import { ReactComponent as FacebookLogo } from 'assets/icons/facebook.svg';
 import eyeOpened from '../../assets/icons/eye.svg';
 import eyeClosed from '../../assets/icons/eye-blocked.svg';
-import { Button } from 'components';
 import s from './LoginForm.module.css';
 import { useDispatch } from 'react-redux';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { useState } from 'react';
 import { handleLogin } from '../../redux/auth/auth-operations';
+import { Link } from 'react-router-dom';
+const { REACT_APP_BACKEND_URL = 'http://localhost:4000/api' } = process.env;
 
 const SignupSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Email is required'),
@@ -20,7 +20,6 @@ const SignupSchema = Yup.object().shape({
 
 const LoginForm = () => {
   const [isPswdShown, setIsPswdShown] = useState(false);
-
   const changePswdVisibility = () => {
     if (isPswdShown === false) {
       setIsPswdShown(true);
@@ -88,23 +87,25 @@ const LoginForm = () => {
             {errorMessage && errorMessage === 'Password is wrong' && !touched.password ? (
               <div className={s.errorMessage}>{errorMessage}</div>
             ) : null}
-
             <div className={s.btnCont}>
-              <Button
-                text={'Login'}
-                width={182}
+              <button
+                className={s.btn}
                 onClick={() => {
                   handleSubmit();
                 }}
-              />
-
-              <a className={s.googleBtn} href="http://localhost:4000/api/users/google">
-                <img className={s.googleLogo} src={GoogleLogo} alt="Google logo" />
+              >
+                Login
+              </button>
+              <Link to="/forgot-password" className={s.btn}>
+                Forgot password
+              </Link>
+            </div>
+            <div className={s.btnCont}>
+              <a className={s.btn} href={`${REACT_APP_BACKEND_URL}/users/google`}>
+                <img className={s.socialLogo} src={GoogleLogo} alt="Google logo" />
               </a>
-              <a className={s.googleBtn} href="http://localhost:4000/api/users/facebook">
-                <img className={s.googleLogo} src={FacebookText} alt="Facebook logo" />
-
-                {/* <FacebookLogo width={20} /> */}
+              <a className={s.btn} href={`${REACT_APP_BACKEND_URL}/users/facebook`}>
+                <img className={s.socialLogo} src={FacebookText} alt="Facebook logo" />
               </a>
             </div>
           </Form>

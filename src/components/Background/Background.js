@@ -7,7 +7,7 @@ const Background = ({ children }) => {
   const isLogin = useSelector(getLoginStatus);
   const { pathname } = useLocation();
   const style = (function () {
-    if (pathname === '/registration' || pathname === '/login') {
+    if (pathname === '/registration' || pathname === '/login' || pathname === '/forgot-password') {
       if (window.innerWidth >= 1280) {
         return s.backgroundHome;
       }

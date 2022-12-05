@@ -29,8 +29,14 @@
 }
 
 .text {
-  max-height: 130px;
+  margin-bottom: 25px;
+  padding-right: 10px;
+  max-height: 160px;
   overflow-y: auto;
+}
+
+.text__item:not(:last-child) {
+  margin-bottom: 15px;
 }
 
 .text::-webkit-scrollbar {
@@ -38,7 +44,7 @@
 }
 
 .text::-webkit-scrollbar-track {
-  background-color: var(--scroll-color);
+  background-color: var(--bg-color);
 }
 
 .text::-webkit-scrollbar-thumb {

@@ -5,8 +5,8 @@ import { ToastContainer, Zoom } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getCurrentUser, refreshUserToken } from 'redux/auth/auth-operations';
-import { getAccessToken, getLoginStatus, getRefreshToken } from 'redux/auth/auth-selector';
+import { getCurrentUser /* refreshUserToken */ } from 'redux/auth/auth-operations';
+import { getAccessToken, getLoginStatus /* getRefreshToken */ } from 'redux/auth/auth-selector';
 import { useSearchParams } from 'react-router-dom';
 import { setAccessToken, setRefreshToken } from 'redux/auth/auth-slice';
 import instance, { setToken } from 'services/api/auth';
@@ -29,7 +29,7 @@ const App = () => {
       dispatch(setAccessToken(accessTokenFromURL));
       dispatch(setRefreshToken(refreshTokenFromURL));
     }
-  }, [accessTokenFromURL, refreshTokenFromURL]);
+  }, [accessTokenFromURL, refreshTokenFromURL, dispatch]);
 
   useEffect(() => {
     if (!isLogin && accessToken) {

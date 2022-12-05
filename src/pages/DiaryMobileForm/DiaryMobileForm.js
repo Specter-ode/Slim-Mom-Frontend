@@ -1,11 +1,13 @@
-import { DiaryAddProductForm } from 'components';
+import { Container, DiaryAddProductForm } from 'components';
 import s from './DiaryMobileForm.module.css';
 
 const DiaryMobileForm = () => {
   return (
-    <main className={s.main}>
-      <DiaryAddProductForm />
-    </main>
+    <Container>
+      <main className={s.main}>
+        <DiaryAddProductForm />
+      </main>
+    </Container>
   );
 };
 

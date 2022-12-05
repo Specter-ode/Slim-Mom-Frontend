@@ -1,0 +1,16 @@
+.footer {
+  color: var(--second-color);
+  margin-top: auto;
+  padding-top: 20px;
+  padding-bottom: 40px;
+
+}
+.link {
+  color: var(--accent-color);
+}
+
+@media screen and (max-width: 768px) {
+  .footer {
+    text-align: center;
+  }
+}

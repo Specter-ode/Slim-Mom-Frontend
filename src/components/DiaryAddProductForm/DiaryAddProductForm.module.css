@@ -1,8 +1,18 @@
 .form {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 280px;
+}
+
+.clarification {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  margin-bottom: 10px;
+  color: var(--second-color);
+  font-size: 10px;
 }
 
 .label {
@@ -37,9 +47,16 @@
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .form {
     margin: 0 auto;
+  }
+
+  .clarification {
+    max-width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
   }
 
   .label {
@@ -59,6 +76,11 @@
     margin-bottom: 40px;
     min-width: 455px;
   }
+
+  .clarification {
+    top: -25px;
+  }
+
   .label {
     flex-shrink: 0;
     width: 240px;

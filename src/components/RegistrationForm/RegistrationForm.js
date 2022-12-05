@@ -1,6 +1,5 @@
 import GoogleLogo from '../../assets/icons/googleLogo.svg';
 import FacebookText from '../../assets/icons/facebookText.svg';
-// import { ReactComponent as FacebookLogo } from 'assets/icons/facebook.svg';
 import eyeOpened from '../../assets/icons/eye.svg';
 import eyeClosed from '../../assets/icons/eye-blocked.svg';
 import { Button } from 'components';
@@ -12,7 +11,7 @@ import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { useState } from 'react';
 
-import { handleRegistration, handleGoogleRegistration } from '../../redux/auth/auth-operations';
+import { handleRegistration } from '../../redux/auth/auth-operations';
 
 const SignupSchema = Yup.object().shape({
   name: Yup.string()
@@ -26,27 +25,7 @@ const SignupSchema = Yup.object().shape({
 
 const RegistrationForm = () => {
   const [isPswdShown, setIsPswdShown] = useState(false);
-
-  const changePswdVisibility = () => {
-    if (isPswdShown === false) {
-      setIsPswdShown(true);
-    }
-    if (isPswdShown === true) {
-      setIsPswdShown(false);
-    }
-  };
   const dispatch = useDispatch();
-
-  // const login = useGoogleLogin({
-  //   onSuccess: tokenResponse => {
-  //     const data = {
-  //       email: tokenResponse.email,
-  //       password: tokenResponse.id,
-  //     };
-  //     dispatch(authOperations.register(data));
-  //   },
-  // });
-
   const [errorMessage, setErrorMessage] = useState('');
 
   return (
@@ -77,7 +56,7 @@ const RegistrationForm = () => {
               name="name"
               title="Please enter your name or nickname'"
               placeholder="Name *"
-              min-length="6"
+              min-length="2"
               required
               id="name"
             />
@@ -119,7 +98,13 @@ const RegistrationForm = () => {
               required
               id="password"
             />
-            <button className={s.pswdVisBtn} onClick={changePswdVisibility} type="button">
+            <button
+              className={s.pswdVisBtn}
+              onClick={() => {
+                setIsPswdShown(!isPswdShown);
+              }}
+              type="button"
+            >
               <img
                 className={s.pswdBtnImg}
                 src={isPswdShown ? eyeOpened : eyeClosed}
@@ -141,14 +126,11 @@ const RegistrationForm = () => {
                   handleSubmit();
                 }}
               />
-
               <a className={s.googleBtn} href="http://localhost:4000/api/users/google">
                 <img className={s.googleLogo} src={GoogleLogo} alt="Google logo" />
               </a>
               <a className={s.googleBtn} href="http://localhost:4000/api/users/facebook">
                 <img className={s.googleLogo} src={FacebookText} alt="Facebook logo" />
-
-                {/* <FacebookLogo width={20} /> */}
               </a>
             </div>
           </Form>

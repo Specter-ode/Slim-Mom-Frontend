@@ -4,22 +4,28 @@ import {
   handleLogin,
   handleLogout,
   getCurrentUser,
-  handleFacebookRegistration,
   getCalorieIntake,
   getCalorieIntakeForUser,
   refreshUserToken,
+  saveNewPassword,
+  getKeyVerify,
+  getActivationKey,
 } from './auth-operations';
 
 const initialState = {
-  userDailyDiet: { calories: null, notRecomendedProducts: null },
-  dailyDiet: { calories: null, notRecomendedProducts: null },
+  userDailyDiet: null,
+  dailyDiet: null,
   user: {},
-  accessToken: null,
+  accessToken: '',
   refreshToken: '',
   isLogin: false,
   isLoading: false,
   isError: null,
   showModal: false,
+  keyStatus: false,
+  emailStatus: false,
+  passwordStatus: false,
+  emailOnCheck: '',
 };
 
 const authSlice = createSlice({
@@ -35,6 +41,9 @@ const authSlice = createSlice({
     setRefreshToken: (store, { payload }) => {
       store.refreshToken = payload;
     },
+    setPasswordStatus: (store, { payload }) => {
+      store.passwordStatus = payload;
+    },
   },
   extraReducers: builder => {
     builder
@@ -43,7 +52,7 @@ const authSlice = createSlice({
         store.isError = null;
       })
       .addCase(handleRegistration.fulfilled, (store, { payload }) => {
-        store.user = { ...payload.user };
+        store.user = payload.user;
         store.accessToken = payload.accessToken;
         store.isLoading = false;
       })
@@ -51,12 +60,12 @@ const authSlice = createSlice({
         store.isLoading = false;
         store.isError = payload;
       })
-      .addCase(handleLogin.pending, (store, _) => {
+      .addCase(handleLogin.pending, store => {
         store.isLoading = true;
         store.isError = null;
       })
       .addCase(handleLogin.fulfilled, (store, { payload }) => {
-        store.user = { ...payload.user };
+        store.user = payload.user;
         store.accessToken = payload.accessToken;
         store.isLoading = false;
         store.isLogin = true;
@@ -67,14 +76,17 @@ const authSlice = createSlice({
         store.isLoading = false;
         store.isError = payload;
       })
-      .addCase(handleFacebookRegistration.pending, store => {
+      .addCase(getCurrentUser.pending, store => {
         store.isLoading = true;
         store.isError = null;
       })
-      .addCase(handleFacebookRegistration.fulfilled, store => {
+      .addCase(getCurrentUser.fulfilled, (store, { payload }) => {
+        store.user = payload.user;
         store.isLoading = false;
+        store.isLogin = true;
+        store.userDailyDiet = payload.dailyDiet;
       })
-      .addCase(handleFacebookRegistration.rejected, (store, { payload }) => {
+      .addCase(getCurrentUser.rejected, (store, { payload }) => {
         store.isLoading = false;
         store.isError = payload;
       })
@@ -91,32 +103,14 @@ const authSlice = createSlice({
         store.accessToken = payload.accessToken;
         store.refreshToken = payload.refreshToken;
       })
-      .addCase(getCurrentUser.pending, store => {
-        store.isLoading = true;
-        store.isError = null;
-      })
-      .addCase(getCurrentUser.fulfilled, (store, { payload }) => {
-        store.user = { ...payload.user };
-        store.isLoading = false;
-        store.isLogin = true;
-        store.userDailyDiet = payload.dailyDiet;
-      })
-      .addCase(getCurrentUser.rejected, (store, { payload }) => {
-        store.isLoading = false;
-        store.isError = payload;
-      })
       .addCase(getCalorieIntake.pending, store => {
         store.isLoading = true;
         store.isError = null;
       })
-      .addCase(
-        getCalorieIntake.fulfilled,
-        (store, { payload: { notAllowedProduct, calories } }) => {
-          store.dailyDiet.calories = calories;
-          store.dailyDiet.notRecomendedProducts = notAllowedProduct;
-          store.isLoading = false;
-        }
-      )
+      .addCase(getCalorieIntake.fulfilled, (store, { payload }) => {
+        store.dailyDiet = payload;
+        store.isLoading = false;
+      })
       .addCase(getCalorieIntake.rejected, (store, { payload }) => {
         store.isLoading = false;
         store.isError = payload;
@@ -125,20 +119,58 @@ const authSlice = createSlice({
         store.isLoading = true;
         store.isError = null;
       })
-      .addCase(
-        getCalorieIntakeForUser.fulfilled,
-        (state, { payload: { notAllowedProduct, calories } }) => {
-          state.dailyDiet.calories = calories;
-          state.dailyDiet.notRecomendedProducts = notAllowedProduct;
-          state.isLoading = false;
-        }
-      )
+      .addCase(getCalorieIntakeForUser.fulfilled, (store, { payload }) => {
+        store.userDailyDiet = payload;
+        store.isLoading = false;
+      })
       .addCase(getCalorieIntakeForUser.rejected, (store, { payload }) => {
+        store.isLoading = false;
+        store.isError = payload;
+      })
+      .addCase(saveNewPassword.pending, store => {
+        store.isLoading = true;
+        store.isError = null;
+      })
+      .addCase(saveNewPassword.fulfilled, store => {
+        store.passwordStatus = true;
+        store.emailOnCheck = '';
+        store.keyStatus = false;
+        store.emailStatus = false;
+        store.isLoading = false;
+      })
+      .addCase(saveNewPassword.rejected, (store, { payload }) => {
+        store.isLoading = false;
+        store.isError = payload;
+      })
+      .addCase(getKeyVerify.pending, store => {
+        store.isLoading = true;
+        store.isError = null;
+      })
+      .addCase(getKeyVerify.fulfilled, (store, { payload }) => {
+        store.emailOnCheck = payload.email;
+        store.keyStatus = payload.verifiedKey;
+        store.isLoading = false;
+      })
+      .addCase(getKeyVerify.rejected, (store, { payload }) => {
+        store.isLoading = false;
+        store.keyStatus = false;
+        store.isError = payload;
+      })
+      .addCase(getActivationKey.pending, store => {
+        store.isLoading = true;
+        store.isError = null;
+      })
+      .addCase(getActivationKey.fulfilled, store => {
+        store.emailStatus = true;
+        store.isLoading = false;
+      })
+      .addCase(getActivationKey.rejected, (store, { payload }) => {
         store.isLoading = false;
         store.isError = payload;
       });
   },
 });
 
-export const { updateModalStatus, setAccessToken, setRefreshToken } = authSlice.actions;
+export const { updateModalStatus, setAccessToken, setRefreshToken, setPasswordStatus } =
+  authSlice.actions;
 export default authSlice.reducer;

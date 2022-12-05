@@ -50,9 +50,35 @@ div.react-select__indicators {
   display: none;
 }
 
+div.react-select__menu-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+div.react-select__menu-list::-webkit-scrollbar-track {
+  padding-left: 20px;
+  background-color: var(--scroll-color);
+}
+
+div.react-select__menu-list::-webkit-scrollbar-thumb {
+  background-color: var(--third-color);
+}
+
+div.react-select__option--is-focused {
+  color: var(--third-color);
+}
+
 @media screen and (min-width: 768px) {
   div.react-select__control {
     flex-shrink: 0;
     padding: 20px 0;
+  }
+  div.react-select__menu {
+    width: 365px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  div.react-select__menu {
+    width: 395px;
   }
 }

@@ -1,6 +1,6 @@
 import useWindowDimensions from '../../services/hooks/useWindowDimensions';
 import s from './CalculatorPage.module.css';
-import { DailyCaloriesForm, SideBar, Container } from 'components';
+import { DailyCaloriesForm, SideBar, Container, Footer } from 'components';
 
 const CalculatorPage = () => {
   const { width } = useWindowDimensions();
@@ -18,20 +18,24 @@ const CalculatorPage = () => {
           <div className={s.sidebar}>
             <Container>
               <SideBar />
+              <Footer />
             </Container>
           </div>
         </section>
       )}
       {width > 1279 && (
-        <Container>
-          <section className={s.section}>
-            <h3 className="visually-hidden">Calculator Page</h3>
-            <div className={s.calculator}>
-              <DailyCaloriesForm />
-            </div>
-            <SideBar />
-          </section>
-        </Container>
+        <>
+          <Container>
+            <section className={s.section}>
+              <h3 className="visually-hidden">Calculator Page</h3>
+              <div className={s.calculator}>
+                <DailyCaloriesForm />
+              </div>
+              <SideBar />
+            </section>
+            <Footer />
+          </Container>
+        </>
       )}
     </>
   );
