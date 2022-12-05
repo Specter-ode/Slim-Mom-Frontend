@@ -23,17 +23,7 @@ const SignupSchema = Yup.object().shape({
 
 const RegistrationForm = () => {
   const [isPswdShown, setIsPswdShown] = useState(false);
-
-  const changePswdVisibility = () => {
-    if (isPswdShown === false) {
-      setIsPswdShown(true);
-    }
-    if (isPswdShown === true) {
-      setIsPswdShown(false);
-    }
-  };
   const dispatch = useDispatch();
-
   const [errorMessage, setErrorMessage] = useState('');
 
   return (
@@ -95,7 +85,13 @@ const RegistrationForm = () => {
               required
               id="password"
             />
-            <button className={s.pswdVisBtn} onClick={changePswdVisibility} type="button">
+            <button
+              className={s.pswdVisBtn}
+              onClick={() => {
+                setIsPswdShown(!isPswdShown);
+              }}
+              type="button"
+            >
               <img
                 className={s.pswdBtnImg}
                 src={isPswdShown ? eyeOpened : eyeClosed}

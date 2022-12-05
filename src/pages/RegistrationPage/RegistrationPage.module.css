@@ -20,13 +20,21 @@
     width: 480px;
   }
 }
+@media screen and (max-width: 767px) {
+  .block {
+    display: none;
+  }
+}
 @media screen and (min-width: 768px) {
   .container {
     min-height: 130vh;
     width: 768px;
     padding: 160px 32px 32px 32px;
   }
-
+  .block {
+    width: 240px;
+    padding-top: 50px;
+  }
   .title {
     text-align: left;
   }

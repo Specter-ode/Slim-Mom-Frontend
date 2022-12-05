@@ -9,6 +9,7 @@ import * as Yup from 'yup';
 import { useState } from 'react';
 import { handleLogin } from '../../redux/auth/auth-operations';
 import { Link } from 'react-router-dom';
+const { REACT_APP_BACKEND_URL = 'http://localhost:4000/api' } = process.env;
 
 const SignupSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Email is required'),
@@ -35,7 +36,6 @@ const LoginForm = () => {
   // const googleAuth = () => {
   //   window.open('http://localhost:4000/api/users/facebook', '_self');
   // };
-
   const [errorMessage, setErrorMessage] = useState('');
 
   return (
@@ -109,10 +109,10 @@ const LoginForm = () => {
               </Link>
             </div>
             <div className={s.btnCont}>
-              <a className={s.btn} href="http://localhost:4000/api/users/google">
+              <a className={s.btn} href={`${REACT_APP_BACKEND_URL}/users/google`}>
                 <img className={s.socialLogo} src={GoogleLogo} alt="Google logo" />
               </a>
-              <a className={s.btn} href="http://localhost:4000/api/users/facebook">
+              <a className={s.btn} href={`${REACT_APP_BACKEND_URL}/users/facebook`}>
                 <img className={s.socialLogo} src={FacebookText} alt="Facebook logo" />
               </a>
             </div>
