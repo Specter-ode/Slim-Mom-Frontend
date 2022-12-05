@@ -61,8 +61,8 @@ const instance = axios.create({
 // instance.interceptors.response.use(
 //   response => response,
 //   async error => {
-//     if (error.response.status === 401) {
-//       const dispatch = useDispatch();
+//     if (error.response.status === 40) {
+//       // const dispatch = useDispatch();
 
 //       const { refreshToken } = JSON.parse(localStorage.getItem('persist:user-token'));
 
@@ -77,9 +77,9 @@ const instance = axios.create({
 //         // localStorage.setItem('persist:user-token', { refreshToken: data.refreshToken });
 //         console.log(data);
 
-//         setToken(data.accessToken);
-//         dispatch(setAccessToken(data.accessToken));
-//         dispatch(setRefreshToken(data.refreshToken));
+//         // setToken(data.accessToken);
+//         // dispatch(setAccessToken(data.accessToken));
+//         // dispatch(setRefreshToken(data.refreshToken));
 
 //         error.config.headers['Authorization'] = `Bearer ${data.accessToken}`;
 
