@@ -4,14 +4,13 @@ import eyeOpened from '../../assets/icons/eye.svg';
 import eyeClosed from '../../assets/icons/eye-blocked.svg';
 import { Button } from 'components';
 import s from './RegistrationForm.module.css';
-
 import { useDispatch } from 'react-redux';
-
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { useState } from 'react';
-
 import { handleRegistration } from '../../redux/auth/auth-operations';
+
+const { REACT_APP_BACKEND_URL = 'http://localhost:4000' } = process.env;
 
 const SignupSchema = Yup.object().shape({
   name: Yup.string()
@@ -126,10 +125,10 @@ const RegistrationForm = () => {
                   handleSubmit();
                 }}
               />
-              <a className={s.googleBtn} href="http://localhost:4000/api/users/google">
+              <a className={s.googleBtn} href={`${REACT_APP_BACKEND_URL}/api/users/google`}>
                 <img className={s.googleLogo} src={GoogleLogo} alt="Google logo" />
               </a>
-              <a className={s.googleBtn} href="http://localhost:4000/api/users/facebook">
+              <a className={s.googleBtn} href={`${REACT_APP_BACKEND_URL}/api/users/facebook`}>
                 <img className={s.googleLogo} src={FacebookText} alt="Facebook logo" />
               </a>
             </div>

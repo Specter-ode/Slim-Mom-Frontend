@@ -9,6 +9,7 @@ import * as Yup from 'yup';
 import { useState } from 'react';
 import { handleLogin } from '../../redux/auth/auth-operations';
 import { Link } from 'react-router-dom';
+
 const { REACT_APP_BACKEND_URL = 'http://localhost:4000/api' } = process.env;
 
 const SignupSchema = Yup.object().shape({
