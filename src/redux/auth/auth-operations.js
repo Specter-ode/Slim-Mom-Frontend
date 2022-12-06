@@ -11,7 +11,7 @@ export const handleRegistration = createAsyncThunk(
       return result;
     } catch (error) {
       toast.error(`Sorry, registration failed. Try again.`);
-      return rejectWithValue(error.message);
+      return rejectWithValue(error.response.data.message || error.message);
     }
   }
 );
@@ -22,7 +22,7 @@ export const handleLogin = createAsyncThunk('users/login', async (data, { reject
     return result;
   } catch (error) {
     toast.error(`Sorry, login failed. Check email and password. Try again.`);
-    return rejectWithValue(error.message);
+    return rejectWithValue(error.response.data.message || error.message);
   }
 });
 
@@ -34,7 +34,7 @@ export const refreshUserToken = createAsyncThunk(
       return result;
     } catch (error) {
       toast.error(`Sorry, refresh failed.`);
-      return rejectWithValue(error);
+      return rejectWithValue(error.response.data.message || error.message);
     }
   }
 );
@@ -44,7 +44,7 @@ export const handleLogout = createAsyncThunk('users/logout', async (data, { reje
     const result = await api.logout(data);
     return result;
   } catch (error) {
-    toast.error(`Unauthorized, logout failed`);
+    toast.error(`Sorry, registration failed. Try again.`);
     return rejectWithValue(error.message);
   }
 });
@@ -76,7 +76,7 @@ export const getCalorieIntake = createAsyncThunk('daily-intake', async (payload,
     return result;
   } catch (error) {
     toast.error(`Sorry, request failed.`);
-    return thunkAPI.rejectWithValue(error.message);
+    return thunkAPI.rejectWithValue(error.response.data.message || error.message);
   }
 });
 
@@ -88,7 +88,7 @@ export const getCalorieIntakeForUser = createAsyncThunk(
       return result;
     } catch (error) {
       toast.error(`Sorry, request failed.`);
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.response.data.message || error.message);
     }
   }
 );
