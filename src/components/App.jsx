@@ -50,6 +50,7 @@ const App = () => {
         theme="colored"
         transition={Zoom}
       />
+      <div>REDEPLOY TEST</div>
     </>
   );
 };
