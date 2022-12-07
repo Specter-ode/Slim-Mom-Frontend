@@ -1,7 +1,7 @@
 import s from './RegistrationPage.module.css';
 import RegistrationForm from 'components/RegistrationForm/RegistrationForm';
 import { getLoadingStatus, getRegistrationStatus, getUser } from 'redux/auth/auth-selector';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Button, Loader } from 'components';
 import instance from 'services/api/auth';
 import { useEffect, useState } from 'react';
