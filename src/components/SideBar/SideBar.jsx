@@ -31,7 +31,10 @@ const SideBar = () => {
       return total + meal.calories;
     }, 0)
     ?.toFixed(1);
-  const leftCalories = (dailyCalories - consumedCalories).toFixed(1);
+  const leftCalories =
+    (dailyCalories - consumedCalories).toFixed(1) < 0
+      ? 0
+      : (dailyCalories - consumedCalories).toFixed(1);
   const percent = ((consumedCalories * 100) / dailyCalories).toFixed(2);
 
   const foodCategories = userDailyDiet?.categories?.map(i => {
