@@ -40,8 +40,9 @@ const PagesRoutes = () => {
           <Route path="/calculator" element={<CalculatorPage />} />
           <Route path="/diary" element={<DiaryPage />} />
           <Route path="/diary-mobile-form" element={<DiaryMobileForm />} />
+          <Route path="/developers" element={<DevelopersPage />} />
         </Route>
-        <Route path="/developers" element={<DevelopersPage />} />
+
         <Route path="*" element={correctComponent} />
       </Routes>
     </Suspense>
