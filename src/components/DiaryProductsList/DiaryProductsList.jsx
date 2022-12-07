@@ -20,10 +20,10 @@ const DiaryProductsList = () => {
   return (
     <>
       {isLoading && <Loader />}
-      <ul className={s.list}>
-        {error && <p>Error. {error.message}</p>}
-        {showMeals &&
-          dailyMeals.map(i => (
+      {error && <p>Error. {error.message}</p>}
+      {showMeals && (
+        <ul className={s.list}>
+          {dailyMeals.map(i => (
             <DiaryProductsItem
               key={i._id}
               id={i._id}
@@ -32,8 +32,9 @@ const DiaryProductsList = () => {
               calories={i.calories}
             />
           ))}
-        {noMeals && <li>You haven't added any meal this day.</li>}
-      </ul>
+        </ul>
+      )}
+      {noMeals && <p>You haven't added any meal this day.</p>}
     </>
   );
 };
