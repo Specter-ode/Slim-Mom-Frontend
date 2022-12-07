@@ -16,6 +16,7 @@ const initialState = {
   userDailyDiet: null,
   dailyDiet: null,
   user: {},
+  registrationStatus: false,
   accessToken: '',
   refreshToken: '',
   isLogin: false,
@@ -53,7 +54,7 @@ const authSlice = createSlice({
       })
       .addCase(handleRegistration.fulfilled, (store, { payload }) => {
         store.user = payload.user;
-        store.accessToken = payload.accessToken;
+        store.registrationStatus = true;
         store.isLoading = false;
       })
       .addCase(handleRegistration.rejected, (store, { payload }) => {

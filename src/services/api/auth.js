@@ -1,6 +1,4 @@
 import axios from 'axios';
-// import { getStore } from '../../redux/auth/auth-selector';
-// import { useSelector } from 'react-redux';
 
 const { REACT_APP_BACKEND_URL = 'http://localhost:4000/api' } = process.env;
 const instance = axios.create({

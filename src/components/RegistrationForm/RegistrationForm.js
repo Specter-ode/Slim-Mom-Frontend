@@ -38,7 +38,6 @@ const RegistrationForm = () => {
         validationSchema={SignupSchema}
         onSubmit={(values, actions) => {
           dispatch(handleRegistration(values)).then(a => {
-            console.log('Registration', a);
             if (a?.type === 'users/signup/rejected') {
               setErrorMessage(a?.payload);
             }
@@ -119,6 +118,7 @@ const RegistrationForm = () => {
 
             <div className={s.btnCont}>
               <Button
+                isPrimaryButton={false}
                 text={'Register'}
                 width={182}
                 onClick={() => {
