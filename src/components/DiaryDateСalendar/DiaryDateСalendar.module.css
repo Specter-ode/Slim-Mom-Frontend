@@ -21,6 +21,9 @@
 
   cursor: pointer;
 }
+input {
+  font-weight: bold;
+}
 
 .icon {
   position: absolute;

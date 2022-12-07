@@ -17,9 +17,35 @@
 
   --modal-overlay-color: rgba(33, 33, 33, 0.12);
 }
+
+@font-face {
+  font-family: 'gothampro';
+  src: url('./assets/fonts/Gotham/gothampro.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Verdana-Bold';
+  font-weight: 700;
+  src: url('./assets/fonts/Verdana/Verdana-Bold.ttf') format('truetype');
+}
+
+/* @font-face {
+  font-family: 'Verdana';
+  src: url('./assets/fonts/Verdana/Verdana.ttf') format('truetype');
+} */
 body {
   margin: 0;
+
   font-family: 'Verdana', 'Gotham Pro', sans-serif;
+  /* font-family: 'Verdana';
+  font-weight: 500;
+  src: local('Verdana'), url(./assets/fonts/Verdana/Verdana.ttf) format('truetype');
+  font-family: 'Verdana';
+  font-weight: 700;
+  src: local('Verdana'), url(./assets/fonts/Verdana/Verdana-Bold.ttf) format('truetype');
+  font-family: 'Gotham Pro';
+  font-weight: 700;
+  src: local('Gotham Pro'), url(./assets/fonts/Gotham/gothampro.ttf) format('truetype'); */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--bg-color);
