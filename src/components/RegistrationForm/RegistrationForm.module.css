@@ -16,7 +16,7 @@ input[data-autocompleted] {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0;
+  margin: 0 auto;
   width: 182px;
   height: 44px;
   background: var(--bg-color);
