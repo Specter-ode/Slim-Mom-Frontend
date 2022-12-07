@@ -4,17 +4,18 @@ import eyeOpened from '../../assets/icons/eye.svg';
 import eyeClosed from '../../assets/icons/eye-blocked.svg';
 import { Button } from 'components';
 import s from './RegistrationForm.module.css';
-
 import { useDispatch } from 'react-redux';
-
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { useState } from 'react';
-
 import { handleRegistration } from '../../redux/auth/auth-operations';
 
+const { REACT_APP_BACKEND_URL = 'http://localhost:4000/aoi' } = process.env;
+
 const SignupSchema = Yup.object().shape({
-  name: Yup.string().required('Name is required'),
+  name: Yup.string()
+    .min(2, 'Name length must be at least 2 characters long')
+    .required('Name is required'),
   email: Yup.string().email('Invalid email').required('Email is required'),
   password: Yup.string()
     .min(6, 'Password must contain 6 or more characters!')
@@ -36,9 +37,13 @@ const RegistrationForm = () => {
         }}
         validationSchema={SignupSchema}
         onSubmit={(values, actions) => {
-          dispatch(handleRegistration(values)).then(a =>
-            setErrorMessage(a?.payload?.response?.data?.message)
-          );
+          dispatch(handleRegistration(values)).then(a => {
+            console.log('Registration', a);
+            if (a?.type === 'users/signup/rejected') {
+              setErrorMessage(a?.payload);
+            }
+            console.log(errorMessage);
+          });
           actions.resetForm();
         }}
       >
@@ -57,6 +62,11 @@ const RegistrationForm = () => {
             {errors.name && touched.name ? (
               <div className={s.errorMessage}>* {errors.name}</div>
             ) : null}
+            {(errorMessage !== '"email" must be a valid email' ||
+              errorMessage !== 'Email in use') &&
+            !touched.name ? (
+              <div className={s.errorMessage}>{errorMessage}</div>
+            ) : null}
 
             <Field
               className={s.formInput}
@@ -71,7 +81,9 @@ const RegistrationForm = () => {
             {errors.email && touched.email ? (
               <div className={s.errorMessage}>* {errors.email}</div>
             ) : null}
-            {errorMessage && !touched.email ? (
+            {(errorMessage === '"email" must be a valid email' ||
+              errorMessage === 'Email in use') &&
+            !touched.email ? (
               <div className={s.errorMessage}>{errorMessage}</div>
             ) : null}
 
@@ -113,10 +125,10 @@ const RegistrationForm = () => {
                   handleSubmit();
                 }}
               />
-              <a className={s.googleBtn} href="http://localhost:4000/api/users/google">
+              <a className={s.googleBtn} href={`${REACT_APP_BACKEND_URL}/users/google`}>
                 <img className={s.googleLogo} src={GoogleLogo} alt="Google logo" />
               </a>
-              <a className={s.googleBtn} href="http://localhost:4000/api/users/facebook">
+              <a className={s.googleBtn} href={`${REACT_APP_BACKEND_URL}/users/facebook`}>
                 <img className={s.googleLogo} src={FacebookText} alt="Facebook logo" />
               </a>
             </div>

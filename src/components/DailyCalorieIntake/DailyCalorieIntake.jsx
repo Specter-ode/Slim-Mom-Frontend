@@ -17,7 +17,7 @@ export default function DailyCalorieIntake() {
 
   const productsNotAllowed = dailyDiet?.notAllowedProduct?.map(el => (
     <li key={nanoid()} className={s.item}>
-      <p className={s.text}>{el}</p>
+      <p className={s.text}>{el.title}</p>
     </li>
   ));
 

@@ -1,35 +1,18 @@
 import axios from 'axios';
+// import { getStore } from '../../redux/auth/auth-selector';
+// import { useSelector } from 'react-redux';
+
 const { REACT_APP_BACKEND_URL = 'http://localhost:4000/api' } = process.env;
 const instance = axios.create({
   baseURL: REACT_APP_BACKEND_URL,
 });
+
 export const setToken = (token = '') => {
   if (token) {
     return (instance.defaults.headers['Authorization'] = `Bearer ${token}`);
   }
   instance.defaults.headers['Authorization'] = '';
 };
-
-instance.interceptors.response.use(
-  response => response,
-  async error => {
-    const originalRequest = error.config;
-    if (error.response.status === 401) {
-      const { refreshToken } = JSON.parse(localStorage.getItem('persist:user-token'));
-      try {
-        const result = await refresh({ refreshToken });
-        localStorage.setItem('persist:user-token', {
-          refreshToken: result.refreshToken,
-          accessToken: result.accessToken,
-        });
-        return instance(originalRequest);
-      } catch (error) {
-        return Promise.reject(error);
-      }
-    }
-    return Promise.reject(error);
-  }
-);
 
 export const signup = async data => {
   const result = await instance.post('/users/signup', data);
@@ -44,9 +27,7 @@ export const login = async data => {
 
 export const refresh = async data => {
   const result = await instance.post('/users/refresh', data);
-  console.log('result.data.accessToken: ', result.data.accessToken);
   setToken(result.data.accessToken);
-
   return result.data;
 };
 

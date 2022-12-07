@@ -9,6 +9,7 @@ import * as Yup from 'yup';
 import { useState } from 'react';
 import { handleLogin } from '../../redux/auth/auth-operations';
 import { Link } from 'react-router-dom';
+
 const { REACT_APP_BACKEND_URL = 'http://localhost:4000/api' } = process.env;
 
 const SignupSchema = Yup.object().shape({
@@ -30,12 +31,6 @@ const LoginForm = () => {
   };
   const dispatch = useDispatch();
 
-  // const facebookAuth = () => {
-  //   window.open('http://localhost:4000/api/users/facebook', '_self');
-  // };
-  // const googleAuth = () => {
-  //   window.open('http://localhost:4000/api/users/facebook', '_self');
-  // };
   const [errorMessage, setErrorMessage] = useState('');
 
   return (
@@ -47,9 +42,7 @@ const LoginForm = () => {
         }}
         validationSchema={SignupSchema}
         onSubmit={(values, actions) => {
-          dispatch(handleLogin(values)).then(a =>
-            setErrorMessage(a?.payload?.response?.data?.message)
-          );
+          dispatch(handleLogin(values)).then(a => setErrorMessage(a?.payload));
           actions.resetForm();
         }}
       >
@@ -68,7 +61,7 @@ const LoginForm = () => {
             {errors.email && touched.email ? (
               <div className={s.errorMessage}>* {errors.email}</div>
             ) : null}
-            {errorMessage && !touched.email ? (
+            {errorMessage && !touched.email && !touched.password ? (
               <div className={s.errorMessage}>{errorMessage}</div>
             ) : null}
 

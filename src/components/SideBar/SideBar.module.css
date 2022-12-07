@@ -28,26 +28,37 @@
   margin-bottom: 15px;
 }
 
-.text {
-  margin-bottom: 25px;
+.button {
+  border: none;
+  color: inherit;
+  transition: color 250ms linear;
+}
+
+.button:hover,
+.button:focus,
+.button:active {
+  color: var(--accent-color);
+}
+
+.additional {
+  margin-top: 40px;
+}
+
+.productsList {
   padding-right: 10px;
   max-height: 160px;
   overflow-y: auto;
 }
 
-.text__item:not(:last-child) {
-  margin-bottom: 15px;
-}
-
-.text::-webkit-scrollbar {
+.productsList::-webkit-scrollbar {
   width: 6px;
 }
 
-.text::-webkit-scrollbar-track {
+.productsList::-webkit-scrollbar-track {
   background-color: var(--bg-color);
 }
 
-.text::-webkit-scrollbar-thumb {
+.productsList::-webkit-scrollbar-thumb {
   background-color: var(--third-color);
 }
 
@@ -65,9 +76,12 @@
 
 @media screen and (min-width: 768px) {
   .sideBar {
-    display: flex;
     width: 610px;
     padding: 80px 0 90px 0;
+  }
+
+  .box {
+    display: flex;
   }
 
   .section:first-child {
@@ -79,13 +93,22 @@
   .title {
     margin-bottom: 30px;
   }
+
+  .additional {
+    max-width: 360px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 @media screen and (min-width: 1280px) {
   .sideBar {
-    flex-direction: column;
     width: 288px;
     padding: 0;
+  }
+
+  .box {
+    flex-direction: column;
   }
 
   .section:first-child {
