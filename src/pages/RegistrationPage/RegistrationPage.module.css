@@ -15,6 +15,23 @@
   margin-bottom: 60px;
 }
 
+.text {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.215;
+  /* text-transform: uppercase; */
+  text-align: center;
+  color: var(--main-color);
+  margin-bottom: 60px;
+}
+
+.infoContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 @media screen and (min-width: 480px) {
   .container {
     width: 480px;

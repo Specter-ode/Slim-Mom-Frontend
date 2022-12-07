@@ -12,19 +12,28 @@ import s from '../Button/Button.module.css';
 //  кнопки калькулятора разной ширины.
 // 4. onClick =  пропс действие при клике.
 
-export default function Button({ text, isPrimaryButton = true, width, onClick }) {
+const Button = ({ text, isPrimaryButton = true, width, onClick, isDisabled = false }) => {
   const buttonClass = isPrimaryButton ? s.primaryButton : s.secondaryButton;
 
   return (
-    <button onClick={onClick} style={{ minWidth: width }} type="submit" className={buttonClass}>
+    <button
+      onClick={onClick}
+      style={{ minWidth: width }}
+      disabled={isDisabled}
+      type="submit"
+      className={buttonClass}
+    >
       {text}
     </button>
   );
-}
+};
 
 Button.propTypes = {
   text: PropTypes.string.isRequired,
   isPrimaryButton: PropTypes.bool,
+  isDisabled: PropTypes.bool,
   width: PropTypes.number.isRequired,
   onClick: PropTypes.func,
 };
+
+export default Button;

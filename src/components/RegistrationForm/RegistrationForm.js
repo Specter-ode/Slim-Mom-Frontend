@@ -38,7 +38,6 @@ const RegistrationForm = () => {
         validationSchema={SignupSchema}
         onSubmit={(values, actions) => {
           dispatch(handleRegistration(values)).then(a => {
-            console.log('Registration', a);
             if (a?.type === 'users/signup/rejected') {
               setErrorMessage(a?.payload);
             }
@@ -119,16 +118,17 @@ const RegistrationForm = () => {
 
             <div className={s.btnCont}>
               <Button
+                isPrimaryButton={false}
                 text={'Register'}
                 width={182}
                 onClick={() => {
                   handleSubmit();
                 }}
               />
-              <a className={s.googleBtn} href={`${REACT_APP_BACKEND_URL}/api/users/google`}>
+              <a className={s.googleBtn} href={`${REACT_APP_BACKEND_URL}/users/google`}>
                 <img className={s.googleLogo} src={GoogleLogo} alt="Google logo" />
               </a>
-              <a className={s.googleBtn} href={`${REACT_APP_BACKEND_URL}/api/users/facebook`}>
+              <a className={s.googleBtn} href={`${REACT_APP_BACKEND_URL}/users/facebook`}>
                 <img className={s.googleLogo} src={FacebookText} alt="Facebook logo" />
               </a>
             </div>

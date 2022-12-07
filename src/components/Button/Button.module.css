@@ -60,3 +60,8 @@
   border: none;
   color: var(--bg-color);
 }
+
+.secondaryButton[disabled] {
+  opacity: 0.75;
+  pointer-events: none;
+}
