@@ -49,7 +49,7 @@ const RegistrationPage = () => {
               isDisabled={block}
               onClick={async () => {
                 try {
-                  const result = await instance.post('/users/verify', { email: user.email });
+                  const result = await instance.post('/users/verificate', { email: user.email });
                   setBlock(true);
                   toast.success(result.data.message);
                 } catch (error) {
