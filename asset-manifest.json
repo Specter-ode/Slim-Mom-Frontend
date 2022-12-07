@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.5c587aa1.css",
-    "main.js": "/static/js/main.5818ff2e.js",
+    "main.css": "/static/css/main.e8ae4b10.css",
+    "main.js": "/static/js/main.19779e6e.js",
     "static/css/541.8ad94ca8.chunk.css": "/static/css/541.8ad94ca8.chunk.css",
     "static/js/541.2b0b2a50.chunk.js": "/static/js/541.2b0b2a50.chunk.js",
     "static/css/425.2f6af6b9.chunk.css": "/static/css/425.2f6af6b9.chunk.css",
@@ -10,7 +10,7 @@
     "static/js/757.bc59a302.chunk.js": "/static/js/757.bc59a302.chunk.js",
     "static/css/470.58124ea8.chunk.css": "/static/css/470.58124ea8.chunk.css",
     "static/js/470.90079186.chunk.js": "/static/js/470.90079186.chunk.js",
-    "static/css/221.368d1736.chunk.css": "/static/css/221.368d1736.chunk.css",
+    "static/css/221.1355f157.chunk.css": "/static/css/221.1355f157.chunk.css",
     "static/js/221.84d50ccd.chunk.js": "/static/js/221.84d50ccd.chunk.js",
     "static/css/306.c6f19beb.chunk.css": "/static/css/306.c6f19beb.chunk.css",
     "static/js/306.75d7edb8.chunk.js": "/static/js/306.75d7edb8.chunk.js",
@@ -21,9 +21,11 @@
     "static/media/backgroundAuthDeskTop_x2.png": "/static/media/backgroundAuthDeskTop_x2.faf783b01e11b16054d6.png",
     "static/media/backgroundTabAuth_x2.png": "/static/media/backgroundTabAuth_x2.a5ab5c194adb7f876d65.png",
     "static/media/backgroundTab_x2.png": "/static/media/backgroundTab_x2.ec9cdf5cd548fce7e64e.png",
+    "static/media/Verdana-Bold.ttf": "/static/media/Verdana-Bold.086f89a079244e4232de.ttf",
     "static/media/backgroundAuthDeskTop_x1.png": "/static/media/backgroundAuthDeskTop_x1.94917010b388382301b1.png",
     "static/media/backgroundTabAuth_x1.png": "/static/media/backgroundTabAuth_x1.d97811983fcd04e69bcb.png",
     "static/media/backgroundTab_x1.png": "/static/media/backgroundTab_x1.a5f552b3e8990101ab15.png",
+    "static/media/gothampro.ttf": "/static/media/gothampro.4f71921a0823129cd8ba.ttf",
     "static/media/backgroundDiaryCalcDeskTop_x2.png": "/static/media/backgroundDiaryCalcDeskTop_x2.bdab566ec95eb4e831ed.png",
     "static/media/backgroundDiaryTab_x2.png": "/static/media/backgroundDiaryTab_x2.c6c9f24b458e6ff6e678.png",
     "static/media/googleLogo.svg": "/static/media/googleLogo.86cc61447b5be25e30195ce26a98d6ea.svg",
@@ -37,8 +39,8 @@
     "static/media/close.svg": "/static/media/close.44d37eeb9e22a80e1ff4aeb8dfbf31ae.svg",
     "static/media/burger.svg": "/static/media/burger.ad1b9ef925490361f5d1248d4b29075f.svg",
     "static/media/back-arrow.svg": "/static/media/back-arrow.3183c149a7a802048994a1056e58ede3.svg",
-    "main.5c587aa1.css.map": "/static/css/main.5c587aa1.css.map",
-    "main.5818ff2e.js.map": "/static/js/main.5818ff2e.js.map",
+    "main.e8ae4b10.css.map": "/static/css/main.e8ae4b10.css.map",
+    "main.19779e6e.js.map": "/static/js/main.19779e6e.js.map",
     "541.8ad94ca8.chunk.css.map": "/static/css/541.8ad94ca8.chunk.css.map",
     "541.2b0b2a50.chunk.js.map": "/static/js/541.2b0b2a50.chunk.js.map",
     "425.2f6af6b9.chunk.css.map": "/static/css/425.2f6af6b9.chunk.css.map",
@@ -47,7 +49,7 @@
     "757.bc59a302.chunk.js.map": "/static/js/757.bc59a302.chunk.js.map",
     "470.58124ea8.chunk.css.map": "/static/css/470.58124ea8.chunk.css.map",
     "470.90079186.chunk.js.map": "/static/js/470.90079186.chunk.js.map",
-    "221.368d1736.chunk.css.map": "/static/css/221.368d1736.chunk.css.map",
+    "221.1355f157.chunk.css.map": "/static/css/221.1355f157.chunk.css.map",
     "221.84d50ccd.chunk.js.map": "/static/js/221.84d50ccd.chunk.js.map",
     "306.c6f19beb.chunk.css.map": "/static/css/306.c6f19beb.chunk.css.map",
     "306.75d7edb8.chunk.js.map": "/static/js/306.75d7edb8.chunk.js.map",
@@ -57,7 +59,7 @@
     "530.adc3efe9.chunk.js.map": "/static/js/530.adc3efe9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5c587aa1.css",
-    "static/js/main.5818ff2e.js"
+    "static/css/main.e8ae4b10.css",
+    "static/js/main.19779e6e.js"
   ]
 }
