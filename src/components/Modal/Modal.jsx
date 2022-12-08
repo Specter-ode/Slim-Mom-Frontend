@@ -15,8 +15,6 @@ const modalRoot = document.querySelector('#modal-root');
 export default function Modal({ onClose, component }) {
   const isLoading = useSelector(getLoadingStatus);
 
-  document.body.style.overflowY = 'hidden';
-
   useEffect(() => {
     const handleKeyDown = event => {
       if (event.code === 'Escape') {
