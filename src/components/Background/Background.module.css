@@ -4,12 +4,11 @@
   min-height: 100vh;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) and (max-width: 1279px) {
   .backgroundHome {
     background: url(../../assets/png/backgroundTab_x1.png) no-repeat 100% 100%;
     background-size: 768px 563px;
   }
-  /* .backgroundDiaryCalc => see DiaryPage.module.css .sidebar */
   .backgroundAuth {
     background: url(../../assets/png/backgroundTabAuth_x1.png) no-repeat 100% 100%;
     background-size: 752px 944px;
@@ -22,7 +21,6 @@
     .backgroundHome {
       background-image: url(../../assets/png/backgroundTab_x2.png);
     }
-    /* .backgroundDiaryCalc => see DiaryPage.module.css .sidebar */
     .backgroundAuth {
       background: url(../../assets/png/backgroundTabAuth_x2.png) no-repeat 100% 100%;
     }
@@ -31,11 +29,12 @@
 
 @media screen and (min-width: 1280px) {
   .backgroundHome {
-    background: url(../../assets/png/backgroundAuthDeskTop_x1.png) no-repeat 100% 0%;
+    background-image: url(../../assets/png/backgroundAuthDeskTop_x1.png);
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: contain;
   }
-
   .backgroundDiaryCalc {
-    /*  full width 1280px = 100%, diary width 763px = 59.6% (sidebar width 517 = 40.4%) */
     background-image: url(../../assets/png/backgroundDiaryCalcDeskTop_x1.png),
       linear-gradient(to right, var(--bg-color) 59.6%, var(--scroll-color) 59.6%);
     background-repeat: no-repeat;
@@ -48,11 +47,15 @@
     screen and (-o-min-device-pixel-ratio: 2/1),
     screen and (min-resolution: 192dpi),
     screen and (min-resolution: 2dppx) {
+    /* .backgroundHome {
+      background-image: url(../../assets/png/backgroundAuthDeskTop_x2.png);
+    } */
     .backgroundHome {
       background-image: url(../../assets/png/backgroundAuthDeskTop_x2.png);
     }
     .backgroundDiaryCalc {
-      background-image: url(../../assets/png/backgroundDiaryCalcDeskTop_x2.png);
+      background-image: url(../../assets/png/backgroundDiaryCalcDeskTop_x2.png),
+        linear-gradient(to right, var(--bg-color) 59.6%, var(--scroll-color) 59.6%);
     }
   }
 }

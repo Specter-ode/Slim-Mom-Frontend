@@ -1,6 +1,5 @@
 .container {
   min-width: 320px;
-  min-height: 100vh;
   margin: 0 auto;
   padding: 40px 20px 0 20px;
 }
@@ -44,7 +43,6 @@
 }
 @media screen and (min-width: 768px) {
   .container {
-    min-height: 130vh;
     width: 768px;
     padding: 160px 32px 32px 32px;
   }
@@ -58,7 +56,6 @@
 }
 @media screen and (min-width: 1280px) {
   .container {
-    min-height: 100vh;
     width: 1280px;
     padding-left: 16px;
     padding-right: 16px;

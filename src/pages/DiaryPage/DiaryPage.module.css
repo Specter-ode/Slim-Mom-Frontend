@@ -69,15 +69,13 @@
 @media screen and (min-width: 1280px) {
   .main {
     flex-direction: row;
-    padding-top: 145px;
-    padding-bottom: 60px;
+    padding-top: 140px;
     min-height: calc(100vh - 229px);
   }
 
   .diary {
     flex-grow: 0;
     width: 623px;
-    margin-right: 230px;
     margin-bottom: 0;
     padding-bottom: 60px;
   }

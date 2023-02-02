@@ -105,6 +105,8 @@
   .sideBar {
     width: 288px;
     padding: 0;
+    margin-left: auto;
+    margin-right: 80px;
   }
 
   .box {

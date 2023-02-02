@@ -1,6 +1,6 @@
 .footer {
   color: var(--second-color);
-  margin-top: auto;
+  /* margin-top: auto; */
   padding-top: 20px;
   padding-bottom: 40px;
 }

@@ -8,7 +8,7 @@ const CalculatorPage = () => {
   return (
     <>
       {width < 1280 && (
-        <section className={s.section}>
+        <main className={s.section}>
           <h1 className="visually-hidden">Calculator Page</h1>
           <div className={s.calculator}>
             <Container>
@@ -21,18 +21,18 @@ const CalculatorPage = () => {
               <Footer />
             </Container>
           </div>
-        </section>
+        </main>
       )}
       {width > 1279 && (
         <>
           <Container>
-            <section className={s.section}>
+            <main className={s.section}>
               <h3 className="visually-hidden">Calculator Page</h3>
               <div className={s.calculator}>
                 <DailyCaloriesForm />
               </div>
               <SideBar />
-            </section>
+            </main>
             <Footer />
           </Container>
         </>

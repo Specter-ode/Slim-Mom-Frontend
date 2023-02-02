@@ -34,7 +34,7 @@ const DiaryProductsList = () => {
           ))}
         </ul>
       )}
-      {noMeals && <p>You haven't added any meal this day.</p>}
+      {noMeals && <p className={s.error}>You haven't added any meal this day.</p>}
     </>
   );
 };
