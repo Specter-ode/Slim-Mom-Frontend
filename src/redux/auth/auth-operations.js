@@ -21,7 +21,9 @@ export const handleLogin = createAsyncThunk('users/login', async (data, { reject
     const result = await api.login(data);
     return result;
   } catch (error) {
-    toast.error(`Sorry, login failed. Check email and password. Try again.`);
+    toast.error(
+      error?.response?.data?.message || 'Sorry, login failed. Check email and password. Try again.'
+    );
     return rejectWithValue(error.response.data.message || error.message);
   }
 });
